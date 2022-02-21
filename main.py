@@ -19,23 +19,20 @@ import sys
 import shutil
 import random
 import PySide6
-import subprocess
 import numpy as np
 import pyqtgraph as pg
 from PySide6.QtCore import Signal
 from threading import Thread, Lock
 from cv2 import getTickCount, getTickFrequency
 from concurrent.futures import ThreadPoolExecutor
-from modules import global_var
-# import platform
 
 # IMPORT GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
 from widgets import *
 from modules import *
 from modules.detect import *
+from modules import global_var
 from modules.letterbox import *
-from modules.global_var import *
 from modules.shit_algorithm import *
 from modules.data_visualization import *
 from utils.torch_utils import select_device
@@ -188,6 +185,9 @@ class MainWindow(QMainWindow):
         widgets.btn_start_live.clicked.connect(self.liveDetectMode)
         widgets.top_start_live.clicked.connect(self.liveDetectMode)
         widgets.btn_stop_live.clicked.connect(self.stopStream)
+        widgets.top_stop_live.clicked.connect(self.stopStream)
+        widgets.top_stop_live.setEnabled(False)
+        widgets.btn_stop_live.setEnabled(False)
         widgets.btn_scan.clicked.connect(self.scanDetectMode)
         widgets.video_viewer.setAlignment(Qt.AlignCenter)
         # widgets.video_viewer.setPixmap(QPixmap(":images/images/images/smile.png").scaledToWidth(50))
@@ -338,11 +338,6 @@ class MainWindow(QMainWindow):
         for i in selectedFile:
             widgets.textBrowser.append("Open File: " + i)
 
-    def openFolder(self):
-        # OPEN RESULT FOLDER
-        directory = str(os.getcwd()) + "/modules/runs/detect/"
-        subprocess.call(["open", "-R", directory])
-
     def open_result(self):
         global img_broswer
         img_broswer = Window_img_broswer()
@@ -354,7 +349,9 @@ class MainWindow(QMainWindow):
         is_scan_mode = False
         # pool.shutdown()
         widgets.btn_start_live.setEnabled(True)
-        widgets.top_start_live.setIcon(QIcon(":/icons/images/icons/play.svg"))
+        widgets.top_start_live.setEnabled(True)
+        widgets.top_stop_live.setEnabled(False)
+        widgets.btn_stop_live.setEnabled(False)
 
     def terminate(self):
         # RAISE INTERRUPT EXCEPTION
@@ -375,7 +372,9 @@ class MainWindow(QMainWindow):
                 self.reset_all()
                 is_live_mode = True
                 widgets.btn_start_live.setEnabled(False)
-                widgets.top_start_live.setIcon(QIcon(":/icons/images/icons/rectangle.svg"))
+                widgets.top_start_live.setEnabled(False)
+                widgets.top_stop_live.setEnabled(True)
+                widgets.btn_stop_live.setEnabled(True)
                 widgets.textBrowser.append("\n[Run] Live Detecing...\n")
                 self.timer_camera.start(50)
                 pool = ThreadPoolExecutor(max_workers=5)
@@ -384,7 +383,7 @@ class MainWindow(QMainWindow):
             self.cap.release()
             widgets.video_viewer.clear()
             widgets.textBrowser.setText(u'Please Open Your Camera')
-    
+
     def scanDetectMode(self):
         global is_scan_mode, pool
         self.cap.release()
@@ -398,7 +397,9 @@ class MainWindow(QMainWindow):
                 self.reset_all()
                 is_scan_mode = True
                 widgets.btn_start_live.setEnabled(False)
-                widgets.top_start_live.setIcon(QIcon(":/icons/images/icons/rectangle.svg"))
+                widgets.top_start_live.setEnabled(False)
+                widgets.top_stop_live.setEnabled(True)
+                widgets.btn_stop_live.setEnabled(True)
                 widgets.textBrowser.append("\n[Run] Scan Detecing...\n")
                 self.timer_camera.start(50)
                 pool = ThreadPoolExecutor(max_workers=5)
@@ -549,7 +550,7 @@ class MainWindow(QMainWindow):
             flag = False
             self.es.clear.emit()
         lock.release()
-    
+
     def process_image(self, img, showimg, total_name):
         with torch.no_grad():
             img = letterbox(img, new_shape=self.opt.img_size)[0]

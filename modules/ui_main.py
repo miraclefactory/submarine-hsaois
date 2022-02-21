@@ -21,6 +21,7 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplicat
     QProgressBar, QPushButton, QSizePolicy, QSpacerItem,
     QStackedWidget, QTabWidget, QTableWidget, QTableWidgetItem,
     QTextBrowser, QTextEdit, QVBoxLayout, QWidget)
+from cv2 import IMWRITE_JPEG_QUALITY
 
 from pyqtgraph import PlotWidget
 from . resources_rc import *
@@ -1021,14 +1022,24 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2.addWidget(self.top_start_live)
 
+        self.top_stop_live = QPushButton(self.rightButtons)
+        self.top_stop_live.setObjectName(u"top_stop_live")
+        self.top_stop_live.setMinimumSize(QSize(28, 28))
+        self.top_stop_live.setStyleSheet(u"border-radius: 5px;")
+        icon10 = QIcon()
+        icon10.addFile(u":/icons/images/icons/rectangle.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.top_stop_live.setIcon(icon10)
+
+        self.horizontalLayout_2.addWidget(self.top_stop_live)
+
         self.settingsTopBtn = QPushButton(self.rightButtons)
         self.settingsTopBtn.setObjectName(u"settingsTopBtn")
         self.settingsTopBtn.setMinimumSize(QSize(28, 28))
         self.settingsTopBtn.setMaximumSize(QSize(28, 28))
         self.settingsTopBtn.setCursor(QCursor(Qt.PointingHandCursor))
-        icon10 = QIcon()
-        icon10.addFile(u":/icons/images/icons/settings.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.settingsTopBtn.setIcon(icon10)
+        icon11 = QIcon()
+        icon11.addFile(u":/icons/images/icons/settings.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.settingsTopBtn.setIcon(icon11)
         self.settingsTopBtn.setIconSize(QSize(20, 20))
 
         self.horizontalLayout_2.addWidget(self.settingsTopBtn)
@@ -1038,9 +1049,9 @@ class Ui_MainWindow(object):
         self.minimizeAppBtn.setMinimumSize(QSize(28, 28))
         self.minimizeAppBtn.setMaximumSize(QSize(28, 28))
         self.minimizeAppBtn.setCursor(QCursor(Qt.PointingHandCursor))
-        icon11 = QIcon()
-        icon11.addFile(u":/icons/images/icons/icon_minimize.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.minimizeAppBtn.setIcon(icon11)
+        icon12 = QIcon()
+        icon12.addFile(u":/icons/images/icons/icon_minimize.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.minimizeAppBtn.setIcon(icon12)
         self.minimizeAppBtn.setIconSize(QSize(20, 20))
 
         self.horizontalLayout_2.addWidget(self.minimizeAppBtn)
@@ -1057,9 +1068,9 @@ class Ui_MainWindow(object):
         font3.setStyleStrategy(QFont.PreferDefault)
         self.maximizeRestoreAppBtn.setFont(font3)
         self.maximizeRestoreAppBtn.setCursor(QCursor(Qt.PointingHandCursor))
-        icon12 = QIcon()
-        icon12.addFile(u":/icons/images/icons/icon_maximize.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.maximizeRestoreAppBtn.setIcon(icon12)
+        icon13 = QIcon()
+        icon13.addFile(u":/icons/images/icons/icon_maximize.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.maximizeRestoreAppBtn.setIcon(icon13)
         self.maximizeRestoreAppBtn.setIconSize(QSize(20, 20))
 
         self.horizontalLayout_2.addWidget(self.maximizeRestoreAppBtn)
@@ -1181,9 +1192,9 @@ class Ui_MainWindow(object):
         self.btn_start_live.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_start_live.setStyleSheet(u"\n"
 "border-radius: 8px;")
-        icon13 = QIcon()
-        icon13.addFile(u":/icons/images/icons/play_white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_start_live.setIcon(icon13)
+        icon14 = QIcon()
+        icon14.addFile(u":/icons/images/icons/play_white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_start_live.setIcon(icon14)
         self.btn_start_live.setFlat(False)
 
         self.horizontalLayout_11.addWidget(self.btn_start_live)
@@ -1196,9 +1207,9 @@ class Ui_MainWindow(object):
         self.btn_stop_live.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_stop_live.setStyleSheet(u"\n"
 "border-radius: 8px;")
-        icon14 = QIcon()
-        icon14.addFile(u":/icons/images/icons/rectangle_white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_stop_live.setIcon(icon14)
+        icon15 = QIcon()
+        icon15.addFile(u":/icons/images/icons/rectangle_white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_stop_live.setIcon(icon15)
         self.btn_stop_live.setFlat(False)
 
         self.horizontalLayout_11.addWidget(self.btn_stop_live)
@@ -1213,9 +1224,9 @@ class Ui_MainWindow(object):
         self.btn_scan.setMinimumSize(QSize(120, 40))
         self.btn_scan.setStyleSheet(u"\n"
 "border-radius: 8px;")
-        icon15 = QIcon()
-        icon15.addFile(u":/icons/images/icons/aperture_white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_scan.setIcon(icon15)
+        icon16 = QIcon()
+        icon16.addFile(u":/icons/images/icons/aperture_white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_scan.setIcon(icon16)
 
         self.horizontalLayout_11.addWidget(self.btn_scan)
 
@@ -1247,9 +1258,9 @@ class Ui_MainWindow(object):
         self.btn_file.setSizePolicy(sizePolicy8)
         self.btn_file.setMinimumSize(QSize(110, 35))
         self.btn_file.setStyleSheet(u"background-color: rgb(98, 114, 165);")
-        icon16 = QIcon()
-        icon16.addFile(u":/icons/images/icons/folder-add_white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_file.setIcon(icon16)
+        icon17 = QIcon()
+        icon17.addFile(u":/icons/images/icons/folder-add_white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_file.setIcon(icon17)
 
         self.horizontalLayout_6.addWidget(self.btn_file)
 
@@ -1282,7 +1293,7 @@ class Ui_MainWindow(object):
         self.btn_start_file.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_start_file.setStyleSheet(u"background-color: rgb(98, 114, 165);\n"
 "border-radius: 8px;")
-        self.btn_start_file.setIcon(icon13)
+        self.btn_start_file.setIcon(icon14)
         self.btn_start_file.setFlat(False)
 
         self.horizontalLayout_9.addWidget(self.btn_start_file)
@@ -1295,7 +1306,7 @@ class Ui_MainWindow(object):
         self.btn_stop_file.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_stop_file.setStyleSheet(u"background-color: rgb(98, 114, 165);\n"
 "border-radius: 8px;")
-        self.btn_stop_file.setIcon(icon14)
+        self.btn_stop_file.setIcon(icon15)
         self.btn_stop_file.setFlat(False)
 
         self.horizontalLayout_9.addWidget(self.btn_stop_file)
@@ -1307,9 +1318,9 @@ class Ui_MainWindow(object):
         self.btn_result.setMinimumSize(QSize(120, 40))
         self.btn_result.setStyleSheet(u"background-color: rgb(98, 114, 165);\n"
 "border-radius: 8px;")
-        icon17 = QIcon()
-        icon17.addFile(u":/icons/images/icons/image_white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_result.setIcon(icon17)
+        icon18 = QIcon()
+        icon18.addFile(u":/icons/images/icons/image_white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_result.setIcon(icon18)
 
         self.horizontalLayout_9.addWidget(self.btn_result)
 
@@ -1856,9 +1867,9 @@ class Ui_MainWindow(object):
         self.btn_search.setStyleSheet(u"background-color: rgb(136, 112, 173); \n"
 "color: white;\n"
 "border-radius: 8px;")
-        icon18 = QIcon()
-        icon18.addFile(u":/icons/images/icons/search_white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_search.setIcon(icon18)
+        icon19 = QIcon()
+        icon19.addFile(u":/icons/images/icons/search_white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_search.setIcon(icon19)
         self.btn_search.setFlat(False)
 
         self.horizontalLayout_22.addWidget(self.btn_search)
@@ -1872,9 +1883,9 @@ class Ui_MainWindow(object):
         self.btn_save.setStyleSheet(u"background-color: rgb(136, 112, 173); \n"
 "color: white;\n"
 "border-radius: 8px;")
-        icon19 = QIcon()
-        icon19.addFile(u":/icons/images/icons/download_white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_save.setIcon(icon19)
+        icon20 = QIcon()
+        icon20.addFile(u":/icons/images/icons/download_white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_save.setIcon(icon20)
         self.btn_save.setFlat(False)
 
         self.horizontalLayout_22.addWidget(self.btn_save)
@@ -2090,21 +2101,23 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.setSpacing(0)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
-        self.pushButton = QPushButton(self.bottomBar)
-        self.pushButton.setObjectName(u"pushButton")
+        self.btn_python = QPushButton(self.bottomBar)
+        self.btn_python.setObjectName(u"btn_python")
         sizePolicy18 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Minimum)
         sizePolicy18.setHorizontalStretch(0)
         sizePolicy18.setVerticalStretch(0)
-        sizePolicy18.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
-        self.pushButton.setSizePolicy(sizePolicy18)
-        self.pushButton.setMinimumSize(QSize(10, 22))
-        self.pushButton.setMaximumSize(QSize(16777196, 16777215))
-        self.pushButton.setStyleSheet(u"background-color: transparent;")
-        icon20 = QIcon()
-        icon20.addFile(u":/icons/images/icons/python.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton.setIcon(icon20)
+        sizePolicy18.setHeightForWidth(self.btn_python.sizePolicy().hasHeightForWidth())
+        self.btn_python.setSizePolicy(sizePolicy18)
+        self.btn_python.setMinimumSize(QSize(10, 22))
+        self.btn_python.setMaximumSize(QSize(16777196, 16777215))
+        self.btn_python.setStyleSheet(u"background-color:  #705597;\n"
+"border: none;")
+        icon21 = QIcon()
+        icon21.addFile(u":/icons/images/icons/python.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_python.setIcon(icon21)
+        self.btn_python.setFlat(True)
 
-        self.horizontalLayout_5.addWidget(self.pushButton)
+        self.horizontalLayout_5.addWidget(self.btn_python)
 
         self.creditsLabel = QLabel(self.bottomBar)
         self.creditsLabel.setObjectName(u"creditsLabel")
@@ -2115,6 +2128,7 @@ class Ui_MainWindow(object):
         font5.setBold(False)
         font5.setItalic(False)
         self.creditsLabel.setFont(font5)
+        self.creditsLabel.setStyleSheet(u"")
         self.creditsLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.horizontalLayout_5.addWidget(self.creditsLabel)
@@ -2199,6 +2213,7 @@ class Ui_MainWindow(object):
                         "12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-rcc resources.qrc -o resources_rc.py</span></p></body></html>", None))
         self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"Submarine - Hyper Speed Automatic Optical Inspection System", None))
         self.top_start_live.setText("")
+        self.top_stop_live.setText("")
 #if QT_CONFIG(tooltip)
         self.settingsTopBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Settings", None))
 #endif // QT_CONFIG(tooltip)
@@ -2304,7 +2319,7 @@ class Ui_MainWindow(object):
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
-        self.pushButton.setText("")
+        self.btn_python.setText("")
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"PySide 6.2.2.1", None))
         self.version.setText(QCoreApplication.translate("MainWindow", u"Demo Version V1.0.0 Falcon", None))
     # retranslateUi
