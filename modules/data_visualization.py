@@ -81,11 +81,11 @@ def update_line_graph(y_axis, ls, class_total, seq):
         elif i == 8:
             class_total[8] += 1
     if (class_total[6] + class_total[7] + class_total[8]) != 0:
-        y_axis[0] = class_total[7] / (class_total[6] + class_total[7] + class_total[8])
-        y_axis[1] = class_total[6] / (class_total[6] + class_total[7] + class_total[8])
+        y_axis[0] = (class_total[7] / (class_total[6] + class_total[7] + class_total[8])) * 100
+        y_axis[1] = (class_total[6] / (class_total[6] + class_total[7] + class_total[8])) * 100
     if (class_total[0] + class_total[1] + class_total[2]) != 0:
-        y_axis[2] = class_total[0] / (class_total[0] + class_total[1] + class_total[2])
-        y_axis[3] = class_total[1] / (class_total[0] + class_total[1] + class_total[2])
+        y_axis[2] = (class_total[0] / (class_total[0] + class_total[1] + class_total[2])) * 100
+        y_axis[3] = (class_total[1] / (class_total[0] + class_total[1] + class_total[2])) * 100
     if class_total[4] != 0 and seq != 1:
-        y_axis[4] = ((seq - 1) - class_total[4]) / (seq - 1)
+        y_axis[4] = (((seq - 1) - class_total[4]) / (seq - 1)) * 100
     return y_axis

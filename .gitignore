@@ -2,7 +2,7 @@ __pycache__/
 .git/
 .pyc
 .vscode/
-buffer_img/
-defected/
+# /buffer_img
+# /defected
 modules/runs
-images/
+# images/
