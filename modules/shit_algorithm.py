@@ -8,6 +8,9 @@ kernel = [[1,0,-1],
  		  [1,0,-1],
  		  [1,0,-1]]
 
+"""
+dHash
+"""
 def caculateHashValue(image):
     resize_width = 9
     resize_height = 8
