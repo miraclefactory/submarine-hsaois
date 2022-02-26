@@ -303,7 +303,7 @@ class MainWindow(QMainWindow):
     
     def updateImage(self, image):
         widgets.video_viewer.setPixmap(
-                QPixmap.fromImage(image).scaledToWidth(widgets.video_viewer.width()))
+            QPixmap.fromImage(image).scaledToWidth(widgets.video_viewer.width(), Qt.SmoothTransformation))
     
     def clearVideoBox(self):
         widgets.video_viewer.clear()
@@ -354,6 +354,7 @@ class MainWindow(QMainWindow):
         widgets.top_start_live.setEnabled(True)
         widgets.top_stop_live.setEnabled(False)
         widgets.btn_stop_live.setEnabled(False)
+        widgets.btn_scan.setEnabled(True)
 
     def terminate(self):
         # RAISE INTERRUPT EXCEPTION
@@ -377,6 +378,7 @@ class MainWindow(QMainWindow):
                 widgets.top_start_live.setEnabled(False)
                 widgets.top_stop_live.setEnabled(True)
                 widgets.btn_stop_live.setEnabled(True)
+                widgets.btn_scan.setEnabled(False)
                 widgets.textBrowser.append("\n[Run] Live Detecing...\n")
                 self.timer_camera.start(50)
                 pool = ThreadPoolExecutor(max_workers=5)
@@ -390,7 +392,7 @@ class MainWindow(QMainWindow):
         global is_scan_mode, pool
         self.cap.release()
         if self.timer_camera.isActive() is False:
-            flag = self.cap.open("test.mp4")
+            flag = self.cap.open(0)
             if flag is False:
                 QMessageBox.warning(self, u"Warning", u"Please Check Your Camera Source",
                                     buttons=QMessageBox.Ok,
@@ -402,6 +404,7 @@ class MainWindow(QMainWindow):
                 widgets.top_start_live.setEnabled(False)
                 widgets.top_stop_live.setEnabled(True)
                 widgets.btn_stop_live.setEnabled(True)
+                widgets.btn_scan.setEnabled(False)
                 widgets.textBrowser.append("\n[Run] Scan Detecing...\n")
                 self.timer_camera.start(50)
                 pool = ThreadPoolExecutor(max_workers=5)
@@ -583,7 +586,7 @@ class MainWindow(QMainWindow):
                             str(int(xyxy[2])) + ' ' + str(int(xyxy[3])))
                         total_name.append(box)
                         plot_one_box(xyxy, showimg, label=label, color=self.colors[int(cls)],
-                                        line_thickness=1)   #在图像img上绘制一个边界框
+                                        line_thickness=2)   #在图像img上绘制一个边界框
                         class_list.append(int(cls.item()))
         tl = round(0.002 * (showimg.shape[0] + showimg.shape[1]) / 2) + 1  # line/font thickness
         self.reclabel = total_name
