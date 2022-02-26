@@ -4345,7 +4345,7 @@ padding: 8px;</string>
                   </property>
                   <property name="minimumSize">
                    <size>
-                    <width>10</width>
+                    <width>33</width>
                     <height>22</height>
                    </size>
                   </property>
@@ -4356,7 +4356,7 @@ padding: 8px;</string>
                    </size>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color:  #705597;
+                   <string notr="true">background-color:  rgb(78, 60, 105);
 border: none;</string>
                   </property>
                   <property name="text">
@@ -4420,7 +4420,7 @@ border: none;</string>
                    </size>
                   </property>
                   <property name="text">
-                   <string>Demo Version V1.0.0 Falcon</string>
+                   <string>Demo Version V1.0.0 Asterisk</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

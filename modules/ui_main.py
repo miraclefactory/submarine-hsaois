@@ -2358,9 +2358,9 @@ class Ui_MainWindow(object):
         sizePolicy18.setVerticalStretch(0)
         sizePolicy18.setHeightForWidth(self.btn_python.sizePolicy().hasHeightForWidth())
         self.btn_python.setSizePolicy(sizePolicy18)
-        self.btn_python.setMinimumSize(QSize(10, 22))
+        self.btn_python.setMinimumSize(QSize(33, 22))
         self.btn_python.setMaximumSize(QSize(16777196, 16777215))
-        self.btn_python.setStyleSheet(u"background-color:  #705597;\n"
+        self.btn_python.setStyleSheet(u"background-color:  rgb(78, 60, 105);\n"
 "border: none;")
         icon21 = QIcon()
         icon21.addFile(u":/icons/images/icons/python.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -2573,5 +2573,5 @@ class Ui_MainWindow(object):
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
         self.btn_python.setText("")
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"PySide 6.2.2.1", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"Demo Version V1.0.0 Falcon", None))
+        self.version.setText(QCoreApplication.translate("MainWindow", u"Demo Version V1.0.0 Asterisk", None))
     # retranslateUi

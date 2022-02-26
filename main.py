@@ -223,7 +223,8 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         useCustomTheme = True
         themeFile = "themes/py_dracula_light.qss"
-        widgets.home_bg.setPixmap(QPixmap(":images/images/images/gray.png").scaledToHeight(400, Qt.SmoothTransformation))
+        widgets.home_bg.setPixmap(QPixmap(":images/images/images/gray.png").\
+            scaledToHeight(400, Qt.SmoothTransformation))
 
         # SET THEME AND HACKS
         if useCustomTheme:
