@@ -995,7 +995,7 @@ border: none;</string>
              </property>
              <property name="icon">
               <iconset resource="resources.qrc">
-               <normaloff>:/images/images/images/falcon_circle_dark.png</normaloff>:/images/images/images/falcon_circle_dark.png</iconset>
+               <normaloff>:/images/images/images/1.png</normaloff>:/images/images/images/1.png</iconset>
              </property>
              <property name="iconSize">
               <size>
@@ -2280,10 +2280,23 @@ p, li { white-space: pre-wrap; }
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="styleSheet">
-                       <string notr="true">background-image: url(:/images/images/images/falcon_circle.png);
-background-position: center;
-background-repeat: no-repeat;</string>
+                       <string/>
                       </property>
+                      <layout class="QHBoxLayout" name="horizontalLayout_25">
+                       <item>
+                        <widget class="QLabel" name="home_bg">
+                         <property name="text">
+                          <string/>
+                         </property>
+                         <property name="scaledContents">
+                          <bool>false</bool>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
                      </widget>
                      <widget class="QWidget" name="widgets">
                       <property name="styleSheet">

@@ -6,3 +6,5 @@ __pycache__/
 # /defected
 modules/runs
 # images/
+images/.DS_Store
+.gitignore

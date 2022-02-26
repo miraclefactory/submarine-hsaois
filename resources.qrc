@@ -12,6 +12,8 @@
     <file>images/images/falcon_circle.png</file>
     <file>images/images/falcon_circle_dark.png</file>
     <file>images/images/smile.png</file>
+    <file>images/images/1.png</file>
+    <file>images/images/gray.png</file>
   </qresource>
   <qresource prefix="icons">
     <file>images/icons/cil-3d.png</file>

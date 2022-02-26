@@ -223,6 +223,7 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         useCustomTheme = True
         themeFile = "themes/py_dracula_light.qss"
+        widgets.home_bg.setPixmap(QPixmap(":images/images/images/gray.png").scaledToHeight(400, Qt.SmoothTransformation))
 
         # SET THEME AND HACKS
         if useCustomTheme:
@@ -663,6 +664,6 @@ class EmitSignal(QObject):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    app.setWindowIcon(QIcon("falcon_logo.ico"))
+    app.setWindowIcon(QIcon("1.png"))
     window = MainWindow()
     sys.exit(app.exec())
