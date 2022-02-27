@@ -12,6 +12,7 @@ torch>=1.7.0
 torchvision>=0.8.1
 tqdm>=4.41.0
 PySide6>=6.2.2.1
+pyqtgraph>=0.12.3
 
 # Logging -------------------------------------
 tensorboard>=2.4.1
