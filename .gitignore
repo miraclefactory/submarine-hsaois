@@ -2,9 +2,10 @@ __pycache__/
 .git/
 .pyc
 .vscode/
-# /buffer_img
+/buffer_img
 # /defected
 modules/runs
 # images/
 images/.DS_Store
 .gitignore
+.DS_Store
