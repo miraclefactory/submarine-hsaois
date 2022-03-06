@@ -198,7 +198,6 @@ class MainWindow(QMainWindow):
         widgets.line_graph.setLabel('left', 'Defective(%)', color='#705597')
         widgets.line_graph.setLabel('bottom', 'Class', color='#705597')
         widgets.line_graph.showGrid(x=True, y=True)
-        # widgets.line_graph.setYRange(min=0, max=1)
         widgets.line_graph.setXRange(min=0, max=4)
         widgets.line_graph.setMouseEnabled(x=False, y=False)
         pg.setConfigOptions(leftButtonPan=False, antialias=True)
