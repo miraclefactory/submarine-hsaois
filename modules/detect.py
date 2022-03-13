@@ -212,7 +212,7 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
 def parse_opt():
     parser = argparse.ArgumentParser()
     # 权重文件（手动设置）
-    parser.add_argument('--weights', nargs='+', type=str, default=ROOT / '../weights/best.pt', help='model path(s)')
+    parser.add_argument('--weights', nargs='+', type=str, default=ROOT / '../weights/focus_bs9.pt', help='model path(s)')
     # 输入源（手动设置）
     parser.add_argument('--source', type=str, default=ROOT / '../input/11.jpg', help='file/dir/URL/glob, 0 for webcam')
     parser.add_argument('--imgsz', '--img', '--img-size', nargs='+', type=int, default=[640], help='inference size h,w')

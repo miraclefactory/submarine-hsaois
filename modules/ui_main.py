@@ -1417,7 +1417,7 @@ class Ui_MainWindow(object):
         sizePolicy3.setHeightForWidth(self.video_viewer.sizePolicy().hasHeightForWidth())
         self.video_viewer.setSizePolicy(sizePolicy3)
         self.video_viewer.setStyleSheet(u"background-color: rgba(129, 129, 129, 30);\n"
-"border: 1px solid rgb(167, 167, 170);\n"
+"border: 1px solid rgb(200, 200, 200);\n"
 "border-radius: 3px;")
 
         self.verticalLayout_22.addWidget(self.video_viewer)
@@ -2420,7 +2420,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
         self.tabWidget.setCurrentIndex(0)
 
 
