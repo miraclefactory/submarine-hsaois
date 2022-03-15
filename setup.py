@@ -3,22 +3,26 @@ import os
 from cx_Freeze import setup, Executable
 
 # ADD FILES
-files = ['icon.ico','themes/']
+files = ['1.png','themes/','buffer_img/', 'defected/', 'images/', 'models/', 'modules/', 'utils/', 'weights/', 'widgets/']
+packages = ['PySide6', 'numpy', 'pyqtgraph', 'cv2', 'matplotlib', 'torch', 'torchvision', 'opencv-python']
 
 # TARGET
 target = Executable(
     script="main.py",
     base="Win32GUI",
-    icon="icon.ico"
+    icon="1.png"
 )
 
 # SETUP CX FREEZE
 setup(
-    name = "Submarine",
+    name = "Submarine - HSAOIS",
     version = "1.0",
-    description = "Hyper Speed Optical Inspection",
+    description = "Hyper Speed Automatic Optical Inspection System",
     author = "Submarine team",
-    options = {'build_exe' : {'include_files' : files}},
+    options = {'build_exe' : 
+                    {'include_files' : files,
+                     'packages' : packages
+                    }
+    },
     executables = [target]
-    
 )
