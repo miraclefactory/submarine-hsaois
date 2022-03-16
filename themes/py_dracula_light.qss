@@ -239,8 +239,8 @@ Content App */
 #rightButtons .QPushButton:pressed { background-color: rgb(220, 220, 220); border-style: solid; border-radius: 4px; }
 
 /* Theme Settings */
-#extraRightBox { background-color: #495474; }
-#themeSettingsTopDetail { background-color: #6272a4; }
+#extraRightBox { background-color: #a894bd; }
+#themeSettingsTopDetail { background-color: #a894bd; }
 
 /* Bottom Bar */
 /* #bottomBar { background-color: #495474 } */
@@ -265,12 +265,12 @@ Content App */
 
 #contentSettings .QPushButton:hover
 {
-	background-color: #5d6c99;
+	background-color: #835d99;
 }
 
 #contentSettings .QPushButton:pressed
 {	
-	background-color: rgb(189, 147, 249);
+	background-color: rgb(172, 147, 249);
 	color: rgb(255, 255, 255);
 }
 
