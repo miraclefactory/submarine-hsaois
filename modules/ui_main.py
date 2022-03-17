@@ -1370,8 +1370,10 @@ class Ui_MainWindow(object):
         self.stackedWidget.setStyleSheet(u"background: transparent;")
         self.home = QWidget()
         self.home.setObjectName(u"home")
-        self.horizontalLayout_28 = QHBoxLayout(self.home)
-        self.horizontalLayout_28.setObjectName(u"horizontalLayout_28")
+        self.horizontalLayout_30 = QHBoxLayout(self.home)
+        self.horizontalLayout_30.setObjectName(u"horizontalLayout_30")
+        self.verticalLayout_31 = QVBoxLayout()
+        self.verticalLayout_31.setObjectName(u"verticalLayout_31")
         self.horizontalLayout_27 = QHBoxLayout()
         self.horizontalLayout_27.setObjectName(u"horizontalLayout_27")
         self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
@@ -1414,15 +1416,15 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_29.addWidget(self.home_logo_line)
 
-        self.home_bg_2 = QLabel(self.home)
-        self.home_bg_2.setObjectName(u"home_bg_2")
-        self.home_bg_2.setStyleSheet(u"font-size: 20pt;\n"
+        self.home_logo_line2 = QLabel(self.home)
+        self.home_logo_line2.setObjectName(u"home_logo_line2")
+        self.home_logo_line2.setStyleSheet(u"font-size: 20pt;\n"
 "font-weight: 500;\n"
 "color: rgb(170,170,170);")
-        self.home_bg_2.setScaledContents(False)
-        self.home_bg_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.home_logo_line2.setScaledContents(False)
+        self.home_logo_line2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
-        self.verticalLayout_29.addWidget(self.home_bg_2)
+        self.verticalLayout_29.addWidget(self.home_logo_line2)
 
         self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -1505,7 +1507,28 @@ class Ui_MainWindow(object):
         self.horizontalLayout_27.addItem(self.horizontalSpacer_6)
 
 
-        self.horizontalLayout_28.addLayout(self.horizontalLayout_27)
+        self.verticalLayout_31.addLayout(self.horizontalLayout_27)
+
+        self.horizontalLayout_28 = QHBoxLayout()
+        self.horizontalLayout_28.setObjectName(u"horizontalLayout_28")
+        self.video_tu = QPushButton(self.home)
+        self.video_tu.setObjectName(u"video_tu")
+        sizePolicy5.setHeightForWidth(self.video_tu.sizePolicy().hasHeightForWidth())
+        self.video_tu.setSizePolicy(sizePolicy5)
+        self.video_tu.setMinimumSize(QSize(120, 32))
+        self.video_tu.setStyleSheet(u"color: #555;\n"
+"font-size: 12pt;\n"
+"border: 1px solid rgb(220, 220, 220);\n"
+"background-color: rgb(248, 248, 255);")
+        self.video_tu.setIcon(icon9)
+
+        self.horizontalLayout_28.addWidget(self.video_tu)
+
+
+        self.verticalLayout_31.addLayout(self.horizontalLayout_28)
+
+
+        self.horizontalLayout_30.addLayout(self.verticalLayout_31)
 
         self.stackedWidget.addWidget(self.home)
         self.widgets = QWidget()
@@ -2296,7 +2319,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_20 = QHBoxLayout()
         self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
-        self.batch_data_graph = QFrame(self.report)
+        self.batch_data_graph = PlotWidget(self.report)
         self.batch_data_graph.setObjectName(u"batch_data_graph")
         sizePolicy17 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
         sizePolicy17.setHorizontalStretch(2)
@@ -2308,8 +2331,6 @@ class Ui_MainWindow(object):
 "font-size: 14pt;\n"
 "font-weight: normal;\n"
 "padding: 8px;")
-        self.batch_data_graph.setFrameShape(QFrame.StyledPanel)
-        self.batch_data_graph.setFrameShadow(QFrame.Raised)
 
         self.horizontalLayout_20.addWidget(self.batch_data_graph)
 
@@ -2668,7 +2689,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
         self.tabWidget.setCurrentIndex(0)
 
 
@@ -2731,11 +2752,12 @@ class Ui_MainWindow(object):
         self.home.setStyleSheet("")
         self.home_logo.setText("")
         self.home_logo_line.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>HSAOIS<span style=\" font-size:14pt; vertical-align:sub;\">by Submarine</span></p></body></html>", None))
-        self.home_bg_2.setText(QCoreApplication.translate("MainWindow", u"Invoke The Next Era In Optical Inspection", None))
+        self.home_logo_line2.setText(QCoreApplication.translate("MainWindow", u"Invoke The Next Era In Optical Inspection", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt;\">Start</span></p></body></html>", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:600;\">Documentation</span></p><p><span style=\" font-size:13pt;\">New to HSAOIS? Check out our documentation.</span></p></body></html>", None))
         self.label_12.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Access to your database</p></body></html>", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Learn to train a custom model", None))
+        self.video_tu.setText(QCoreApplication.translate("MainWindow", u" Video Tutorial", None))
         self.video_viewer.setText("")
         self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"Controls", None))
         self.btn_start_live.setText(QCoreApplication.translate("MainWindow", u" Start", None))
@@ -2830,7 +2852,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem26 = self.tableWidget_2.horizontalHeaderItem(2)
         ___qtablewidgetitem26.setText(QCoreApplication.translate("MainWindow", u"2", None));
         ___qtablewidgetitem27 = self.tableWidget_2.verticalHeaderItem(0)
-        ___qtablewidgetitem27.setText(QCoreApplication.translate("MainWindow", u"New Row", None));
+        ___qtablewidgetitem27.setText(QCoreApplication.translate("MainWindow", u"class", None));
         ___qtablewidgetitem28 = self.tableWidget_2.verticalHeaderItem(1)
         ___qtablewidgetitem28.setText(QCoreApplication.translate("MainWindow", u"New Row", None));
         ___qtablewidgetitem29 = self.tableWidget_2.verticalHeaderItem(2)
