@@ -239,7 +239,7 @@ Content App */
 #rightButtons .QPushButton:pressed { background-color: rgb(220, 220, 220); border-style: solid; border-radius: 4px; }
 
 /* Theme Settings */
-#extraRightBox { background-color: #a894bd; }
+#extraRightBox { background-color: #f5f5f5; border-left:1px solid rgb(227, 227, 227); color: #333;}
 #themeSettingsTopDetail { background-color: #a894bd; }
 
 /* Bottom Bar */
