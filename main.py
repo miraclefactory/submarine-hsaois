@@ -667,6 +667,6 @@ class EmitSignal(QObject):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    app.setWindowIcon(QIcon("2.png"))
+    app.setWindowIcon(QIcon("logo.png"))
     window = MainWindow()
     sys.exit(app.exec())

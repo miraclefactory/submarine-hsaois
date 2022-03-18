@@ -2282,7 +2282,7 @@ p, li { white-space: pre-wrap; }
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>0</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="styleSheet">
@@ -2467,7 +2467,7 @@ color: rgb(170,170,170);</string>
                                 <string notr="true">border-top-right-radius: 5px;
 border-bottom-right-radius: 5px;
 border-left: 2px solid rgb(112, 85, 151);
-background-color: rgb(237, 237, 250);
+background-color: rgb(237, 237, 249);
 font-size: 12pt;
 padding: 12px;</string>
                                </property>
@@ -2488,7 +2488,7 @@ padding: 12px;</string>
                                 <string notr="true">border-top-right-radius: 5px;
 border-bottom-right-radius: 5px;
 border-left: 2px solid rgb(112, 85, 151);
-background-color: rgb(237, 237, 250);
+background-color: rgb(237, 237, 249);
 font-size: 12pt;
 padding: 12px;</string>
                                </property>
@@ -2509,7 +2509,7 @@ padding: 12px;</string>
                                 <string notr="true">border-top-right-radius: 5px;
 border-bottom-right-radius: 5px;
 border-left: 2px solid rgb(112, 85, 151);
-background-color: rgb(237, 237, 250);
+background-color: rgb(237, 237, 249);
 font-size: 12pt;
 padding: 12px;</string>
                                </property>

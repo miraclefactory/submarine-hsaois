@@ -1463,7 +1463,7 @@ class Ui_MainWindow(object):
         self.label_11.setStyleSheet(u"border-top-right-radius: 5px;\n"
 "border-bottom-right-radius: 5px;\n"
 "border-left: 2px solid rgb(112, 85, 151);\n"
-"background-color: rgb(237, 237, 250);\n"
+"background-color: rgb(237, 237, 249);\n"
 "font-size: 12pt;\n"
 "padding: 12px;")
 
@@ -1476,7 +1476,7 @@ class Ui_MainWindow(object):
         self.label_12.setStyleSheet(u"border-top-right-radius: 5px;\n"
 "border-bottom-right-radius: 5px;\n"
 "border-left: 2px solid rgb(112, 85, 151);\n"
-"background-color: rgb(237, 237, 250);\n"
+"background-color: rgb(237, 237, 249);\n"
 "font-size: 12pt;\n"
 "padding: 12px;")
 
@@ -1489,7 +1489,7 @@ class Ui_MainWindow(object):
         self.label_9.setStyleSheet(u"border-top-right-radius: 5px;\n"
 "border-bottom-right-radius: 5px;\n"
 "border-left: 2px solid rgb(112, 85, 151);\n"
-"background-color: rgb(237, 237, 250);\n"
+"background-color: rgb(237, 237, 249);\n"
 "font-size: 12pt;\n"
 "padding: 12px;")
 
@@ -2689,7 +2689,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
         self.tabWidget.setCurrentIndex(0)
 
 
