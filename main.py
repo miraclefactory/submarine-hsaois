@@ -42,6 +42,7 @@ from widgets.custom_grips.custom_grips import Widgets
 from utils.general import (
     check_img_size, non_max_suppression, scale_coords, plot_one_box)
 os.environ["QT_FONT_DPI"] = "70"    # FIX Problem for High DPI and Scale above 100%
+# os.environ["QT_SCALE_FACTOR"] = "2"
 
 # SET GLOBAL VARIABLES
 # ///////////////////////////////////////////////////////////////
