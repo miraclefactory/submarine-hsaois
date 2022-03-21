@@ -52,3 +52,4 @@ class AppFunctions(MainWindow):
         self.ui.most_defected.setStyleSheet("color: #705597; font-weight: bold; font-size: 24pt;")
         self.ui.label_5.setStyleSheet("color: #705597; font-weight: bold;")
         self.ui.label_7.setStyleSheet("color: #705597; font-weight: bold;")
+        # self.ui.btn_start_live.setStyleSheet("border-color: green;")

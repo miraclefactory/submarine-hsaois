@@ -2282,7 +2282,7 @@ p, li { white-space: pre-wrap; }
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>0</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="styleSheet">
@@ -2635,6 +2635,9 @@ background-color: rgb(248, 248, 255);</string>
                                   <height>16777215</height>
                                  </size>
                                 </property>
+                                <property name="styleSheet">
+                                 <string notr="true">background-color: rgb(244, 244, 244);</string>
+                                </property>
                                 <property name="tabPosition">
                                  <enum>QTabWidget::North</enum>
                                 </property>
@@ -2646,6 +2649,9 @@ background-color: rgb(248, 248, 255);</string>
                                 </property>
                                 <property name="elideMode">
                                  <enum>Qt::ElideRight</enum>
+                                </property>
+                                <property name="movable">
+                                 <bool>true</bool>
                                 </property>
                                 <widget class="QWidget" name="live">
                                  <attribute name="title">
@@ -2672,143 +2678,203 @@ border-radius: 3px;</string>
                                   </item>
                                   <item>
                                    <widget class="QGroupBox" name="groupBox">
+                                    <property name="sizePolicy">
+                                     <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                                      <horstretch>0</horstretch>
+                                      <verstretch>0</verstretch>
+                                     </sizepolicy>
+                                    </property>
                                     <property name="minimumSize">
                                      <size>
                                       <width>0</width>
-                                      <height>65</height>
+                                      <height>50</height>
                                      </size>
                                     </property>
-                                    <property name="title">
-                                     <string>Controls</string>
+                                    <property name="styleSheet">
+                                     <string notr="true">background-color: rgb(244, 244, 244);
+border: none;</string>
                                     </property>
-                                    <widget class="QWidget" name="layoutWidget">
-                                     <property name="geometry">
-                                      <rect>
-                                       <x>0</x>
-                                       <y>20</y>
-                                       <width>551</width>
-                                       <height>42</height>
-                                      </rect>
+                                    <property name="title">
+                                     <string/>
+                                    </property>
+                                    <layout class="QHBoxLayout" name="horizontalLayout_31">
+                                     <property name="leftMargin">
+                                      <number>0</number>
                                      </property>
-                                     <layout class="QHBoxLayout" name="horizontalLayout_11">
-                                      <item>
-                                       <widget class="QPushButton" name="btn_start_live">
-                                        <property name="sizePolicy">
-                                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                                          <horstretch>2</horstretch>
-                                          <verstretch>0</verstretch>
-                                         </sizepolicy>
-                                        </property>
-                                        <property name="minimumSize">
-                                         <size>
-                                          <width>120</width>
-                                          <height>40</height>
-                                         </size>
-                                        </property>
-                                        <property name="cursor">
-                                         <cursorShape>PointingHandCursor</cursorShape>
-                                        </property>
-                                        <property name="styleSheet">
-                                         <string notr="true">background-color: rgb(136, 112, 173);</string>
-                                        </property>
-                                        <property name="text">
-                                         <string> Start</string>
-                                        </property>
-                                        <property name="icon">
-                                         <iconset resource="resources.qrc">
-                                          <normaloff>:/icons/images/icons/play_white.svg</normaloff>:/icons/images/icons/play_white.svg</iconset>
-                                        </property>
-                                        <property name="flat">
-                                         <bool>false</bool>
-                                        </property>
-                                       </widget>
-                                      </item>
-                                      <item>
-                                       <widget class="QPushButton" name="btn_stop_live">
-                                        <property name="sizePolicy">
-                                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                                          <horstretch>2</horstretch>
-                                          <verstretch>0</verstretch>
-                                         </sizepolicy>
-                                        </property>
-                                        <property name="minimumSize">
-                                         <size>
-                                          <width>120</width>
-                                          <height>40</height>
-                                         </size>
-                                        </property>
-                                        <property name="cursor">
-                                         <cursorShape>PointingHandCursor</cursorShape>
-                                        </property>
-                                        <property name="styleSheet">
-                                         <string notr="true">background-color: rgb(136, 112, 173);</string>
-                                        </property>
-                                        <property name="text">
-                                         <string> Stop</string>
-                                        </property>
-                                        <property name="icon">
-                                         <iconset resource="resources.qrc">
-                                          <normaloff>:/icons/images/icons/rectangle_white.svg</normaloff>:/icons/images/icons/rectangle_white.svg</iconset>
-                                        </property>
-                                        <property name="flat">
-                                         <bool>false</bool>
-                                        </property>
-                                       </widget>
-                                      </item>
-                                      <item>
-                                       <widget class="QPushButton" name="btn_scan">
-                                        <property name="sizePolicy">
-                                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                                          <horstretch>1</horstretch>
-                                          <verstretch>0</verstretch>
-                                         </sizepolicy>
-                                        </property>
-                                        <property name="minimumSize">
-                                         <size>
-                                          <width>120</width>
-                                          <height>40</height>
-                                         </size>
-                                        </property>
-                                        <property name="styleSheet">
-                                         <string notr="true">background-color: rgb(136, 112, 173);</string>
-                                        </property>
-                                        <property name="text">
-                                         <string> Scan</string>
-                                        </property>
-                                        <property name="icon">
-                                         <iconset resource="resources.qrc">
-                                          <normaloff>:/icons/images/icons/aperture_white.svg</normaloff>:/icons/images/icons/aperture_white.svg</iconset>
-                                        </property>
-                                       </widget>
-                                      </item>
-                                      <item>
-                                       <widget class="QPushButton" name="btn_update">
-                                        <property name="sizePolicy">
-                                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                                          <horstretch>1</horstretch>
-                                          <verstretch>0</verstretch>
-                                         </sizepolicy>
-                                        </property>
-                                        <property name="minimumSize">
-                                         <size>
-                                          <width>120</width>
-                                          <height>40</height>
-                                         </size>
-                                        </property>
-                                        <property name="styleSheet">
-                                         <string notr="true">background-color: rgb(136, 112, 173);</string>
-                                        </property>
-                                        <property name="text">
-                                         <string>Update</string>
-                                        </property>
-                                        <property name="icon">
-                                         <iconset resource="resources.qrc">
-                                          <normaloff>:/icons/images/icons/cil-data-transfer-up.png</normaloff>:/icons/images/icons/cil-data-transfer-up.png</iconset>
-                                        </property>
-                                       </widget>
-                                      </item>
-                                     </layout>
-                                    </widget>
+                                     <property name="topMargin">
+                                      <number>3</number>
+                                     </property>
+                                     <property name="rightMargin">
+                                      <number>3</number>
+                                     </property>
+                                     <property name="bottomMargin">
+                                      <number>3</number>
+                                     </property>
+                                     <item>
+                                      <layout class="QHBoxLayout" name="horizontalLayout_11">
+                                       <property name="spacing">
+                                        <number>15</number>
+                                       </property>
+                                       <item>
+                                        <widget class="QPushButton" name="btn_start_live">
+                                         <property name="sizePolicy">
+                                          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                           <horstretch>2</horstretch>
+                                           <verstretch>0</verstretch>
+                                          </sizepolicy>
+                                         </property>
+                                         <property name="minimumSize">
+                                          <size>
+                                           <width>110</width>
+                                           <height>40</height>
+                                          </size>
+                                         </property>
+                                         <property name="cursor">
+                                          <cursorShape>PointingHandCursor</cursorShape>
+                                         </property>
+                                         <property name="styleSheet">
+                                          <string notr="true">background-color: rgb(84, 209, 99);
+border-color: rgb(84, 209, 99);
+</string>
+                                         </property>
+                                         <property name="text">
+                                          <string> Start</string>
+                                         </property>
+                                         <property name="icon">
+                                          <iconset resource="resources.qrc">
+                                           <normaloff>:/icons/images/icons/play_white.svg</normaloff>:/icons/images/icons/play_white.svg</iconset>
+                                         </property>
+                                         <property name="flat">
+                                          <bool>false</bool>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                       <item>
+                                        <widget class="QPushButton" name="btn_stop_live">
+                                         <property name="sizePolicy">
+                                          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                           <horstretch>2</horstretch>
+                                           <verstretch>0</verstretch>
+                                          </sizepolicy>
+                                         </property>
+                                         <property name="minimumSize">
+                                          <size>
+                                           <width>110</width>
+                                           <height>40</height>
+                                          </size>
+                                         </property>
+                                         <property name="cursor">
+                                          <cursorShape>PointingHandCursor</cursorShape>
+                                         </property>
+                                         <property name="styleSheet">
+                                          <string notr="true">background-color: rgb(234, 92, 85);
+border-color: rgb(234, 92, 85);</string>
+                                         </property>
+                                         <property name="text">
+                                          <string> Stop</string>
+                                         </property>
+                                         <property name="icon">
+                                          <iconset resource="resources.qrc">
+                                           <normaloff>:/icons/images/icons/rectangle_white.svg</normaloff>:/icons/images/icons/rectangle_white.svg</iconset>
+                                         </property>
+                                         <property name="flat">
+                                          <bool>false</bool>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                       <item>
+                                        <widget class="Line" name="line">
+                                         <property name="sizePolicy">
+                                          <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+                                           <horstretch>0</horstretch>
+                                           <verstretch>0</verstretch>
+                                          </sizepolicy>
+                                         </property>
+                                         <property name="minimumSize">
+                                          <size>
+                                           <width>1</width>
+                                           <height>0</height>
+                                          </size>
+                                         </property>
+                                         <property name="styleSheet">
+                                          <string notr="true">background-color: rgb(200, 200, 200);</string>
+                                         </property>
+                                         <property name="lineWidth">
+                                          <number>1</number>
+                                         </property>
+                                         <property name="orientation">
+                                          <enum>Qt::Vertical</enum>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                       <item>
+                                        <widget class="QPushButton" name="btn_scan">
+                                         <property name="sizePolicy">
+                                          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                           <horstretch>1</horstretch>
+                                           <verstretch>0</verstretch>
+                                          </sizepolicy>
+                                         </property>
+                                         <property name="minimumSize">
+                                          <size>
+                                           <width>110</width>
+                                           <height>40</height>
+                                          </size>
+                                         </property>
+                                         <property name="styleSheet">
+                                          <string notr="true">background-color: rgb(136, 112, 173);</string>
+                                         </property>
+                                         <property name="text">
+                                          <string> Scan</string>
+                                         </property>
+                                         <property name="icon">
+                                          <iconset resource="resources.qrc">
+                                           <normaloff>:/icons/images/icons/aperture_white.svg</normaloff>:/icons/images/icons/aperture_white.svg</iconset>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                       <item>
+                                        <widget class="QPushButton" name="btn_update">
+                                         <property name="sizePolicy">
+                                          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                           <horstretch>1</horstretch>
+                                           <verstretch>0</verstretch>
+                                          </sizepolicy>
+                                         </property>
+                                         <property name="minimumSize">
+                                          <size>
+                                           <width>110</width>
+                                           <height>40</height>
+                                          </size>
+                                         </property>
+                                         <property name="styleSheet">
+                                          <string notr="true">background-color: rgb(136, 112, 173);</string>
+                                         </property>
+                                         <property name="text">
+                                          <string> Update</string>
+                                         </property>
+                                         <property name="icon">
+                                          <iconset resource="resources.qrc">
+                                           <normaloff>:/icons/images/icons/cil-data-transfer-up.png</normaloff>:/icons/images/icons/cil-data-transfer-up.png</iconset>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                       <item>
+                                        <spacer name="horizontalSpacer_9">
+                                         <property name="orientation">
+                                          <enum>Qt::Horizontal</enum>
+                                         </property>
+                                         <property name="sizeHint" stdset="0">
+                                          <size>
+                                           <width>40</width>
+                                           <height>20</height>
+                                          </size>
+                                         </property>
+                                        </spacer>
+                                       </item>
+                                      </layout>
+                                     </item>
+                                    </layout>
                                    </widget>
                                   </item>
                                  </layout>
@@ -2894,114 +2960,164 @@ border-radius: 3px;</string>
                                     <property name="minimumSize">
                                      <size>
                                       <width>0</width>
-                                      <height>65</height>
+                                      <height>50</height>
                                      </size>
                                     </property>
-                                    <property name="title">
-                                     <string>Controls</string>
+                                    <property name="styleSheet">
+                                     <string notr="true">background-color: rgb(244, 244, 244);
+border: none;</string>
                                     </property>
-                                    <widget class="QWidget" name="layoutWidget">
-                                     <property name="geometry">
-                                      <rect>
-                                       <x>0</x>
-                                       <y>20</y>
-                                       <width>411</width>
-                                       <height>42</height>
-                                      </rect>
+                                    <property name="title">
+                                     <string/>
+                                    </property>
+                                    <layout class="QHBoxLayout" name="horizontalLayout_29">
+                                     <property name="leftMargin">
+                                      <number>0</number>
                                      </property>
-                                     <layout class="QHBoxLayout" name="horizontalLayout_9">
-                                      <item>
-                                       <widget class="QPushButton" name="btn_start_file">
-                                        <property name="sizePolicy">
-                                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                                          <horstretch>2</horstretch>
-                                          <verstretch>0</verstretch>
-                                         </sizepolicy>
-                                        </property>
-                                        <property name="minimumSize">
-                                         <size>
-                                          <width>120</width>
-                                          <height>40</height>
-                                         </size>
-                                        </property>
-                                        <property name="cursor">
-                                         <cursorShape>PointingHandCursor</cursorShape>
-                                        </property>
-                                        <property name="styleSheet">
-                                         <string notr="true">background-color: rgb(136, 112, 173);</string>
-                                        </property>
-                                        <property name="text">
-                                         <string> Start</string>
-                                        </property>
-                                        <property name="icon">
-                                         <iconset resource="resources.qrc">
-                                          <normaloff>:/icons/images/icons/play_white.svg</normaloff>:/icons/images/icons/play_white.svg</iconset>
-                                        </property>
-                                        <property name="flat">
-                                         <bool>false</bool>
-                                        </property>
-                                       </widget>
-                                      </item>
-                                      <item>
-                                       <widget class="QPushButton" name="btn_stop_file">
-                                        <property name="sizePolicy">
-                                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                                          <horstretch>2</horstretch>
-                                          <verstretch>0</verstretch>
-                                         </sizepolicy>
-                                        </property>
-                                        <property name="minimumSize">
-                                         <size>
-                                          <width>120</width>
-                                          <height>40</height>
-                                         </size>
-                                        </property>
-                                        <property name="cursor">
-                                         <cursorShape>PointingHandCursor</cursorShape>
-                                        </property>
-                                        <property name="styleSheet">
-                                         <string notr="true">background-color: rgb(136, 112, 173);</string>
-                                        </property>
-                                        <property name="text">
-                                         <string> Stop</string>
-                                        </property>
-                                        <property name="icon">
-                                         <iconset resource="resources.qrc">
-                                          <normaloff>:/icons/images/icons/rectangle_white.svg</normaloff>:/icons/images/icons/rectangle_white.svg</iconset>
-                                        </property>
-                                        <property name="flat">
-                                         <bool>false</bool>
-                                        </property>
-                                       </widget>
-                                      </item>
-                                      <item>
-                                       <widget class="QPushButton" name="btn_result">
-                                        <property name="sizePolicy">
-                                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                                          <horstretch>1</horstretch>
-                                          <verstretch>0</verstretch>
-                                         </sizepolicy>
-                                        </property>
-                                        <property name="minimumSize">
-                                         <size>
-                                          <width>120</width>
-                                          <height>40</height>
-                                         </size>
-                                        </property>
-                                        <property name="styleSheet">
-                                         <string notr="true">background-color: rgb(136, 112, 173);</string>
-                                        </property>
-                                        <property name="text">
-                                         <string> Open Result</string>
-                                        </property>
-                                        <property name="icon">
-                                         <iconset resource="resources.qrc">
-                                          <normaloff>:/icons/images/icons/image_white.svg</normaloff>:/icons/images/icons/image_white.svg</iconset>
-                                        </property>
-                                       </widget>
-                                      </item>
-                                     </layout>
-                                    </widget>
+                                     <property name="topMargin">
+                                      <number>3</number>
+                                     </property>
+                                     <property name="rightMargin">
+                                      <number>3</number>
+                                     </property>
+                                     <property name="bottomMargin">
+                                      <number>3</number>
+                                     </property>
+                                     <item>
+                                      <layout class="QHBoxLayout" name="horizontalLayout_9">
+                                       <property name="spacing">
+                                        <number>15</number>
+                                       </property>
+                                       <item>
+                                        <widget class="QPushButton" name="btn_start_file">
+                                         <property name="sizePolicy">
+                                          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                           <horstretch>2</horstretch>
+                                           <verstretch>0</verstretch>
+                                          </sizepolicy>
+                                         </property>
+                                         <property name="minimumSize">
+                                          <size>
+                                           <width>110</width>
+                                           <height>40</height>
+                                          </size>
+                                         </property>
+                                         <property name="cursor">
+                                          <cursorShape>PointingHandCursor</cursorShape>
+                                         </property>
+                                         <property name="styleSheet">
+                                          <string notr="true">background-color: rgb(84, 209, 99);
+border-color: rgb(84, 209, 99);</string>
+                                         </property>
+                                         <property name="text">
+                                          <string> Start</string>
+                                         </property>
+                                         <property name="icon">
+                                          <iconset resource="resources.qrc">
+                                           <normaloff>:/icons/images/icons/play_white.svg</normaloff>:/icons/images/icons/play_white.svg</iconset>
+                                         </property>
+                                         <property name="flat">
+                                          <bool>false</bool>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                       <item>
+                                        <widget class="QPushButton" name="btn_stop_file">
+                                         <property name="sizePolicy">
+                                          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                           <horstretch>2</horstretch>
+                                           <verstretch>0</verstretch>
+                                          </sizepolicy>
+                                         </property>
+                                         <property name="minimumSize">
+                                          <size>
+                                           <width>110</width>
+                                           <height>40</height>
+                                          </size>
+                                         </property>
+                                         <property name="cursor">
+                                          <cursorShape>PointingHandCursor</cursorShape>
+                                         </property>
+                                         <property name="styleSheet">
+                                          <string notr="true">background-color: rgb(234, 92, 85);
+border-color: rgb(234, 92, 85);</string>
+                                         </property>
+                                         <property name="text">
+                                          <string> Stop</string>
+                                         </property>
+                                         <property name="icon">
+                                          <iconset resource="resources.qrc">
+                                           <normaloff>:/icons/images/icons/rectangle_white.svg</normaloff>:/icons/images/icons/rectangle_white.svg</iconset>
+                                         </property>
+                                         <property name="flat">
+                                          <bool>false</bool>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                       <item>
+                                        <widget class="Line" name="line_2">
+                                         <property name="sizePolicy">
+                                          <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+                                           <horstretch>0</horstretch>
+                                           <verstretch>0</verstretch>
+                                          </sizepolicy>
+                                         </property>
+                                         <property name="minimumSize">
+                                          <size>
+                                           <width>1</width>
+                                           <height>0</height>
+                                          </size>
+                                         </property>
+                                         <property name="styleSheet">
+                                          <string notr="true">background-color: rgb(200, 200, 200);</string>
+                                         </property>
+                                         <property name="orientation">
+                                          <enum>Qt::Vertical</enum>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                       <item>
+                                        <widget class="QPushButton" name="btn_result">
+                                         <property name="sizePolicy">
+                                          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                           <horstretch>1</horstretch>
+                                           <verstretch>0</verstretch>
+                                          </sizepolicy>
+                                         </property>
+                                         <property name="minimumSize">
+                                          <size>
+                                           <width>110</width>
+                                           <height>40</height>
+                                          </size>
+                                         </property>
+                                         <property name="styleSheet">
+                                          <string notr="true">background-color: rgb(136, 112, 173);</string>
+                                         </property>
+                                         <property name="text">
+                                          <string> Open Result</string>
+                                         </property>
+                                         <property name="icon">
+                                          <iconset resource="resources.qrc">
+                                           <normaloff>:/icons/images/icons/image_white.svg</normaloff>:/icons/images/icons/image_white.svg</iconset>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                       <item>
+                                        <spacer name="horizontalSpacer_8">
+                                         <property name="orientation">
+                                          <enum>Qt::Horizontal</enum>
+                                         </property>
+                                         <property name="sizeHint" stdset="0">
+                                          <size>
+                                           <width>40</width>
+                                           <height>20</height>
+                                          </size>
+                                         </property>
+                                        </spacer>
+                                       </item>
+                                      </layout>
+                                     </item>
+                                    </layout>
                                    </widget>
                                   </item>
                                  </layout>
