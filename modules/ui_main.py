@@ -2390,22 +2390,20 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_20.addWidget(self.batch_data_graph)
 
-        self.batch_data_text = QFrame(self.report)
-        self.batch_data_text.setObjectName(u"batch_data_text")
+        self.textBrowser_report = QTextBrowser(self.report)
+        self.textBrowser_report.setObjectName(u"textBrowser_report")
         sizePolicy20 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
         sizePolicy20.setHorizontalStretch(1)
         sizePolicy20.setVerticalStretch(1)
-        sizePolicy20.setHeightForWidth(self.batch_data_text.sizePolicy().hasHeightForWidth())
-        self.batch_data_text.setSizePolicy(sizePolicy20)
-        self.batch_data_text.setStyleSheet(u"background-color: rgb(240, 240, 245);\n"
+        sizePolicy20.setHeightForWidth(self.textBrowser_report.sizePolicy().hasHeightForWidth())
+        self.textBrowser_report.setSizePolicy(sizePolicy20)
+        self.textBrowser_report.setStyleSheet(u"background-color: rgb(240, 240, 245);\n"
 "border-radius: 5px;\n"
 "font-size: 14pt;\n"
 "font-weight: normal;\n"
 "padding: 8px;")
-        self.batch_data_text.setFrameShape(QFrame.StyledPanel)
-        self.batch_data_text.setFrameShadow(QFrame.Raised)
 
-        self.horizontalLayout_20.addWidget(self.batch_data_text)
+        self.horizontalLayout_20.addWidget(self.textBrowser_report)
 
 
         self.verticalLayout_27.addLayout(self.horizontalLayout_20)
@@ -2541,7 +2539,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_21.addWidget(self.def_total_table)
 
-        self.def_total_text = QFrame(self.report)
+        self.def_total_text = QTextBrowser(self.report)
         self.def_total_text.setObjectName(u"def_total_text")
         sizePolicy4.setHeightForWidth(self.def_total_text.sizePolicy().hasHeightForWidth())
         self.def_total_text.setSizePolicy(sizePolicy4)
@@ -2550,12 +2548,10 @@ class Ui_MainWindow(object):
 "font-size: 14pt;\n"
 "font-weight: normal;\n"
 "padding: 8px;")
-        self.def_total_text.setFrameShape(QFrame.StyledPanel)
-        self.def_total_text.setFrameShadow(QFrame.Raised)
 
         self.horizontalLayout_21.addWidget(self.def_total_text)
 
-        self.final_words = QFrame(self.report)
+        self.final_words = QTextBrowser(self.report)
         self.final_words.setObjectName(u"final_words")
         sizePolicy4.setHeightForWidth(self.final_words.sizePolicy().hasHeightForWidth())
         self.final_words.setSizePolicy(sizePolicy4)
@@ -2564,8 +2560,6 @@ class Ui_MainWindow(object):
 "font-size: 14pt;\n"
 "font-weight: normal;\n"
 "padding: 8px;")
-        self.final_words.setFrameShape(QFrame.StyledPanel)
-        self.final_words.setFrameShadow(QFrame.Raised)
 
         self.horizontalLayout_21.addWidget(self.final_words)
 
@@ -2745,7 +2739,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
         self.tabWidget.setCurrentIndex(0)
 
 
