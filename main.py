@@ -18,7 +18,6 @@ import os
 import sys
 import shutil
 import random
-import PySide6
 import numpy as np
 import pyqtgraph as pg
 from PySide6.QtCore import Signal
