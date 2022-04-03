@@ -1592,7 +1592,7 @@ class Ui_MainWindow(object):
         self.video_viewer.setStyleSheet(u"border: 1px solid rgb(220, 220, 220);\n"
 "border-radius: 5px;\n"
 "background-color: rgb(233, 233, 233);\n"
-"")
+"padding: 5px;")
         self.video_viewer.setAlignment(Qt.AlignCenter)
         self.splitter.addWidget(self.video_viewer)
         self.layoutWidget = QWidget(self.splitter)
@@ -1713,7 +1713,7 @@ class Ui_MainWindow(object):
         self.btn_file.setMinimumSize(QSize(110, 35))
         self.btn_file.setAcceptDrops(False)
         self.btn_file.setStyleSheet(u"background-color: rgb(136, 112, 173);\n"
-"border: none;")
+"border: 2px solid rgb(136, 112, 173);")
         icon19 = QIcon()
         icon19.addFile(u":/icons/images/icons/folder-add_white.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_file.setIcon(icon19)
@@ -2961,3 +2961,4 @@ class Ui_MainWindow(object):
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"PySide 6.2.3", None))
         self.version.setText(QCoreApplication.translate("MainWindow", u"Demo Version V1.0.0 Asterisk", None))
     # retranslateUi
+
