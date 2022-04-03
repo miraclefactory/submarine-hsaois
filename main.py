@@ -24,14 +24,15 @@ from PySide6.QtCore import Signal
 from threading import Thread, Lock
 from cv2 import getTickCount, getTickFrequency
 from concurrent.futures import ThreadPoolExecutor
-
 # IMPORT GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
 from widgets import *
 from modules import *
+from modules.db import *
 from modules.detect import *
 from modules import global_var
 from modules.letterbox import *
+# from modules.report_text import *
 from modules.shit_algorithm import *
 from modules.data_visualization import *
 from utils.torch_utils import select_device
@@ -58,9 +59,15 @@ cnt = 0
 is_defetced = False
 is_scan_mode = False
 seq = 1             # SERIAL NUMBER
-class_total = [0 for i in range(10)]
+class_total = [0 for i in range(12)]
 defected_total = 0
 global_var._init()
+trig = False
+
+init_table()
+if verify_general_table():
+    init_batch()
+batch_num = fetch_last_batch_num()
 
 
 class MainWindow(QMainWindow):
@@ -68,7 +75,6 @@ class MainWindow(QMainWindow):
     def __init__(self):
 
         QMainWindow.__init__(self)
-
         # INITIALIZE MODEL
         # ///////////////////////////////////////////////////////////////
         parser = argparse.ArgumentParser()
@@ -87,7 +93,6 @@ class MainWindow(QMainWindow):
         parser.add_argument('--augment', action='store_true', help='augmented inference')
         parser.add_argument('--update', action='store_true', help='update all models')
         self.opt = parser.parse_args()
-        print(self.opt)
         ut, source, weights, view_img, save_txt, imgsz = self.opt.save_dir, self.opt.source, self.opt.weights, \
             self.opt.view_img, self.opt.save_txt, self.opt.img_size
         self.device = select_device(self.opt.device)
@@ -191,6 +196,7 @@ class MainWindow(QMainWindow):
         widgets.btn_scan.clicked.connect(self.scanDetectMode)
         widgets.video_viewer.setAlignment(Qt.AlignCenter)
         # widgets.video_viewer.setPixmap(QPixmap(":images/images/images/smile.png").scaledToWidth(50))
+        widgets.btn_update.clicked.connect(self.sync_database)
 
         # PYQTGRAPH
         # ///////////////////////////////////////////////////////////////
@@ -198,21 +204,36 @@ class MainWindow(QMainWindow):
         widgets.line_graph.setLabel('left', 'Defective(%)', color='#705597')
         widgets.line_graph.setLabel('bottom', 'Class', color='#705597')
         widgets.line_graph.showGrid(x=True, y=True)
-        widgets.line_graph.setXRange(min=0, max=4)
+        # widgets.line_graph.setYRange(min=0, max=1)
+        widgets.line_graph.setXRange(min=0, max=6)
         widgets.line_graph.setMouseEnabled(x=False, y=False)
         pg.setConfigOptions(leftButtonPan=False, antialias=True)
         pen = pg.mkPen({'color': "#705597", 'width': 4})
         self.curve = widgets.line_graph.plot(pen=pen, symbol='o', symbolBrush=QColor("#705597"))
-        self.xtick = [list(zip(range(5), ("mbns","mbls","cfns","cfls","cfpd")))]
+        self.xtick = [list(zip(range(7), ("mbns", "mbls", "cfns", "cfls", "cfpd", "mbs", "mbws")))]
         xax = widgets.line_graph.getAxis('bottom')
         xax.setTicks(self.xtick)
-        self.x_axis = [0, 1, 2, 3, 4]
-        self.y_axis = [0, 0, 0, 0, 0]
+        self.x_axis = [0, 1, 2, 3, 4, 5, 6]
+        self.y_axis = [0, 0, 0, 0, 0, 0, 0]
         self.curve.setData(self.x_axis, self.y_axis)
-
         widgets.progressBar_1.setValue(0)
         widgets.progressBar_2.setValue(0)
         widgets.progressBar_3.setValue(0)
+
+        # PYQTGRAPH_report
+        # ///////////////////////////////////////////////////////////////
+        widgets.batch_data_graph.setBackground((240, 240, 245))
+        widgets.batch_data_graph.setLabel('left', ' accuracy(%)', color='#705597')
+        widgets.batch_data_graph.setLabel('bottom', 'Class', color='#705597')
+        widgets.batch_data_graph.showGrid(x=True, y=True)
+        widgets.batch_data_graph.setXRange(min=0, max=20)
+        widgets.batch_data_graph.setMouseEnabled(x=True, y=False)
+        pg.setConfigOptions(leftButtonPan=False, antialias=True)
+        pen = pg.mkPen({'color': "#705597", 'width': 4})
+        self.curve2 = widgets.batch_data_graph.plot(
+            pen=pen, symbol='s', symbolBrush=QColor("#705597"))
+        self.x_axis_batch = fetch_batch_num()
+        self.y_axis_batch = self.handle_per_list(fecth_defective_data())
 
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
@@ -222,8 +243,6 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         useCustomTheme = True
         themeFile = "themes/py_dracula_light.qss"
-        # widgets.home_bg.setPixmap(QPixmap(":images/images/images/gray.png").\
-        #     scaledToHeight(400, Qt.SmoothTransformation))
 
         # SET THEME AND HACKS
         if useCustomTheme:
@@ -289,7 +308,7 @@ class MainWindow(QMainWindow):
             print('Mouse click: LEFT CLICK')
         if event.buttons() == Qt.RightButton:
             print('Mouse click: RIGHT CLICK')
-    
+
     # SLOT FUNCTIONS FOR THREAD EMITTED SIGNALS
     # ///////////////////////////////////////////////////////////////
     def printToTextBrowser(self, text):
@@ -299,11 +318,11 @@ class MainWindow(QMainWindow):
 
     def createMessageBox(self, title, text):
         QMessageBox.information(None, title, text)
-    
+
     def updateImage(self, image):
         widgets.video_viewer.setPixmap(
             QPixmap.fromImage(image).scaledToWidth(widgets.video_viewer.width(), Qt.SmoothTransformation))
-    
+
     def clearVideoBox(self):
         widgets.video_viewer.clear()
 
@@ -313,13 +332,17 @@ class MainWindow(QMainWindow):
     def updateGraph(self, data, seq, frac):
         self.curve.setData(self.x_axis, data)
         widgets.detected.setText(str(seq))
-        widgets.frac_defective.setText(str(round(frac, 2) * 100)+ "%")
+        widgets.frac_defective.setText(str(round(frac, 2) * 100) + "%")
         text = [self.xtick[0][int(i[1])][1] for i in (data, self.x_axis) if i[0] == max([i for i in data])]
         if len(text) > 0:
             widgets.most_defected.setText(str(text[0]))
-        widgets.progressBar_1.setValue(class_total[6] + class_total[7])
-        widgets.progressBar_2.setValue(class_total[0] + class_total[1])
-        widgets.progressBar_3.setValue(seq - class_total[4])
+        mb = class_total[6]+class_total[7]+class_total[8]+class_total[9]
+        widgets.progressBar_1.setValue(mb)
+        cpu_fan = class_total[0] + class_total[2]
+        widgets.progressBar_2.setValue(cpu_fan)
+        fan_port = class_total[5]
+        widgets.progressBar_3.setValue(fan_port)
+        update_class_table(mb, cpu_fan, fan_port)
 
     def updateTable(self, ls, num):
         widgets.tableWidget.setItem(num, 0, QTableWidgetItem(str(num)))
@@ -340,6 +363,7 @@ class MainWindow(QMainWindow):
             widgets.textBrowser.append("Open File: " + i)
 
     def open_result(self):
+        path_to_delete = os.getcwd()+""
         global img_broswer
         img_broswer = Window_img_broswer()
         img_broswer.ui.show()
@@ -414,23 +438,72 @@ class MainWindow(QMainWindow):
             widgets.textBrowser.setText(u'Please Open Your Camera')
 
     def reset_all(self):
-        global seq, defected_total, class_total, hashpool, input_list
+        global seq, defected_total, class_total, hashpool, input_list, batch_num, trig
+        self.x_axis_batch = fetch_batch_num()
+        self.y_axis_batch = self.handle_per_list(fecth_defective_data())
         seq = 1
+        trig = True
         hashpool = []
         input_list = []
         defected_total = 0
-        self.y_axis = [0, 0, 0, 0, 0]
-        class_total = [0 for i in range(10)]
-        a = global_var.get_value("batch_number")
-        global_var.set_value_int("batch_number", a+1)
+        self.y_axis = [0, 0, 0, 0, 0, 0, 0]
+        class_total = [0 for i in range(12)]
+        # self.y_axis_2[batch_num]= widgets.frac_defective.text()
+        frac_d_n = self.handle_per(widgets.frac_defective.text())
+        update_general_table(batch_num, frac_d_n)
+        self.x_axis_batch = fetch_batch_num()
+        self.y_axis_batch = self.handle_per_list(fecth_defective_data())
+        cal_frac(self.y_axis_batch)
+        cal_class(fetch_general_class())
+        self.update_report_frac(self.x_axis_batch, self.y_axis_batch)
+        # self.update_table_widget2(batch_num,fetch_general_class())
+        batch_num += 1
+        self.update_table_report(fetch_general_class())
+        delete_class_table()
         self.es.update_graph.emit(self.y_axis, seq-1, defected_total/seq)
         widgets.most_defected.setText("None")
-        widgets.batch_number.setText(str(a+1))
+        widgets.batch_number.setText(str(batch_num))
         widgets.tableWidget.clearContents()
         widgets.tableWidget.setItem(0, 0, QTableWidgetItem("Log Entry"))
         widgets.tableWidget.setItem(0, 1, QTableWidgetItem("Serial Number"))
         widgets.tableWidget.setItem(0, 2, QTableWidgetItem("Result Class"))
         widgets.tableWidget.setItem(0, 3, QTableWidgetItem("Notes"))
+
+    def update_table_report(self, ls):
+        for i in range(1, len(ls)):
+            for j in range(len(ls[i])):
+                widgets.tableWidget_2.setItem(i, j, QTableWidgetItem(ls[i][j]))
+
+    def handle_per(self, strwithper):  # for cloud side
+        strx = strwithper.split("%", 1)[0]
+        return float(strx)
+
+    def update_report_frac(self, ls, list):
+        self.curve2.setData(ls, list)
+
+    def handle_per_list(self, ls) -> list:
+        data = []
+        for i in ls:
+            i = i.split("%", 1)[0]
+            data.append(float(i))
+        return data
+    
+    def sync_database(self):
+        global batch_num, trig
+        if trig == True:
+            frac_d_n = self.handle_per(widgets.frac_defective.text())
+            print(self.handle_per(widgets.frac_defective.text()))
+            update_general_table(batch_num, frac_d_n)
+            self.update_table_report(fetch_general_class())
+            self.x_axis_batch = fetch_batch_num()
+            self.y_axis_batch = self.handle_per_list(fecth_defective_data())
+            self.update_report_frac(self.x_axis_batch, self.y_axis_batch)
+            batch_num += 1
+            delete_class_table()
+            trig = False
+        # connect to the cloud
+        # 1. overwrite the file in the cloud
+        # 2. upload last record for general table
 
     def openFrame(self):
         global pool, is_scan_mode, is_live_mode
@@ -462,26 +535,32 @@ class MainWindow(QMainWindow):
                         cnt += 1
                         if len(class_list) > 1:
                             input_list.append(class_list)
-                        if cnt > 5 and is_new_img:
+                        if cnt > 10 and is_new_img:
                             is_new_img = False
                             if is_defetced == False and len(input_list) > 1:
                                 is_defetced = True
                                 for i in input_list[len(input_list)-1]:
-                                    if i in [0,1,5,6,7]:
-                                        cv2.imwrite(f"defected/defected - {seq}.jpg", cvimg)
+                                    if i in [0, 1, 3, 5, 6, 7, 8, 9]:
+                                        cv2.imwrite(
+                                            f"defected/defected - {seq}.jpg", cvimg)
+                                        # update_error_pic(handleimg)
                         hashpool = hashpool[i+1:]
                         break
                     if hmd >= 5:
                         if len(input_list) > 0:
-                            a = feature_max_pooling([length_weighted_average_pooling(i)\
-                                                    for i in segementation(input_list, 4)])
+                            a = feature_max_pooling([length_weighted_average_pooling(i)
+                                                for i in segementation(input_list, 4)])
                             if detect_error(self, a, seq) is True:
                                 defected_total += 1
-                                bn = global_var.get_value("batch_number")
-                                self.es.update_table.emit(["BN-"+str(bn)+"-SN-"+str(seq), \
+                                bn = batch_num
+                                self.es.update_table.emit(["BN-"+str(bn)+"-SN-"+str(seq),
                                                           str(a), "none"], defected_total)
-                            self.y_axis = update_line_graph(self.y_axis, a, class_total, seq)
-                            self.es.update_graph.emit(self.y_axis, seq, defected_total/seq)
+                                update_error_details(
+                                    Vector_output=a, serial_number="BN-"+str(bn)+"-SN-"+str(seq))
+                            self.y_axis = update_line_graph(
+                                self.y_axis, a, class_total, seq)
+                            self.es.update_graph.emit(
+                                self.y_axis, seq, defected_total/seq)
                             seq += 1
                         is_defetced = False
                         input_list = []
@@ -523,17 +602,19 @@ class MainWindow(QMainWindow):
                             if is_defetced == False and len(input_list) > 1:
                                 is_defetced = True
                                 for i in input_list[len(input_list)-1]:
-                                    if i in [0,1,5,6,7]:
+                                    if i in [0, 1, 3, 5, 6, 7, 8, 9]:
                                         cv2.imwrite(f"defected/defected - {seq}.jpg", cvimg)
                             if cnt >= 6:
                                 if len(input_list) > 0:
-                                    a = feature_max_pooling([length_weighted_average_pooling(i)\
-                                                            for i in segementation(input_list, 4)])
+                                    a = feature_max_pooling([length_weighted_average_pooling(i)
+                                                        for i in segementation(input_list, 4)])
                                     if detect_error(self, a, seq) is True:
                                         defected_total += 1
-                                        bn = global_var.get_value("batch_number")
-                                        self.es.update_table.emit(["BN-"+str(bn)+"-SN-"+str(seq), \
+                                        bn = batch_num
+                                        self.es.update_table.emit(["BN-"+str(bn)+"-SN-"+str(seq),
                                                                   str(a), "none"], defected_total)
+                                        update_error_details(Vector_output=a, \
+                                            serial_number="BN-"+str(bn)+"-SN-"+str(seq))                          
                                     self.y_axis = update_line_graph(self.y_axis, a, class_total, seq)
                                     self.es.update_graph.emit(self.y_axis, seq, defected_total/seq)
                                     seq += 1
@@ -559,7 +640,7 @@ class MainWindow(QMainWindow):
         with torch.no_grad():
             img = letterbox(img, new_shape=self.opt.img_size)[0]
             # Convert
-            img = img[:, :, ::-1].transpose(2, 0, 1)  # BGR to RGB, to 3x416x416
+            img = img[:, :, ::-1].transpose(2, 0, 1)
             img = np.ascontiguousarray(img)
             img = torch.from_numpy(img).to(self.device)
             img = img.half() if self.half else img.float()  # uint8 to fp16/32
@@ -585,9 +666,10 @@ class MainWindow(QMainWindow):
                             str(int(xyxy[2])) + ' ' + str(int(xyxy[3])))
                         total_name.append(box)
                         plot_one_box(xyxy, showimg, label=label, color=self.colors[int(cls)],
-                                        line_thickness=2)   #在图像img上绘制一个边界框
+                                     line_thickness=2)  # 在图像img上绘制一个边界框
                         class_list.append(int(cls.item()))
-        tl = round(0.002 * (showimg.shape[0] + showimg.shape[1]) / 2) + 1  # line/font thickness
+        # line/font thickness
+        tl = round(0.002 * (showimg.shape[0] + showimg.shape[1]) / 2) + 1
         self.reclabel = total_name
         self.result = cv2.cvtColor(showimg, cv2.COLOR_BGR2RGB)
         showImage = QImage(self.result.data, self.result.shape[1], self.result.shape[0],
@@ -601,7 +683,7 @@ class MainWindow(QMainWindow):
         shutil.rmtree(os.getcwd()+"/buffer_img")
         os.mkdir(os.getcwd()+"/buffer_img")
         if len(selectedFile) == 0:
-            QMessageBox.warning(None, "Warning", 
+            QMessageBox.warning(None, "Warning",
                                 "Please select a file first!", QMessageBox.Ok)
         else:
             widgets.textBrowser.append("\n[Run] File Detecting...\n")
@@ -617,7 +699,8 @@ class MainWindow(QMainWindow):
                 sys.argv[1:4] = ["--source", i, "--save-txt"]   # SET ARGUMENTS
                 input_class = detect()                          # RECEIVE ClASS RESULT
                 for i in input_class:
-                    global_var.set_value_list("list_for_vis", global_var.get_value("list_for_vis").append(i))
+                    global_var.set_value_list(
+                        "list_for_vis", global_var.get_value("list_for_vis").append(i))
                 self.es.text_print.emit("Detect Class Result: " + str(input_class))
             except FileNotFoundError:
                 self.es.text_print.emit("Detect Mode Error: " + "File Not Found")
@@ -634,10 +717,10 @@ class MainWindow(QMainWindow):
                                 "Process Finished in " + str(round(time, 3)) +
                                 "s, " + "results saved to 'modules/runs/detect'.\n")
         if status_code == 0:
-            self.es.message_box.emit("Success", "Success:\n\nProcess Finished in " 
+            self.es.message_box.emit("Success", "Success:\n\nProcess Finished in "
                                      + str(round(time, 3)) + "s.")
         else:
-            self.es.message_box.emit("Warning", 
+            self.es.message_box.emit("Warning",
                                      "Warning:\n\nAn Error Occurred During Process.\nProcess Finished in "
                                      + str(round(time, 3)) + "s.")
         len_of_dir = len(os.listdir(os.getcwd()+"/modules/runs/detect"))
@@ -648,11 +731,109 @@ class MainWindow(QMainWindow):
             elif i != 0:
                 ori_path = os.getcwd()+f"/modules/runs/detect/exp{i+1}/"
             file_list = os.listdir(ori_path)
-            file_list = get_pure_list(file_list,"labels")
+            file_list = get_pure_list(file_list, "labels")
             if len(file_list) > 0:
                 for file in file_list:
-                    shutil.move(ori_path+file,target+file)
+                    shutil.move(ori_path+file, target+file)
 
+def handle_str_table(ls):
+    for i in range(len(ls)):
+        for j in range(len(ls[i])):
+            ls[i][j] = int(ls[i][j])
+    return ls
+
+def cal_frac(ls) -> None:
+    if len(ls) == 0:
+        return None
+    cnt = 0
+    loss_point = 0
+    dam_point = False
+    len_ls = len(ls)
+    for i in ls:
+        if i == 100:
+            continue
+        if i != 100:
+            cnt += 1
+        if i < 90 and i > 80:
+            loss_point += 1
+            continue
+        if i < 80:
+            dam_point = True
+            continue
+    frac = cnt/len_ls
+    if loss_point >= 2:
+        frac += 0.1
+    if frac >= 0 and frac <= 0.15 and dam_point == False:
+        frac_res_good()
+    if frac > 0.15 and frac <= 0.25 and dam_point == False:
+        frac_res_average()
+    elif frac > 0.25 or dam_point:
+        frac_res_worse()
+    return None
+# quote machine lerning --》 to introduce
+
+def cal_class(ls):
+    if len(ls) == 0:
+        return None
+    cls_pool = [0,0,0]
+    cl_mb = 0
+    cl_cpu_fan = 0
+    cl_fan_port = 0
+    for i in range(1,len(ls)):
+        for idx,j in enumerate(ls[i]):
+            if idx == 0:
+                cl_mb += int(j)
+            if idx == 1:
+                cl_cpu_fan += int(j)
+            if idx == 2:
+                cl_fan_port += int(j)
+    # comment on the res
+    cls_pool[0]=cl_mb
+    cls_pool[1]=cl_cpu_fan
+    cls_pool[2]=cl_fan_port
+    tmp_max = cls_pool.index(max(cls_pool))
+    tmp_min = cls_pool.index(min(cls_pool))
+    # return tmp_max,tmp_min
+    class_res_best(tmp_min)
+    class_res_worse(tmp_max)
+
+def pre_for_frac():
+    pass
+
+def pre_for_class():
+    pass
+
+def frac_res_good():
+    # text to be shown upper side
+    widgets.textBrowser_report.setText("Generally Good.\n\
+        Almost No deviation.\n\
+        Keep going.\n\
+        Predictions are given.")
+
+def frac_res_average():
+    # text to be shown upper side
+    widgets.textBrowser_report.setText("Generally Not bad.\n\
+        deviations should be taken care of.\n\
+        Seek the most infective error on the table below\n\
+        ")
+
+def frac_res_worse():
+    # text to be shown upper side
+    widgets.textBrowser_report.setText("<strong>Generally Bad!</strong>\n\
+        deviations is unacceptable.\n\
+        Seek the most infective error on the table below.\n")
+
+def class_res_best(tmp_min):
+    l = ["MB", "CPU Fan", "Fan Port"]
+    widgets.def_total_text.append("You are best at " + l[tmp_min])
+
+def class_res_worse(tmp_max):
+    l = ["MB", "CPU Fan", "Fan Port"]
+    widgets.def_total_text.append("You are worst at " + l[tmp_max])
+
+def general_res_adv():
+    # use ml to predicate frac and class res and give a general advice
+    pass
 
 # CLASS FOR EMITTING SIGNALS
 class EmitSignal(QObject):

@@ -11,7 +11,6 @@ class Window_img_broswer:
     def __init__(self):
 
         self.img_to_handle = [] # 图片的路径集合
-
         super().__init__()
         self.ui = QUiLoader().load('image_browser.ui')
         self.ui.setWindowTitle('Submarine - Image Browser')
