@@ -30,7 +30,7 @@ class AppFunctions(MainWindow):
         """
 
         # SET MANUAL STYLES
-        self.ui.textBrowser.setStyleSheet(" border-radius: 5px; background-color: rgb(240, 240, 245); font-size: 12pt;")
+        self.ui.textBrowser.setStyleSheet("background-color: rgb(242, 242, 242); border: none; border-left: 1px rgb(230, 230, 230); font-size: 12pt;")
         self.ui.dash_frame_1.setStyleSheet("border-radius: 5px; background-color: rgb(240, 240, 245); font-size: 14pt; padding: 5px;")
         self.ui.dash_frame_2.setStyleSheet("border-radius: 5px; background-color: rgb(240, 240, 245); font-size: 14pt;padding: 5px;")
         self.ui.dash_frame_3.setStyleSheet("border-radius: 5px; background-color: rgb(240, 240, 245); font-size: 14pt; padding: 5px;")

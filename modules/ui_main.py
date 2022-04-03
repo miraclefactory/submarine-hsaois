@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main.ui'
+## Form generated from reading UI file 'new.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.3
 ##
@@ -16,9 +16,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplication, QFrame,
-    QGridLayout, QGroupBox, QHBoxLayout, QHeaderView,
-    QLabel, QLayout, QLineEdit, QMainWindow,
-    QProgressBar, QPushButton, QSizePolicy, QSpacerItem,
+    QGridLayout, QHBoxLayout, QHeaderView, QLabel,
+    QLayout, QLineEdit, QMainWindow, QProgressBar,
+    QPushButton, QSizePolicy, QSpacerItem, QSplitter,
     QStackedWidget, QTabWidget, QTableWidget, QTableWidgetItem,
     QTextBrowser, QTextEdit, QVBoxLayout, QWidget)
 
@@ -32,7 +32,7 @@ class Ui_MainWindow(object):
         MainWindow.resize(1280, 721)
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Ignored)
         sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setVerticalStretch(1)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
         MainWindow.setMinimumSize(QSize(1080, 660))
@@ -824,6 +824,10 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
+        self.splitter_4 = QSplitter(self.styleSheet)
+        self.splitter_4.setObjectName(u"splitter_4")
+        self.splitter_4.setGeometry(QRect(0, 0, 0, 0))
+        self.splitter_4.setOrientation(Qt.Vertical)
         self.appMargins = QVBoxLayout(self.styleSheet)
         self.appMargins.setSpacing(0)
         self.appMargins.setObjectName(u"appMargins")
@@ -1239,7 +1243,7 @@ class Ui_MainWindow(object):
         self.titleRightInfo = QLabel(self.leftBox)
         self.titleRightInfo.setObjectName(u"titleRightInfo")
         sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setHorizontalStretch(10)
         sizePolicy4.setVerticalStretch(0)
         sizePolicy4.setHeightForWidth(self.titleRightInfo.sizePolicy().hasHeightForWidth())
         self.titleRightInfo.setSizePolicy(sizePolicy4)
@@ -1248,6 +1252,19 @@ class Ui_MainWindow(object):
         self.titleRightInfo.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.horizontalLayout_3.addWidget(self.titleRightInfo)
+
+        self.label_15 = QLabel(self.leftBox)
+        self.label_15.setObjectName(u"label_15")
+        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy5.setHorizontalStretch(1)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.label_15.sizePolicy().hasHeightForWidth())
+        self.label_15.setSizePolicy(sizePolicy5)
+        self.label_15.setStyleSheet(u"color: rgb(96, 96, 96);")
+        self.label_15.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_15.setMargin(5)
+
+        self.horizontalLayout_3.addWidget(self.label_15)
 
 
         self.horizontalLayout.addWidget(self.leftBox)
@@ -1364,7 +1381,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_15 = QVBoxLayout(self.pagesContainer)
         self.verticalLayout_15.setSpacing(0)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
-        self.verticalLayout_15.setContentsMargins(10, 10, 10, 10)
+        self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
         self.stackedWidget = QStackedWidget(self.pagesContainer)
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.stackedWidget.setStyleSheet(u"background: transparent;")
@@ -1385,11 +1402,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_25.setObjectName(u"horizontalLayout_25")
         self.home_logo = QPushButton(self.home)
         self.home_logo.setObjectName(u"home_logo")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.home_logo.sizePolicy().hasHeightForWidth())
-        self.home_logo.setSizePolicy(sizePolicy5)
+        sizePolicy6 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.home_logo.sizePolicy().hasHeightForWidth())
+        self.home_logo.setSizePolicy(sizePolicy6)
         self.home_logo.setStyleSheet(u"border: none;")
         icon14 = QIcon()
         icon14.addFile(u":/images/images/images/6.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -1455,11 +1472,8 @@ class Ui_MainWindow(object):
 
         self.label_11 = QLabel(self.home)
         self.label_11.setObjectName(u"label_11")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy6.setHorizontalStretch(1)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.label_11.sizePolicy().hasHeightForWidth())
-        self.label_11.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.label_11.sizePolicy().hasHeightForWidth())
+        self.label_11.setSizePolicy(sizePolicy5)
         self.label_11.setStyleSheet(u"border-top-right-radius: 5px;\n"
 "border-bottom-right-radius: 5px;\n"
 "border-left: 2px solid rgb(112, 85, 151);\n"
@@ -1471,8 +1485,8 @@ class Ui_MainWindow(object):
 
         self.label_12 = QLabel(self.home)
         self.label_12.setObjectName(u"label_12")
-        sizePolicy6.setHeightForWidth(self.label_12.sizePolicy().hasHeightForWidth())
-        self.label_12.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.label_12.sizePolicy().hasHeightForWidth())
+        self.label_12.setSizePolicy(sizePolicy5)
         self.label_12.setStyleSheet(u"border-top-right-radius: 5px;\n"
 "border-bottom-right-radius: 5px;\n"
 "border-left: 2px solid rgb(112, 85, 151);\n"
@@ -1484,8 +1498,8 @@ class Ui_MainWindow(object):
 
         self.label_9 = QLabel(self.home)
         self.label_9.setObjectName(u"label_9")
-        sizePolicy6.setHeightForWidth(self.label_9.sizePolicy().hasHeightForWidth())
-        self.label_9.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.label_9.sizePolicy().hasHeightForWidth())
+        self.label_9.setSizePolicy(sizePolicy5)
         self.label_9.setStyleSheet(u"border-top-right-radius: 5px;\n"
 "border-bottom-right-radius: 5px;\n"
 "border-left: 2px solid rgb(112, 85, 151);\n"
@@ -1513,8 +1527,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_28.setObjectName(u"horizontalLayout_28")
         self.video_tu = QPushButton(self.home)
         self.video_tu.setObjectName(u"video_tu")
-        sizePolicy5.setHeightForWidth(self.video_tu.sizePolicy().hasHeightForWidth())
-        self.video_tu.setSizePolicy(sizePolicy5)
+        sizePolicy6.setHeightForWidth(self.video_tu.sizePolicy().hasHeightForWidth())
+        self.video_tu.setSizePolicy(sizePolicy6)
         self.video_tu.setMinimumSize(QSize(120, 32))
         self.video_tu.setStyleSheet(u"color: #555;\n"
 "font-size: 12pt;\n"
@@ -1534,79 +1548,70 @@ class Ui_MainWindow(object):
         self.widgets = QWidget()
         self.widgets.setObjectName(u"widgets")
         self.widgets.setStyleSheet(u"b")
-        self.horizontalLayout_8 = QHBoxLayout(self.widgets)
-        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
-        self.horizontalLayout_7 = QHBoxLayout()
-        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.verticalLayout = QVBoxLayout()
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.row_2 = QFrame(self.widgets)
-        self.row_2.setObjectName(u"row_2")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(1)
-        sizePolicy7.setHeightForWidth(self.row_2.sizePolicy().hasHeightForWidth())
-        self.row_2.setSizePolicy(sizePolicy7)
-        self.row_2.setMinimumSize(QSize(0, 150))
-        self.row_2.setFrameShape(QFrame.StyledPanel)
-        self.row_2.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_19 = QVBoxLayout(self.row_2)
-        self.verticalLayout_19.setObjectName(u"verticalLayout_19")
-        self.tabWidget = QTabWidget(self.row_2)
+        self.horizontalLayout_6 = QHBoxLayout(self.widgets)
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.splitter_3 = QSplitter(self.widgets)
+        self.splitter_3.setObjectName(u"splitter_3")
+        self.splitter_3.setOrientation(Qt.Horizontal)
+        self.splitter_3.setHandleWidth(5)
+        self.tabWidget = QTabWidget(self.splitter_3)
         self.tabWidget.setObjectName(u"tabWidget")
-        sizePolicy8 = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Expanding)
-        sizePolicy8.setHorizontalStretch(0)
-        sizePolicy8.setVerticalStretch(0)
-        sizePolicy8.setHeightForWidth(self.tabWidget.sizePolicy().hasHeightForWidth())
-        self.tabWidget.setSizePolicy(sizePolicy8)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Expanding)
+        sizePolicy7.setHorizontalStretch(1)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.tabWidget.sizePolicy().hasHeightForWidth())
+        self.tabWidget.setSizePolicy(sizePolicy7)
         self.tabWidget.setMinimumSize(QSize(0, 0))
         self.tabWidget.setMaximumSize(QSize(16777215, 16777215))
-        self.tabWidget.setStyleSheet(u"background-color: rgb(244, 244, 244);")
+        self.tabWidget.setStyleSheet(u"")
         self.tabWidget.setTabPosition(QTabWidget.North)
         self.tabWidget.setTabShape(QTabWidget.Rounded)
-        self.tabWidget.setElideMode(Qt.ElideRight)
+        self.tabWidget.setElideMode(Qt.ElideLeft)
+        self.tabWidget.setUsesScrollButtons(False)
+        self.tabWidget.setTabsClosable(False)
         self.tabWidget.setMovable(True)
+        self.tabWidget.setTabBarAutoHide(False)
         self.live = QWidget()
         self.live.setObjectName(u"live")
-        self.verticalLayout_22 = QVBoxLayout(self.live)
-        self.verticalLayout_22.setObjectName(u"verticalLayout_22")
-        self.video_viewer = QLabel(self.live)
+        self.horizontalLayout_7 = QHBoxLayout(self.live)
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.splitter = QSplitter(self.live)
+        self.splitter.setObjectName(u"splitter")
+        self.splitter.setOrientation(Qt.Vertical)
+        self.splitter.setHandleWidth(5)
+        self.video_viewer = QLabel(self.splitter)
         self.video_viewer.setObjectName(u"video_viewer")
-        sizePolicy4.setHeightForWidth(self.video_viewer.sizePolicy().hasHeightForWidth())
-        self.video_viewer.setSizePolicy(sizePolicy4)
-        self.video_viewer.setStyleSheet(u"background-color: rgba(129, 129, 129, 30);\n"
-"border: 1px solid rgb(200, 200, 200);\n"
-"border-radius: 3px;")
-
-        self.verticalLayout_22.addWidget(self.video_viewer)
-
-        self.groupBox = QGroupBox(self.live)
-        self.groupBox.setObjectName(u"groupBox")
-        sizePolicy9 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Minimum)
-        sizePolicy9.setHorizontalStretch(0)
-        sizePolicy9.setVerticalStretch(0)
-        sizePolicy9.setHeightForWidth(self.groupBox.sizePolicy().hasHeightForWidth())
-        self.groupBox.setSizePolicy(sizePolicy9)
-        self.groupBox.setMinimumSize(QSize(0, 50))
-        self.groupBox.setStyleSheet(u"background-color: rgb(244, 244, 244);\n"
-"border: none;")
-        self.horizontalLayout_31 = QHBoxLayout(self.groupBox)
-        self.horizontalLayout_31.setObjectName(u"horizontalLayout_31")
-        self.horizontalLayout_31.setContentsMargins(0, 3, 3, 3)
-        self.horizontalLayout_11 = QHBoxLayout()
+        sizePolicy8 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy8.setHorizontalStretch(0)
+        sizePolicy8.setVerticalStretch(1)
+        sizePolicy8.setHeightForWidth(self.video_viewer.sizePolicy().hasHeightForWidth())
+        self.video_viewer.setSizePolicy(sizePolicy8)
+        self.video_viewer.setMinimumSize(QSize(100, 100))
+        self.video_viewer.setAutoFillBackground(False)
+        self.video_viewer.setStyleSheet(u"border: 1px solid rgb(220, 220, 220);\n"
+"border-radius: 5px;\n"
+"background-color: rgb(233, 233, 233);\n"
+"")
+        self.video_viewer.setAlignment(Qt.AlignCenter)
+        self.splitter.addWidget(self.video_viewer)
+        self.layoutWidget = QWidget(self.splitter)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.horizontalLayout_11 = QHBoxLayout(self.layoutWidget)
         self.horizontalLayout_11.setSpacing(15)
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
-        self.btn_start_live = QPushButton(self.groupBox)
+        self.horizontalLayout_11.setContentsMargins(0, 5, 0, 0)
+        self.btn_start_live = QPushButton(self.layoutWidget)
         self.btn_start_live.setObjectName(u"btn_start_live")
-        sizePolicy10 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy10.setHorizontalStretch(2)
-        sizePolicy10.setVerticalStretch(0)
-        sizePolicy10.setHeightForWidth(self.btn_start_live.sizePolicy().hasHeightForWidth())
-        self.btn_start_live.setSizePolicy(sizePolicy10)
+        sizePolicy9 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy9.setHorizontalStretch(2)
+        sizePolicy9.setVerticalStretch(0)
+        sizePolicy9.setHeightForWidth(self.btn_start_live.sizePolicy().hasHeightForWidth())
+        self.btn_start_live.setSizePolicy(sizePolicy9)
         self.btn_start_live.setMinimumSize(QSize(110, 40))
         self.btn_start_live.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_start_live.setStyleSheet(u"background-color: rgb(84, 209, 99);\n"
-"border-color: rgb(84, 209, 99);\n"
+        self.btn_start_live.setStyleSheet(u"background-color: rgb(136, 112, 173);\n"
+"\n"
 "")
         icon15 = QIcon()
         icon15.addFile(u":/icons/images/icons/play_white.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -1615,14 +1620,14 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_11.addWidget(self.btn_start_live)
 
-        self.btn_stop_live = QPushButton(self.groupBox)
+        self.btn_stop_live = QPushButton(self.layoutWidget)
         self.btn_stop_live.setObjectName(u"btn_stop_live")
-        sizePolicy10.setHeightForWidth(self.btn_stop_live.sizePolicy().hasHeightForWidth())
-        self.btn_stop_live.setSizePolicy(sizePolicy10)
+        sizePolicy9.setHeightForWidth(self.btn_stop_live.sizePolicy().hasHeightForWidth())
+        self.btn_stop_live.setSizePolicy(sizePolicy9)
         self.btn_stop_live.setMinimumSize(QSize(110, 40))
         self.btn_stop_live.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_stop_live.setStyleSheet(u"background-color: rgb(234, 92, 85);\n"
-"border-color: rgb(234, 92, 85);")
+        self.btn_stop_live.setStyleSheet(u"background-color: rgb(136, 112, 173);\n"
+"")
         icon16 = QIcon()
         icon16.addFile(u":/icons/images/icons/rectangle_white.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_stop_live.setIcon(icon16)
@@ -1630,14 +1635,14 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_11.addWidget(self.btn_stop_live)
 
-        self.line = QFrame(self.groupBox)
+        self.line = QFrame(self.layoutWidget)
         self.line.setObjectName(u"line")
-        sizePolicy11 = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Minimum)
-        sizePolicy11.setHorizontalStretch(0)
-        sizePolicy11.setVerticalStretch(0)
-        sizePolicy11.setHeightForWidth(self.line.sizePolicy().hasHeightForWidth())
-        self.line.setSizePolicy(sizePolicy11)
-        self.line.setMinimumSize(QSize(1, 0))
+        sizePolicy10 = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Fixed)
+        sizePolicy10.setHorizontalStretch(0)
+        sizePolicy10.setVerticalStretch(0)
+        sizePolicy10.setHeightForWidth(self.line.sizePolicy().hasHeightForWidth())
+        self.line.setSizePolicy(sizePolicy10)
+        self.line.setMinimumSize(QSize(1, 40))
         self.line.setStyleSheet(u"background-color: rgb(200, 200, 200);")
         self.line.setLineWidth(1)
         self.line.setFrameShape(QFrame.VLine)
@@ -1645,27 +1650,29 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_11.addWidget(self.line)
 
-        self.btn_scan = QPushButton(self.groupBox)
+        self.btn_scan = QPushButton(self.layoutWidget)
         self.btn_scan.setObjectName(u"btn_scan")
-        sizePolicy12 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy12.setHorizontalStretch(1)
-        sizePolicy12.setVerticalStretch(0)
-        sizePolicy12.setHeightForWidth(self.btn_scan.sizePolicy().hasHeightForWidth())
-        self.btn_scan.setSizePolicy(sizePolicy12)
+        sizePolicy11 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy11.setHorizontalStretch(1)
+        sizePolicy11.setVerticalStretch(0)
+        sizePolicy11.setHeightForWidth(self.btn_scan.sizePolicy().hasHeightForWidth())
+        self.btn_scan.setSizePolicy(sizePolicy11)
         self.btn_scan.setMinimumSize(QSize(110, 40))
-        self.btn_scan.setStyleSheet(u"background-color: rgb(136, 112, 173);")
+        self.btn_scan.setStyleSheet(u"background-color: rgb(136, 112, 173);\n"
+"")
         icon17 = QIcon()
         icon17.addFile(u":/icons/images/icons/aperture_white.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_scan.setIcon(icon17)
 
         self.horizontalLayout_11.addWidget(self.btn_scan)
 
-        self.btn_update = QPushButton(self.groupBox)
+        self.btn_update = QPushButton(self.layoutWidget)
         self.btn_update.setObjectName(u"btn_update")
-        sizePolicy12.setHeightForWidth(self.btn_update.sizePolicy().hasHeightForWidth())
-        self.btn_update.setSizePolicy(sizePolicy12)
+        sizePolicy11.setHeightForWidth(self.btn_update.sizePolicy().hasHeightForWidth())
+        self.btn_update.setSizePolicy(sizePolicy11)
         self.btn_update.setMinimumSize(QSize(110, 40))
-        self.btn_update.setStyleSheet(u"background-color: rgb(136, 112, 173);")
+        self.btn_update.setStyleSheet(u"background-color: rgb(136, 112, 173);\n"
+"")
         icon18 = QIcon()
         icon18.addFile(u":/icons/images/icons/cil-data-transfer-up.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_update.setIcon(icon18)
@@ -1676,147 +1683,150 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_11.addItem(self.horizontalSpacer_9)
 
+        self.splitter.addWidget(self.layoutWidget)
 
-        self.horizontalLayout_31.addLayout(self.horizontalLayout_11)
-
-
-        self.verticalLayout_22.addWidget(self.groupBox)
+        self.horizontalLayout_7.addWidget(self.splitter)
 
         self.tabWidget.addTab(self.live, "")
         self.file = QWidget()
         self.file.setObjectName(u"file")
-        self.verticalLayout_24 = QVBoxLayout(self.file)
-        self.verticalLayout_24.setObjectName(u"verticalLayout_24")
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_24.addItem(self.verticalSpacer_2)
-
-        self.horizontalLayout_6 = QHBoxLayout()
-#ifndef Q_OS_MAC
-        self.horizontalLayout_6.setSpacing(-1)
-#endif
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.horizontalLayout_6.setSizeConstraint(QLayout.SetDefaultConstraint)
-        self.horizontalLayout_6.setContentsMargins(-1, -1, -1, 0)
-        self.btn_file = QPushButton(self.file)
+        self.horizontalLayout_9 = QHBoxLayout(self.file)
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.splitter_2 = QSplitter(self.file)
+        self.splitter_2.setObjectName(u"splitter_2")
+        self.splitter_2.setOrientation(Qt.Vertical)
+        self.splitter_2.setHandleWidth(5)
+        self.upload = QWidget(self.splitter_2)
+        self.upload.setObjectName(u"upload")
+        sizePolicy8.setHeightForWidth(self.upload.sizePolicy().hasHeightForWidth())
+        self.upload.setSizePolicy(sizePolicy8)
+        self.upload.setMinimumSize(QSize(0, 0))
+        self.upload.setAcceptDrops(True)
+        self.upload.setStyleSheet(u"border: 2px dashed rgb(220, 220, 220);\n"
+"border-radius: 5px;")
+        self.horizontalLayout_29 = QHBoxLayout(self.upload)
+        self.horizontalLayout_29.setObjectName(u"horizontalLayout_29")
+        self.btn_file = QPushButton(self.upload)
         self.btn_file.setObjectName(u"btn_file")
-        sizePolicy5.setHeightForWidth(self.btn_file.sizePolicy().hasHeightForWidth())
-        self.btn_file.setSizePolicy(sizePolicy5)
+        sizePolicy6.setHeightForWidth(self.btn_file.sizePolicy().hasHeightForWidth())
+        self.btn_file.setSizePolicy(sizePolicy6)
         self.btn_file.setMinimumSize(QSize(110, 35))
-        self.btn_file.setStyleSheet(u"background-color: rgb(136, 112, 173);")
+        self.btn_file.setAcceptDrops(False)
+        self.btn_file.setStyleSheet(u"background-color: rgb(136, 112, 173);\n"
+"border: none;")
         icon19 = QIcon()
         icon19.addFile(u":/icons/images/icons/folder-add_white.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_file.setIcon(icon19)
 
-        self.horizontalLayout_6.addWidget(self.btn_file)
+        self.horizontalLayout_29.addWidget(self.btn_file)
 
-
-        self.verticalLayout_24.addLayout(self.horizontalLayout_6)
-
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_24.addItem(self.verticalSpacer)
-
-        self.groupBox_2 = QGroupBox(self.file)
-        self.groupBox_2.setObjectName(u"groupBox_2")
-        sizePolicy13 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
-        sizePolicy13.setHorizontalStretch(0)
-        sizePolicy13.setVerticalStretch(65)
-        sizePolicy13.setHeightForWidth(self.groupBox_2.sizePolicy().hasHeightForWidth())
-        self.groupBox_2.setSizePolicy(sizePolicy13)
-        self.groupBox_2.setMinimumSize(QSize(0, 50))
-        self.groupBox_2.setStyleSheet(u"background-color: rgb(244, 244, 244);\n"
-"border: none;")
-        self.horizontalLayout_29 = QHBoxLayout(self.groupBox_2)
-        self.horizontalLayout_29.setObjectName(u"horizontalLayout_29")
-        self.horizontalLayout_29.setContentsMargins(0, 3, 3, 3)
-        self.horizontalLayout_9 = QHBoxLayout()
-        self.horizontalLayout_9.setSpacing(15)
-        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.btn_start_file = QPushButton(self.groupBox_2)
+        self.splitter_2.addWidget(self.upload)
+        self.layoutWidget1 = QWidget(self.splitter_2)
+        self.layoutWidget1.setObjectName(u"layoutWidget1")
+        self.horizontalLayout_8 = QHBoxLayout(self.layoutWidget1)
+        self.horizontalLayout_8.setSpacing(15)
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.horizontalLayout_8.setContentsMargins(0, 5, 0, 0)
+        self.btn_start_file = QPushButton(self.layoutWidget1)
         self.btn_start_file.setObjectName(u"btn_start_file")
-        sizePolicy10.setHeightForWidth(self.btn_start_file.sizePolicy().hasHeightForWidth())
-        self.btn_start_file.setSizePolicy(sizePolicy10)
+        sizePolicy9.setHeightForWidth(self.btn_start_file.sizePolicy().hasHeightForWidth())
+        self.btn_start_file.setSizePolicy(sizePolicy9)
         self.btn_start_file.setMinimumSize(QSize(110, 40))
         self.btn_start_file.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_start_file.setStyleSheet(u"background-color: rgb(84, 209, 99);\n"
-"border-color: rgb(84, 209, 99);")
+        self.btn_start_file.setStyleSheet(u"background-color: rgb(136, 112, 173);")
         self.btn_start_file.setIcon(icon15)
         self.btn_start_file.setFlat(False)
 
-        self.horizontalLayout_9.addWidget(self.btn_start_file)
+        self.horizontalLayout_8.addWidget(self.btn_start_file)
 
-        self.btn_stop_file = QPushButton(self.groupBox_2)
+        self.btn_stop_file = QPushButton(self.layoutWidget1)
         self.btn_stop_file.setObjectName(u"btn_stop_file")
-        sizePolicy10.setHeightForWidth(self.btn_stop_file.sizePolicy().hasHeightForWidth())
-        self.btn_stop_file.setSizePolicy(sizePolicy10)
+        sizePolicy9.setHeightForWidth(self.btn_stop_file.sizePolicy().hasHeightForWidth())
+        self.btn_stop_file.setSizePolicy(sizePolicy9)
         self.btn_stop_file.setMinimumSize(QSize(110, 40))
         self.btn_stop_file.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_stop_file.setStyleSheet(u"background-color: rgb(234, 92, 85);\n"
-"border-color: rgb(234, 92, 85);")
+        self.btn_stop_file.setStyleSheet(u"background-color: rgb(136, 112, 173);")
         self.btn_stop_file.setIcon(icon16)
         self.btn_stop_file.setFlat(False)
 
-        self.horizontalLayout_9.addWidget(self.btn_stop_file)
+        self.horizontalLayout_8.addWidget(self.btn_stop_file)
 
-        self.line_2 = QFrame(self.groupBox_2)
+        self.line_2 = QFrame(self.layoutWidget1)
         self.line_2.setObjectName(u"line_2")
-        sizePolicy11.setHeightForWidth(self.line_2.sizePolicy().hasHeightForWidth())
-        self.line_2.setSizePolicy(sizePolicy11)
-        self.line_2.setMinimumSize(QSize(1, 0))
+        sizePolicy10.setHeightForWidth(self.line_2.sizePolicy().hasHeightForWidth())
+        self.line_2.setSizePolicy(sizePolicy10)
+        self.line_2.setMinimumSize(QSize(1, 40))
         self.line_2.setStyleSheet(u"background-color: rgb(200, 200, 200);")
         self.line_2.setFrameShape(QFrame.VLine)
         self.line_2.setFrameShadow(QFrame.Sunken)
 
-        self.horizontalLayout_9.addWidget(self.line_2)
+        self.horizontalLayout_8.addWidget(self.line_2)
 
-        self.btn_result = QPushButton(self.groupBox_2)
+        self.btn_result = QPushButton(self.layoutWidget1)
         self.btn_result.setObjectName(u"btn_result")
-        sizePolicy12.setHeightForWidth(self.btn_result.sizePolicy().hasHeightForWidth())
-        self.btn_result.setSizePolicy(sizePolicy12)
+        sizePolicy11.setHeightForWidth(self.btn_result.sizePolicy().hasHeightForWidth())
+        self.btn_result.setSizePolicy(sizePolicy11)
         self.btn_result.setMinimumSize(QSize(110, 40))
         self.btn_result.setStyleSheet(u"background-color: rgb(136, 112, 173);")
         icon20 = QIcon()
         icon20.addFile(u":/icons/images/icons/image_white.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_result.setIcon(icon20)
 
-        self.horizontalLayout_9.addWidget(self.btn_result)
+        self.horizontalLayout_8.addWidget(self.btn_result)
 
         self.horizontalSpacer_8 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_9.addItem(self.horizontalSpacer_8)
+        self.horizontalLayout_8.addItem(self.horizontalSpacer_8)
 
+        self.splitter_2.addWidget(self.layoutWidget1)
 
-        self.horizontalLayout_29.addLayout(self.horizontalLayout_9)
-
-
-        self.verticalLayout_24.addWidget(self.groupBox_2)
+        self.horizontalLayout_9.addWidget(self.splitter_2)
 
         self.tabWidget.addTab(self.file, "")
+        self.splitter_3.addWidget(self.tabWidget)
+        self.layoutWidget2 = QWidget(self.splitter_3)
+        self.layoutWidget2.setObjectName(u"layoutWidget2")
+        self.verticalLayout_22 = QVBoxLayout(self.layoutWidget2)
+        self.verticalLayout_22.setSpacing(0)
+        self.verticalLayout_22.setObjectName(u"verticalLayout_22")
+        self.verticalLayout_22.setSizeConstraint(QLayout.SetMaximumSize)
+        self.verticalLayout_22.setContentsMargins(0, 0, 0, 0)
+        self.label_14 = QLabel(self.layoutWidget2)
+        self.label_14.setObjectName(u"label_14")
+        sizePolicy12 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy12.setHorizontalStretch(0)
+        sizePolicy12.setVerticalStretch(0)
+        sizePolicy12.setHeightForWidth(self.label_14.sizePolicy().hasHeightForWidth())
+        self.label_14.setSizePolicy(sizePolicy12)
+        self.label_14.setMinimumSize(QSize(180, 25))
+        self.label_14.setMaximumSize(QSize(400, 16777215))
+        self.label_14.setStyleSheet(u"background-color: rgb(237, 232, 239);\n"
+"font-size: 12pt;\n"
+"font-weight: bold;\n"
+"color: rgb(96, 96, 96);")
+        self.label_14.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_19.addWidget(self.tabWidget)
+        self.verticalLayout_22.addWidget(self.label_14)
 
-
-        self.verticalLayout.addWidget(self.row_2)
-
-
-        self.horizontalLayout_7.addLayout(self.verticalLayout)
-
-        self.textBrowser = QTextBrowser(self.widgets)
+        self.textBrowser = QTextBrowser(self.layoutWidget2)
         self.textBrowser.setObjectName(u"textBrowser")
-        sizePolicy14 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Expanding)
-        sizePolicy14.setHorizontalStretch(0)
-        sizePolicy14.setVerticalStretch(0)
-        sizePolicy14.setHeightForWidth(self.textBrowser.sizePolicy().hasHeightForWidth())
-        self.textBrowser.setSizePolicy(sizePolicy14)
-        self.textBrowser.setMinimumSize(QSize(200, 0))
-        self.textBrowser.setStyleSheet(u"background-color: rgb(229, 229, 237);\n"
+        sizePolicy13 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
+        sizePolicy13.setHorizontalStretch(0)
+        sizePolicy13.setVerticalStretch(0)
+        sizePolicy13.setHeightForWidth(self.textBrowser.sizePolicy().hasHeightForWidth())
+        self.textBrowser.setSizePolicy(sizePolicy13)
+        self.textBrowser.setMinimumSize(QSize(180, 0))
+        self.textBrowser.setMaximumSize(QSize(400, 16777215))
+        self.textBrowser.setStyleSheet(u"background-color: rgb(242, 242, 242);\n"
+"border: none;\n"
+"border-left: 1px rgb(230, 230, 230);\n"
 "font-size: 12pt;")
 
-        self.horizontalLayout_7.addWidget(self.textBrowser)
+        self.verticalLayout_22.addWidget(self.textBrowser)
 
+        self.splitter_3.addWidget(self.layoutWidget2)
 
-        self.horizontalLayout_8.addLayout(self.horizontalLayout_7)
+        self.horizontalLayout_6.addWidget(self.splitter_3)
 
         self.stackedWidget.addWidget(self.widgets)
         self.new_page = QWidget()
@@ -1825,11 +1835,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_21.setObjectName(u"verticalLayout_21")
         self.row_1 = QFrame(self.new_page)
         self.row_1.setObjectName(u"row_1")
-        sizePolicy15 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy15.setHorizontalStretch(0)
-        sizePolicy15.setVerticalStretch(2)
-        sizePolicy15.setHeightForWidth(self.row_1.sizePolicy().hasHeightForWidth())
-        self.row_1.setSizePolicy(sizePolicy15)
+        sizePolicy14 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy14.setHorizontalStretch(0)
+        sizePolicy14.setVerticalStretch(2)
+        sizePolicy14.setHeightForWidth(self.row_1.sizePolicy().hasHeightForWidth())
+        self.row_1.setSizePolicy(sizePolicy14)
         self.row_1.setFrameShape(QFrame.StyledPanel)
         self.row_1.setFrameShadow(QFrame.Raised)
         self.verticalLayout_16 = QVBoxLayout(self.row_1)
@@ -1848,8 +1858,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
         self.dash_frame_1 = QFrame(self.frame_div_content_1)
         self.dash_frame_1.setObjectName(u"dash_frame_1")
-        sizePolicy6.setHeightForWidth(self.dash_frame_1.sizePolicy().hasHeightForWidth())
-        self.dash_frame_1.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.dash_frame_1.sizePolicy().hasHeightForWidth())
+        self.dash_frame_1.setSizePolicy(sizePolicy5)
         self.dash_frame_1.setStyleSheet(u"background-color: rgb(229, 229, 237);\n"
 "border: 1px rgb(179, 181, 183) solid;\n"
 "border-radius: 5px;\n"
@@ -1866,11 +1876,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_20.setObjectName(u"verticalLayout_20")
         self.label_4 = QLabel(self.dash_frame_1)
         self.label_4.setObjectName(u"label_4")
-        sizePolicy16 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
-        sizePolicy16.setHorizontalStretch(0)
-        sizePolicy16.setVerticalStretch(0)
-        sizePolicy16.setHeightForWidth(self.label_4.sizePolicy().hasHeightForWidth())
-        self.label_4.setSizePolicy(sizePolicy16)
+        sizePolicy15 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy15.setHorizontalStretch(0)
+        sizePolicy15.setVerticalStretch(0)
+        sizePolicy15.setHeightForWidth(self.label_4.sizePolicy().hasHeightForWidth())
+        self.label_4.setSizePolicy(sizePolicy15)
         self.label_4.setMinimumSize(QSize(0, 26))
         self.label_4.setStyleSheet(u"font-size: 12pt;\n"
 "font-weight: normal;")
@@ -1898,8 +1908,8 @@ class Ui_MainWindow(object):
 
         self.dash_frame_2 = QFrame(self.frame_div_content_1)
         self.dash_frame_2.setObjectName(u"dash_frame_2")
-        sizePolicy6.setHeightForWidth(self.dash_frame_2.sizePolicy().hasHeightForWidth())
-        self.dash_frame_2.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.dash_frame_2.sizePolicy().hasHeightForWidth())
+        self.dash_frame_2.setSizePolicy(sizePolicy5)
         self.dash_frame_2.setStyleSheet(u"background-color: rgb(229, 229, 237);\n"
 "border: 1px rgb(179, 181, 183) solid;\n"
 "border-radius: 5px;\n"
@@ -1916,8 +1926,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_23.setObjectName(u"verticalLayout_23")
         self.label_6 = QLabel(self.dash_frame_2)
         self.label_6.setObjectName(u"label_6")
-        sizePolicy16.setHeightForWidth(self.label_6.sizePolicy().hasHeightForWidth())
-        self.label_6.setSizePolicy(sizePolicy16)
+        sizePolicy15.setHeightForWidth(self.label_6.sizePolicy().hasHeightForWidth())
+        self.label_6.setSizePolicy(sizePolicy15)
         self.label_6.setMinimumSize(QSize(0, 26))
         self.label_6.setStyleSheet(u"font-size: 12pt;\n"
 "font-weight: normal;")
@@ -1946,8 +1956,8 @@ class Ui_MainWindow(object):
 
         self.dash_frame_3 = QFrame(self.frame_div_content_1)
         self.dash_frame_3.setObjectName(u"dash_frame_3")
-        sizePolicy6.setHeightForWidth(self.dash_frame_3.sizePolicy().hasHeightForWidth())
-        self.dash_frame_3.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.dash_frame_3.sizePolicy().hasHeightForWidth())
+        self.dash_frame_3.setSizePolicy(sizePolicy5)
         self.dash_frame_3.setStyleSheet(u"background-color: rgb(229, 229, 237);\n"
 "border: 1px rgb(179, 181, 183) solid;\n"
 "border-radius: 5px;\n"
@@ -1964,8 +1974,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_25.setObjectName(u"verticalLayout_25")
         self.label_8 = QLabel(self.dash_frame_3)
         self.label_8.setObjectName(u"label_8")
-        sizePolicy16.setHeightForWidth(self.label_8.sizePolicy().hasHeightForWidth())
-        self.label_8.setSizePolicy(sizePolicy16)
+        sizePolicy15.setHeightForWidth(self.label_8.sizePolicy().hasHeightForWidth())
+        self.label_8.setSizePolicy(sizePolicy15)
         self.label_8.setMinimumSize(QSize(0, 26))
         self.label_8.setStyleSheet(u"font-size: 12pt;\n"
 "font-weight: normal;")
@@ -1993,8 +2003,8 @@ class Ui_MainWindow(object):
 
         self.dash_frame_4 = QFrame(self.frame_div_content_1)
         self.dash_frame_4.setObjectName(u"dash_frame_4")
-        sizePolicy6.setHeightForWidth(self.dash_frame_4.sizePolicy().hasHeightForWidth())
-        self.dash_frame_4.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.dash_frame_4.sizePolicy().hasHeightForWidth())
+        self.dash_frame_4.setSizePolicy(sizePolicy5)
         self.dash_frame_4.setStyleSheet(u"background-color: rgb(229, 229, 237);\n"
 "border: 1px rgb(179, 181, 183) solid;\n"
 "border-radius: 5px;\n"
@@ -2011,8 +2021,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_26.setObjectName(u"verticalLayout_26")
         self.label_10 = QLabel(self.dash_frame_4)
         self.label_10.setObjectName(u"label_10")
-        sizePolicy16.setHeightForWidth(self.label_10.sizePolicy().hasHeightForWidth())
-        self.label_10.setSizePolicy(sizePolicy16)
+        sizePolicy15.setHeightForWidth(self.label_10.sizePolicy().hasHeightForWidth())
+        self.label_10.setSizePolicy(sizePolicy15)
         self.label_10.setMinimumSize(QSize(0, 26))
         self.label_10.setStyleSheet(u"font-size: 12pt;\n"
 "font-weight: normal;")
@@ -2048,8 +2058,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
         self.line_graph = PlotWidget(self.frame)
         self.line_graph.setObjectName(u"line_graph")
-        sizePolicy6.setHeightForWidth(self.line_graph.sizePolicy().hasHeightForWidth())
-        self.line_graph.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.line_graph.sizePolicy().hasHeightForWidth())
+        self.line_graph.setSizePolicy(sizePolicy5)
         self.line_graph.setStyleSheet(u"background-color: rgb(229, 229, 237);\n"
 "border: 1px rgb(179, 181, 183) solid;\n"
 "border-radius: 5px;\n"
@@ -2061,8 +2071,8 @@ class Ui_MainWindow(object):
 
         self.frame_2 = QFrame(self.frame)
         self.frame_2.setObjectName(u"frame_2")
-        sizePolicy6.setHeightForWidth(self.frame_2.sizePolicy().hasHeightForWidth())
-        self.frame_2.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.frame_2.sizePolicy().hasHeightForWidth())
+        self.frame_2.setSizePolicy(sizePolicy5)
         self.frame_2.setMinimumSize(QSize(0, 200))
         self.frame_2.setStyleSheet(u"background-color: rgb(229, 229, 237);\n"
 "border: 1px rgb(179, 181, 183) solid;\n"
@@ -2225,11 +2235,11 @@ class Ui_MainWindow(object):
         __qtablewidgetitem23 = QTableWidgetItem()
         self.tableWidget.setItem(0, 3, __qtablewidgetitem23)
         self.tableWidget.setObjectName(u"tableWidget")
-        sizePolicy17 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy17.setHorizontalStretch(0)
-        sizePolicy17.setVerticalStretch(0)
-        sizePolicy17.setHeightForWidth(self.tableWidget.sizePolicy().hasHeightForWidth())
-        self.tableWidget.setSizePolicy(sizePolicy17)
+        sizePolicy16 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy16.setHorizontalStretch(0)
+        sizePolicy16.setVerticalStretch(0)
+        sizePolicy16.setHeightForWidth(self.tableWidget.sizePolicy().hasHeightForWidth())
+        self.tableWidget.setSizePolicy(sizePolicy16)
         palette = QPalette()
         brush = QBrush(QColor(51, 51, 51, 255))
         brush.setStyle(Qt.SolidPattern)
@@ -2307,11 +2317,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
         self.search_box = QLineEdit(self.report)
         self.search_box.setObjectName(u"search_box")
-        sizePolicy18 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Maximum)
-        sizePolicy18.setHorizontalStretch(0)
-        sizePolicy18.setVerticalStretch(0)
-        sizePolicy18.setHeightForWidth(self.search_box.sizePolicy().hasHeightForWidth())
-        self.search_box.setSizePolicy(sizePolicy18)
+        sizePolicy17 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Maximum)
+        sizePolicy17.setHorizontalStretch(0)
+        sizePolicy17.setVerticalStretch(0)
+        sizePolicy17.setHeightForWidth(self.search_box.sizePolicy().hasHeightForWidth())
+        self.search_box.setSizePolicy(sizePolicy17)
         self.search_box.setMinimumSize(QSize(0, 40))
         self.search_box.setStyleSheet(u"color: rgb(90,90,90);\n"
 "font-size: 12pt;\n"
@@ -2322,8 +2332,8 @@ class Ui_MainWindow(object):
 
         self.btn_search = QPushButton(self.report)
         self.btn_search.setObjectName(u"btn_search")
-        sizePolicy10.setHeightForWidth(self.btn_search.sizePolicy().hasHeightForWidth())
-        self.btn_search.setSizePolicy(sizePolicy10)
+        sizePolicy9.setHeightForWidth(self.btn_search.sizePolicy().hasHeightForWidth())
+        self.btn_search.setSizePolicy(sizePolicy9)
         self.btn_search.setMinimumSize(QSize(40, 40))
         self.btn_search.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_search.setStyleSheet(u"background-color: rgb(136, 112, 173); \n"
@@ -2338,8 +2348,8 @@ class Ui_MainWindow(object):
 
         self.btn_save = QPushButton(self.report)
         self.btn_save.setObjectName(u"btn_save")
-        sizePolicy10.setHeightForWidth(self.btn_save.sizePolicy().hasHeightForWidth())
-        self.btn_save.setSizePolicy(sizePolicy10)
+        sizePolicy9.setHeightForWidth(self.btn_save.sizePolicy().hasHeightForWidth())
+        self.btn_save.setSizePolicy(sizePolicy9)
         self.btn_save.setMinimumSize(QSize(120, 40))
         self.btn_save.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_save.setStyleSheet(u"background-color: rgb(136, 112, 173); \n"
@@ -2358,8 +2368,8 @@ class Ui_MainWindow(object):
 
         self.btn_question = QPushButton(self.report)
         self.btn_question.setObjectName(u"btn_question")
-        sizePolicy10.setHeightForWidth(self.btn_question.sizePolicy().hasHeightForWidth())
-        self.btn_question.setSizePolicy(sizePolicy10)
+        sizePolicy9.setHeightForWidth(self.btn_question.sizePolicy().hasHeightForWidth())
+        self.btn_question.setSizePolicy(sizePolicy9)
         self.btn_question.setMinimumSize(QSize(40, 40))
         self.btn_question.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_question.setStyleSheet(u"background-color: rgb(136, 112, 173); \n"
@@ -2377,11 +2387,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
         self.batch_data_graph = PlotWidget(self.report)
         self.batch_data_graph.setObjectName(u"batch_data_graph")
-        sizePolicy19 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        sizePolicy19.setHorizontalStretch(2)
-        sizePolicy19.setVerticalStretch(1)
-        sizePolicy19.setHeightForWidth(self.batch_data_graph.sizePolicy().hasHeightForWidth())
-        self.batch_data_graph.setSizePolicy(sizePolicy19)
+        sizePolicy18 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy18.setHorizontalStretch(2)
+        sizePolicy18.setVerticalStretch(1)
+        sizePolicy18.setHeightForWidth(self.batch_data_graph.sizePolicy().hasHeightForWidth())
+        self.batch_data_graph.setSizePolicy(sizePolicy18)
         self.batch_data_graph.setStyleSheet(u"background-color: rgb(240, 240, 245);\n"
 "border-radius: 5px;\n"
 "font-size: 14pt;\n"
@@ -2392,11 +2402,11 @@ class Ui_MainWindow(object):
 
         self.textBrowser_report = QTextBrowser(self.report)
         self.textBrowser_report.setObjectName(u"textBrowser_report")
-        sizePolicy20 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        sizePolicy20.setHorizontalStretch(1)
-        sizePolicy20.setVerticalStretch(1)
-        sizePolicy20.setHeightForWidth(self.textBrowser_report.sizePolicy().hasHeightForWidth())
-        self.textBrowser_report.setSizePolicy(sizePolicy20)
+        sizePolicy19 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy19.setHorizontalStretch(1)
+        sizePolicy19.setVerticalStretch(1)
+        sizePolicy19.setHeightForWidth(self.textBrowser_report.sizePolicy().hasHeightForWidth())
+        self.textBrowser_report.setSizePolicy(sizePolicy19)
         self.textBrowser_report.setStyleSheet(u"background-color: rgb(240, 240, 245);\n"
 "border-radius: 5px;\n"
 "font-size: 14pt;\n"
@@ -2412,11 +2422,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
         self.def_total_table = QFrame(self.report)
         self.def_total_table.setObjectName(u"def_total_table")
-        sizePolicy21 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Ignored)
-        sizePolicy21.setHorizontalStretch(0)
-        sizePolicy21.setVerticalStretch(1)
-        sizePolicy21.setHeightForWidth(self.def_total_table.sizePolicy().hasHeightForWidth())
-        self.def_total_table.setSizePolicy(sizePolicy21)
+        sizePolicy.setHeightForWidth(self.def_total_table.sizePolicy().hasHeightForWidth())
+        self.def_total_table.setSizePolicy(sizePolicy)
         self.def_total_table.setStyleSheet(u"background-color: rgb(240, 240, 245);\n"
 "border-radius: 5px;\n"
 "font-size: 14pt;\n"
@@ -2478,11 +2485,11 @@ class Ui_MainWindow(object):
         __qtablewidgetitem45 = QTableWidgetItem()
         self.tableWidget_2.setItem(0, 2, __qtablewidgetitem45)
         self.tableWidget_2.setObjectName(u"tableWidget_2")
-        sizePolicy22 = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
-        sizePolicy22.setHorizontalStretch(0)
-        sizePolicy22.setVerticalStretch(0)
-        sizePolicy22.setHeightForWidth(self.tableWidget_2.sizePolicy().hasHeightForWidth())
-        self.tableWidget_2.setSizePolicy(sizePolicy22)
+        sizePolicy20 = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
+        sizePolicy20.setHorizontalStretch(0)
+        sizePolicy20.setVerticalStretch(0)
+        sizePolicy20.setHeightForWidth(self.tableWidget_2.sizePolicy().hasHeightForWidth())
+        self.tableWidget_2.setSizePolicy(sizePolicy20)
         palette1 = QPalette()
         palette1.setBrush(QPalette.Active, QPalette.WindowText, brush)
         brush6 = QBrush(QColor(240, 240, 245, 255))
@@ -2541,8 +2548,11 @@ class Ui_MainWindow(object):
 
         self.def_total_text = QTextBrowser(self.report)
         self.def_total_text.setObjectName(u"def_total_text")
-        sizePolicy4.setHeightForWidth(self.def_total_text.sizePolicy().hasHeightForWidth())
-        self.def_total_text.setSizePolicy(sizePolicy4)
+        sizePolicy21 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy21.setHorizontalStretch(0)
+        sizePolicy21.setVerticalStretch(0)
+        sizePolicy21.setHeightForWidth(self.def_total_text.sizePolicy().hasHeightForWidth())
+        self.def_total_text.setSizePolicy(sizePolicy21)
         self.def_total_text.setStyleSheet(u"background-color: rgb(240, 240, 245);\n"
 "border-radius: 5px;\n"
 "font-size: 14pt;\n"
@@ -2553,8 +2563,8 @@ class Ui_MainWindow(object):
 
         self.final_words = QTextBrowser(self.report)
         self.final_words.setObjectName(u"final_words")
-        sizePolicy4.setHeightForWidth(self.final_words.sizePolicy().hasHeightForWidth())
-        self.final_words.setSizePolicy(sizePolicy4)
+        sizePolicy21.setHeightForWidth(self.final_words.sizePolicy().hasHeightForWidth())
+        self.final_words.setSizePolicy(sizePolicy21)
         self.final_words.setStyleSheet(u"background-color: rgb(240, 240, 245);\n"
 "border-radius: 5px;\n"
 "font-size: 14pt;\n"
@@ -2660,8 +2670,8 @@ class Ui_MainWindow(object):
 
         self.bottomBar = QFrame(self.contentBottom)
         self.bottomBar.setObjectName(u"bottomBar")
-        sizePolicy6.setHeightForWidth(self.bottomBar.sizePolicy().hasHeightForWidth())
-        self.bottomBar.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.bottomBar.sizePolicy().hasHeightForWidth())
+        self.bottomBar.setSizePolicy(sizePolicy5)
         self.bottomBar.setMinimumSize(QSize(0, 22))
         self.bottomBar.setMaximumSize(QSize(16777215, 22))
         self.bottomBar.setFrameShape(QFrame.NoFrame)
@@ -2672,11 +2682,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
         self.btn_python = QPushButton(self.bottomBar)
         self.btn_python.setObjectName(u"btn_python")
-        sizePolicy23 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Minimum)
-        sizePolicy23.setHorizontalStretch(0)
-        sizePolicy23.setVerticalStretch(0)
-        sizePolicy23.setHeightForWidth(self.btn_python.sizePolicy().hasHeightForWidth())
-        self.btn_python.setSizePolicy(sizePolicy23)
+        sizePolicy22 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Minimum)
+        sizePolicy22.setHorizontalStretch(0)
+        sizePolicy22.setVerticalStretch(0)
+        sizePolicy22.setHeightForWidth(self.btn_python.sizePolicy().hasHeightForWidth())
+        self.btn_python.setSizePolicy(sizePolicy22)
         self.btn_python.setMinimumSize(QSize(33, 22))
         self.btn_python.setMaximumSize(QSize(16777196, 16777215))
         self.btn_python.setStyleSheet(u"background-color:  rgb(78, 60, 105);\n"
@@ -2704,11 +2714,11 @@ class Ui_MainWindow(object):
 
         self.version = QLabel(self.bottomBar)
         self.version.setObjectName(u"version")
-        sizePolicy24 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
-        sizePolicy24.setHorizontalStretch(1)
-        sizePolicy24.setVerticalStretch(0)
-        sizePolicy24.setHeightForWidth(self.version.sizePolicy().hasHeightForWidth())
-        self.version.setSizePolicy(sizePolicy24)
+        sizePolicy23 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy23.setHorizontalStretch(1)
+        sizePolicy23.setVerticalStretch(0)
+        sizePolicy23.setHeightForWidth(self.version.sizePolicy().hasHeightForWidth())
+        self.version.setSizePolicy(sizePolicy23)
         self.version.setMinimumSize(QSize(0, 16))
         self.version.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
@@ -2739,7 +2749,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
         self.tabWidget.setCurrentIndex(0)
 
 
@@ -2781,6 +2791,7 @@ class Ui_MainWindow(object):
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:"
                         "12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-rcc resources.qrc -o resources_rc.py</span></p></body></html>", None))
         self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"Submarine - Hyper Speed Automatic Optical Inspection System", None))
+        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Ready", None))
         self.top_start_live.setText("")
         self.top_stop_live.setText("")
 #if QT_CONFIG(tooltip)
@@ -2809,19 +2820,18 @@ class Ui_MainWindow(object):
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Learn to train a custom model", None))
         self.video_tu.setText(QCoreApplication.translate("MainWindow", u" Video Tutorial", None))
         self.video_viewer.setText("")
-        self.groupBox.setTitle("")
         self.btn_start_live.setText(QCoreApplication.translate("MainWindow", u" Start", None))
         self.btn_stop_live.setText(QCoreApplication.translate("MainWindow", u" Stop", None))
         self.btn_scan.setText(QCoreApplication.translate("MainWindow", u" Scan", None))
         self.btn_update.setText(QCoreApplication.translate("MainWindow", u" Update", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.live), QCoreApplication.translate("MainWindow", u"Live Detect", None))
         self.btn_file.setText(QCoreApplication.translate("MainWindow", u" Select File", None))
-        self.groupBox_2.setTitle("")
         self.btn_start_file.setText(QCoreApplication.translate("MainWindow", u" Start", None))
         self.btn_stop_file.setText(QCoreApplication.translate("MainWindow", u" Stop", None))
         self.btn_result.setText(QCoreApplication.translate("MainWindow", u" Open Result", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.file), QCoreApplication.translate("MainWindow", u"File Detect", None))
-        self.textBrowser.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Detect Status Output", None))
+        self.label_14.setText(QCoreApplication.translate("MainWindow", u"Detect Status Output", None))
+        self.textBrowser.setPlaceholderText("")
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Batch Number", None))
         self.batch_number.setText(QCoreApplication.translate("MainWindow", u"001", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Detected", None))
@@ -2948,7 +2958,6 @@ class Ui_MainWindow(object):
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
         self.btn_python.setText("")
-        self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"PySide 6.2.2.1", None))
+        self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"PySide 6.2.3", None))
         self.version.setText(QCoreApplication.translate("MainWindow", u"Demo Version V1.0.0 Asterisk", None))
     # retranslateUi
-

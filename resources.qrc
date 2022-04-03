@@ -298,5 +298,9 @@
     <file>images/icons/download_white.svg</file>
     <file>images/icons/search_white.svg</file>
     <file>images/icons/python.svg</file>
+    <file>images/icons/ellypsis-vertical_1.svg</file>
+    <file>images/icons/ellypsis_1.svg</file>
+    <file>images/icons/h.png</file>
+    <file>images/icons/v.png</file>
   </qresource>
 </RCC>

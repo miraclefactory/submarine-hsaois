@@ -21,6 +21,7 @@ import random
 import numpy as np
 import pyqtgraph as pg
 from PySide6.QtCore import Signal
+from PySide6.QtGui import QDropEvent
 from threading import Thread, Lock
 from cv2 import getTickCount, getTickFrequency
 from concurrent.futures import ThreadPoolExecutor
@@ -361,6 +362,26 @@ class MainWindow(QMainWindow):
         selectedFile = file_path[0]
         for i in selectedFile:
             widgets.textBrowser.append("Open File: " + i)
+
+    def dragEnterEvent(self, e):
+        if e.mimeData().text().endswith('.png') or e.mimeData().text().endswith('.jpg'):
+            e.accept()
+        else:
+            e.ignore()
+
+    def dropEvent(self, event: QDropEvent):
+        global selectedFile
+        try:
+            if event.mimeData().hasUrls:
+                event.setDropAction(Qt.Qt.CopyAction)
+                event.accept()
+                for url in event.mimeData().urls():
+                    selectedFile.append(str(url.toLocalFile()))
+                print(selectedFile)
+            else:
+                event.ignore()
+        except Exception as e:
+            print(e)
 
     def open_result(self):
         path_to_delete = os.getcwd()+""
@@ -834,6 +855,7 @@ def class_res_worse(tmp_max):
 def general_res_adv():
     # use ml to predicate frac and class res and give a general advice
     pass
+
 
 # CLASS FOR EMITTING SIGNALS
 class EmitSignal(QObject):
