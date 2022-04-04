@@ -1973,7 +1973,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="label_15">
+                 <widget class="QLabel" name="status_label">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                     <horstretch>1</horstretch>
@@ -2923,8 +2923,7 @@ padding: 5px;</string>
                                 <bool>true</bool>
                                </property>
                                <property name="styleSheet">
-                                <string notr="true">border: 2px dashed rgb(220, 220, 220);
-border-radius: 5px;</string>
+                                <string notr="true"/>
                                </property>
                                <layout class="QHBoxLayout" name="horizontalLayout_29">
                                 <item>
@@ -2945,8 +2944,7 @@ border-radius: 5px;</string>
                                    <bool>false</bool>
                                   </property>
                                   <property name="styleSheet">
-                                   <string notr="true">background-color: rgb(136, 112, 173);
-border: 2px solid rgb(136, 112, 173);</string>
+                                   <string notr="true">background-color: rgb(136, 112, 173);</string>
                                   </property>
                                   <property name="text">
                                    <string> Select File</string>

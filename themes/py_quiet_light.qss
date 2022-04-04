@@ -671,7 +671,7 @@ Button */
 #pagesContainer QPushButton
 {
 	border: 2px solid rgb(136, 112, 173);
-	border-radius: 5px;	
+	border-radius: 5px;
 	background-color: rgb(136, 112, 173);
     color: #f8f8f2;
 }
@@ -802,7 +802,8 @@ QSplitter::handle:pressed
 	background-color: rgb(166, 179, 155);
 }
 
-#btn_file:hover
+#upload
 {
-	border: 2px solid #705597;
+	border: 2px dashed rgb(220, 220, 220);
+	border-radius: 5px;
 }

@@ -1253,18 +1253,18 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.titleRightInfo)
 
-        self.label_15 = QLabel(self.leftBox)
-        self.label_15.setObjectName(u"label_15")
+        self.status_label = QLabel(self.leftBox)
+        self.status_label.setObjectName(u"status_label")
         sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy5.setHorizontalStretch(1)
         sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.label_15.sizePolicy().hasHeightForWidth())
-        self.label_15.setSizePolicy(sizePolicy5)
-        self.label_15.setStyleSheet(u"color: rgb(96, 96, 96);")
-        self.label_15.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-        self.label_15.setMargin(5)
+        sizePolicy5.setHeightForWidth(self.status_label.sizePolicy().hasHeightForWidth())
+        self.status_label.setSizePolicy(sizePolicy5)
+        self.status_label.setStyleSheet(u"color: rgb(96, 96, 96);")
+        self.status_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.status_label.setMargin(5)
 
-        self.horizontalLayout_3.addWidget(self.label_15)
+        self.horizontalLayout_3.addWidget(self.status_label)
 
 
         self.horizontalLayout.addWidget(self.leftBox)
@@ -1702,8 +1702,7 @@ class Ui_MainWindow(object):
         self.upload.setSizePolicy(sizePolicy8)
         self.upload.setMinimumSize(QSize(0, 0))
         self.upload.setAcceptDrops(True)
-        self.upload.setStyleSheet(u"border: 2px dashed rgb(220, 220, 220);\n"
-"border-radius: 5px;")
+        self.upload.setStyleSheet(u"")
         self.horizontalLayout_29 = QHBoxLayout(self.upload)
         self.horizontalLayout_29.setObjectName(u"horizontalLayout_29")
         self.btn_file = QPushButton(self.upload)
@@ -1712,8 +1711,7 @@ class Ui_MainWindow(object):
         self.btn_file.setSizePolicy(sizePolicy6)
         self.btn_file.setMinimumSize(QSize(110, 35))
         self.btn_file.setAcceptDrops(False)
-        self.btn_file.setStyleSheet(u"background-color: rgb(136, 112, 173);\n"
-"border: 2px solid rgb(136, 112, 173);")
+        self.btn_file.setStyleSheet(u"background-color: rgb(136, 112, 173);")
         icon19 = QIcon()
         icon19.addFile(u":/icons/images/icons/folder-add_white.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_file.setIcon(icon19)
@@ -2791,7 +2789,7 @@ class Ui_MainWindow(object):
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:"
                         "12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-rcc resources.qrc -o resources_rc.py</span></p></body></html>", None))
         self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"Submarine - Hyper Speed Automatic Optical Inspection System", None))
-        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Ready", None))
+        self.status_label.setText(QCoreApplication.translate("MainWindow", u"Ready", None))
         self.top_start_live.setText("")
         self.top_stop_live.setText("")
 #if QT_CONFIG(tooltip)
