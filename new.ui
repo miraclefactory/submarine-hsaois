@@ -2805,12 +2805,13 @@ padding: 5px;</string>
                                   </property>
                                   <property name="minimumSize">
                                    <size>
-                                    <width>1</width>
+                                    <width>2</width>
                                     <height>40</height>
                                    </size>
                                   </property>
                                   <property name="styleSheet">
-                                   <string notr="true">background-color: rgb(200, 200, 200);</string>
+                                   <string notr="true">background-color: rgb(200, 200, 200);
+border: none;</string>
                                   </property>
                                   <property name="lineWidth">
                                    <number>1</number>
@@ -3039,12 +3040,13 @@ padding: 5px;</string>
                                   </property>
                                   <property name="minimumSize">
                                    <size>
-                                    <width>1</width>
+                                    <width>2</width>
                                     <height>40</height>
                                    </size>
                                   </property>
                                   <property name="styleSheet">
-                                   <string notr="true">background-color: rgb(200, 200, 200);</string>
+                                   <string notr="true">background-color: rgb(200, 200, 200);
+border: none;</string>
                                   </property>
                                   <property name="orientation">
                                    <enum>Qt::Vertical</enum>

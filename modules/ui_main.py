@@ -1642,8 +1642,9 @@ class Ui_MainWindow(object):
         sizePolicy10.setVerticalStretch(0)
         sizePolicy10.setHeightForWidth(self.line.sizePolicy().hasHeightForWidth())
         self.line.setSizePolicy(sizePolicy10)
-        self.line.setMinimumSize(QSize(1, 40))
-        self.line.setStyleSheet(u"background-color: rgb(200, 200, 200);")
+        self.line.setMinimumSize(QSize(2, 40))
+        self.line.setStyleSheet(u"background-color: rgb(200, 200, 200);\n"
+"border: none;")
         self.line.setLineWidth(1)
         self.line.setFrameShape(QFrame.VLine)
         self.line.setFrameShadow(QFrame.Sunken)
@@ -1753,8 +1754,9 @@ class Ui_MainWindow(object):
         self.line_2.setObjectName(u"line_2")
         sizePolicy10.setHeightForWidth(self.line_2.sizePolicy().hasHeightForWidth())
         self.line_2.setSizePolicy(sizePolicy10)
-        self.line_2.setMinimumSize(QSize(1, 40))
-        self.line_2.setStyleSheet(u"background-color: rgb(200, 200, 200);")
+        self.line_2.setMinimumSize(QSize(2, 40))
+        self.line_2.setStyleSheet(u"background-color: rgb(200, 200, 200);\n"
+"border: none;")
         self.line_2.setFrameShape(QFrame.VLine)
         self.line_2.setFrameShadow(QFrame.Sunken)
 

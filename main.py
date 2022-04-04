@@ -47,19 +47,19 @@ os.environ["QT_FONT_DPI"] = "70"    # FIX Problem for High DPI and Scale above 1
 
 # SET GLOBAL VARIABLES
 # ///////////////////////////////////////////////////////////////
-widgets = None      # GLOBAL CLASS VARIABLE FOR ALL UI COMPONENTS
-img_broswer = None  # GLOBAL CLASS VARIABLE FOR IMAGE UI COMPONENTS
-selectedFile = []   # BUFFER FOR SELECTED FILE
-lock = Lock()       # LOCK FOR THREADS
-flag = False        # CHECK IF CAMERA IS LOADED
-is_live_mode = False   # TOGGLE DETECTION
+widgets = None          # GLOBAL CLASS VARIABLE FOR ALL UI COMPONENTS
+img_broswer = None      # GLOBAL CLASS VARIABLE FOR IMAGE UI COMPONENTS
+selectedFile = []       # BUFFER FOR SELECTED FILE
+lock = Lock()           # LOCK FOR THREADS
+flag = False            # CHECK IF CAMERA IS LOADED
+is_live_mode = False    # TOGGLE DETECTION
 hashpool = []
 input_list = []
 is_new_img = True
 cnt = 0
 is_defetced = False
 is_scan_mode = False
-seq = 1             # SERIAL NUMBER
+seq = 1                 # SERIAL NUMBER
 class_total = [0 for i in range(12)]
 defected_total = 0
 global_var._init()
@@ -399,6 +399,7 @@ class MainWindow(QMainWindow):
         widgets.top_stop_live.setEnabled(False)
         widgets.btn_stop_live.setEnabled(False)
         widgets.btn_scan.setEnabled(True)
+        widgets.status_label.setText("Ready")
 
     def terminate(self):
         # RAISE INTERRUPT EXCEPTION
@@ -423,6 +424,7 @@ class MainWindow(QMainWindow):
                 widgets.top_stop_live.setEnabled(True)
                 widgets.btn_stop_live.setEnabled(True)
                 widgets.btn_scan.setEnabled(False)
+                widgets.status_label.setText("Live Detecting")
                 widgets.textBrowser.append("\n[Run] Live Detecing...\n")
                 self.timer_camera.start(50)
                 pool = ThreadPoolExecutor(max_workers=5)
@@ -449,6 +451,7 @@ class MainWindow(QMainWindow):
                 widgets.top_stop_live.setEnabled(True)
                 widgets.btn_stop_live.setEnabled(True)
                 widgets.btn_scan.setEnabled(False)
+                widgets.status_label.setText("Scan Detecting")
                 widgets.textBrowser.append("\n[Run] Scan Detecing...\n")
                 self.timer_camera.start(50)
                 pool = ThreadPoolExecutor(max_workers=5)
