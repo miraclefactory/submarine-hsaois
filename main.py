@@ -243,7 +243,7 @@ class MainWindow(QMainWindow):
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
         useCustomTheme = True
-        themeFile = "themes/py_dracula_light.qss"
+        themeFile = "themes/py_quiet_light.qss"
 
         # SET THEME AND HACKS
         if useCustomTheme:
