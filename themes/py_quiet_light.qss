@@ -713,13 +713,13 @@ QTabWidget::tab-bar {
 
 QTabBar::tab:first
 {
-	border-top-left-radius: 5px;
+	border-top-left-radius: -5px;
 	border-bottom-left-radius: 5px;
 }
 
 QTabBar::tab:last
 {
-	border-top-right-radius: 5px;
+	border-top-right-radius: 0px;
 	border-bottom-right-radius: 5px;
 }
 
@@ -782,6 +782,9 @@ QProgressBar::chunk
 	background-color: #b194da;
 }
 
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+QSplitter */
+
 QSplitter::handle
 {
 	/* background-color: whitesmoke; */
@@ -801,6 +804,9 @@ QSplitter::handle:pressed
 { 
 	background-color: rgb(166, 179, 155);
 }
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+Custome */
 
 #upload
 {

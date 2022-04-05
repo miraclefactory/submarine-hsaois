@@ -277,8 +277,8 @@ class Ui_MainWindow(object):
 "#rightButtons .QPushButton:pressed { background-color: rgb(220, 220, 220); border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Theme Settings */\n"
-"#extraRightBox { background-color: #495474; }\n"
-"#themeSettingsTopDetail { background-color: #6272a4; }\n"
+"#extraRightBox { background-color: #f5f5f5; border-left:1px solid rgb(227, 227, 227); color: #333;}\n"
+"#themeSettingsTopDetail { background-color: #a894bd; }\n"
 "\n"
 "/* Bottom Bar */\n"
 "/* #bottomBar { background-color: #495474 } */\n"
@@ -292,10 +292,10 @@ class Ui_MainWindow(object):
 "#contentSettings .QPushButton\n"
 "{\n"
 "    background-position: left center;\n"
-"    background-repeat: no-repeat;\n"
+"    backg"
+                        "round-repeat: no-repeat;\n"
 "	border: none;\n"
-"	borde"
-                        "r-left: 22px solid transparent;\n"
+"	border-left: 22px solid transparent;\n"
 "	background-color:transparent;\n"
 "	text-align: left;\n"
 "	padding-left: 44px;\n"
@@ -304,12 +304,12 @@ class Ui_MainWindow(object):
 "\n"
 "#contentSettings .QPushButton:hover\n"
 "{\n"
-"	background-color: #5d6c99;\n"
+"	background-color: #835d99;\n"
 "}\n"
 "\n"
 "#contentSettings .QPushButton:pressed\n"
 "{	\n"
-"	background-color: rgb(189, 147, 249);\n"
+"	background-color: rgb(172, 147, 249);\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
 "\n"
@@ -337,11 +337,11 @@ class Ui_MainWindow(object):
 "QTableWidget::item:selected\n"
 "{\n"
 "	background-color: rgb(240, 240, 245);\n"
-"    color: #705597;\n"
+""
+                        "    color: #705597;\n"
 "	font-weight: bold;\n"
 "}\n"
-""
-                        "\n"
+"\n"
 "QHeaderView::section\n"
 "{\n"
 "	background-color: #6272a4;\n"
@@ -386,12 +386,12 @@ class Ui_MainWindow(object):
 "QLineEdit:hover\n"
 "{\n"
 "	border: 2px solid rgb(64, 71, 88);\n"
-"}\n"
+""
+                        "}\n"
 "\n"
 "QLineEdit:focus\n"
 "{\n"
-"	border: 2px "
-                        "solid #ab90d1;\n"
+"	border: 2px solid #ab90d1;\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
@@ -438,12 +438,12 @@ class Ui_MainWindow(object):
 "	border-radius: 0px;\n"
 "}\n"
 "\n"
-"QScrollBar::handle:horizontal\n"
+""
+                        "QScrollBar::handle:horizontal\n"
 "{\n"
-"    backgr"
-                        "ound: rgb(189, 147, 249);\n"
+"    background: rgb(213, 213, 213);\n"
 "    min-width: 25px;\n"
-"	border-radius: 4px\n"
+"	border-radius: 0px\n"
 "}\n"
 "\n"
 "QScrollBar::add-line:horizontal\n"
@@ -482,17 +482,17 @@ class Ui_MainWindow(object):
 "{\n"
 "	border: none;\n"
 "    background-color: rgb(136, 112, 173);\n"
-"    width: 8px;\n"
+" "
+                        "   width: 8px;\n"
 "    margin: 21px 0 21px 0;\n"
-""
-                        "	border-radius: 0px;\n"
+"	border-radius: 0px;\n"
 "}\n"
 "\n"
 "QScrollBar::handle:vertical\n"
 "{	\n"
-"	background: rgb(189, 147, 249);\n"
+"	background: rgb(213, 213, 213);\n"
 "    min-height: 25px;\n"
-"	border-radius: 4px\n"
+"	border-radius: 0px\n"
 "}\n"
 "\n"
 "QScrollBar::add-line:vertical\n"
@@ -527,8 +527,8 @@ class Ui_MainWindow(object):
 "    background: none;\n"
 "}\n"
 "\n"
-"/* /////////////////////////////////////////////////////////////////////////"
-                        "////////////////////////\n"
+"/* ///////////////////////"
+                        "//////////////////////////////////////////////////////////////////////////\n"
 "CheckBox */\n"
 "\n"
 "QCheckBox::indicator\n"
@@ -571,12 +571,12 @@ class Ui_MainWindow(object):
 "\n"
 "QRadioButton::indicator:checked\n"
 "{\n"
-"    background: 3px solid #bd93f9;\n"
+"    background: 3px solid #bd93f"
+                        "9;\n"
 "	border: 3px solid #bd93f9;	\n"
 "}\n"
 "\n"
-""
-                        "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "ComboBox */\n"
 "\n"
 "QComboBox\n"
@@ -614,11 +614,11 @@ class Ui_MainWindow(object):
 "	color: rgb(255, 121, 198);	\n"
 "	background-color: #6272a4;\n"
 "	padding: 10px;\n"
-"	selection-background-color: #6272a4;\n"
+"	selection-background-color: "
+                        "#6272a4;\n"
 "}\n"
 "\n"
-"/* ////////////////////////"
-                        "/////////////////////////////////////////////////////////////////////////\n"
+"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Sliders */\n"
 "\n"
 "QSlider::groove:horizontal\n"
@@ -636,17 +636,17 @@ class Ui_MainWindow(object):
 "\n"
 "QSlider::handle:horizontal\n"
 "{\n"
-"    background-color: rgb(189, 147, 249);\n"
+"    background-color: rgb(213, 213, 213);\n"
 "    border: none;\n"
 "    height: 10px;\n"
 "    width: 10px;\n"
 "    margin: 0px;\n"
-"	border-radius: 5px;\n"
+"	border-radius: 0px;\n"
 "}\n"
 "\n"
 "QSlider::handle:horizontal:hover\n"
 "{\n"
-"    background-color: rgb(195, 155, 255);\n"
+"    background-color: rgb(195, 195, 195);\n"
 "}\n"
 "\n"
 "QSlider::handle:horizontal:pressed\n"
@@ -667,20 +667,20 @@ class Ui_MainWindow(object):
 "	background-color: #6272a4;\n"
 "}\n"
 "\n"
-"QSlider::handle:vertical\n"
+"QSl"
+                        "ider::handle:vertical\n"
 "{\n"
-"    background-colo"
-                        "r: rgb(189, 147, 249);\n"
+"    background-color: rgb(213, 213, 213);\n"
 "	border: none;\n"
 "    height: 10px;\n"
 "    width: 10px;\n"
 "    margin: 0px;\n"
-"	border-radius: 5px;\n"
+"	border-radius: 0px;\n"
 "}\n"
 "\n"
 "QSlider::handle:vertical:hover\n"
 "{\n"
-"    background-color: rgb(195, 155, 255);\n"
+"    background-color: rgb(195, 195, 195);\n"
 "}\n"
 "\n"
 "QSlider::handle:vertical:pressed\n"
@@ -712,14 +712,14 @@ class Ui_MainWindow(object):
 "	background-color: #586796;\n"
 "}\n"
 "\n"
-"/* ///////////////////////////////////////////////////////////////////////////////////////////////"
-                        "//\n"
+"/* ////////////////////////////////////////////"
+                        "/////////////////////////////////////////////////////\n"
 "Button */\n"
 "\n"
 "#pagesContainer QPushButton\n"
 "{\n"
 "	border: 2px solid rgb(136, 112, 173);\n"
-"	border-radius: 5px;	\n"
+"	border-radius: 5px;\n"
 "	background-color: rgb(136, 112, 173);\n"
 "    color: #f8f8f2;\n"
 "}\n"
@@ -755,16 +755,20 @@ class Ui_MainWindow(object):
 "	padding-bottom: 3px;\n"
 "}\n"
 "\n"
-"QTabBar::tab:first\n"
+"QTabWidget::tab-bar {\n"
+"    alignment: center;\n"
+"}\n"
+"\n"
+"QTabBar::tab:fi"
+                        "rst\n"
 "{\n"
-"	border-top-left-radius: 5px;\n"
+"	border-top-left-radius: 0px;\n"
 "	border-bottom-left-radius: 5px;\n"
 "}\n"
 "\n"
 "QTabBar::tab:last\n"
-""
-                        "{\n"
-"	border-top-right-radius: 5px;\n"
+"{\n"
+"	border-top-right-radius: 0px;\n"
 "	border-bottom-right-radius: 5px;\n"
 "}\n"
 "\n"
@@ -777,13 +781,18 @@ class Ui_MainWindow(object):
 "QTabBar::close-button\n"
 "{\n"
 "    background-position: center;\n"
-"    /* background-image: url(\":/Appearance/close_chat_item\"); */\n"
 "}\n"
 "\n"
-"/* QTabWidget::pane\n"
+"QTabWidget::pane\n"
 "{ \n"
-"    position: absolute;\n"
-"} */\n"
+"    background-color: rgba(250, 250, 250, 1);\n"
+"	top: -26px;\n"
+"	padding-top: 0px;\n"
+"	padding-left: -8px;\n"
+"	padding-right: -8px;\n"
+"	padding-bottom: -8px;\n"
+"	border-radius: 0px;\n"
+"}\n"
 "\n"
 "QTabBar::tab:selected\n"
 "{\n"
@@ -803,7 +812,8 @@ class Ui_MainWindow(object):
 "QProgressBar::chunk\n"
 "{\n"
 "	border-radius: 1px;\n"
-"	width: 5px;\n"
+""
+                        "	width: 5px;\n"
 "	margin: 1px;\n"
 "}\n"
 "\n"
@@ -817,10 +827,41 @@ class Ui_MainWindow(object):
 "	background-color: #927bb3;\n"
 "}\n"
 "\n"
-"#progres"
-                        "sBar_3::chunk\n"
+"#progressBar_3::chunk\n"
 "{\n"
 "	background-color: #b194da;\n"
+"}\n"
+"\n"
+"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"QSplitter */\n"
+"\n"
+"QSplitter::handle\n"
+"{\n"
+"	/* background-color: whitesmoke; */\n"
+"}\n"
+"\n"
+"QSplitter::handle:horizontal {\n"
+"    width: 2px;\n"
+"	image: url(:/icons/images/icons/v.png);\n"
+"}\n"
+"\n"
+"QSplitter::handle:vertical {\n"
+"    height: 2px;\n"
+"	image: url(:/icons/images/icons/h.png);\n"
+"}\n"
+"\n"
+"QSplitter::handle:pressed\n"
+"{ \n"
+"	background-color: rgb(166, 179, 155);\n"
+"}\n"
+"\n"
+"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"Custome */\n"
+"\n"
+"#upload\n"
+"{\n"
+"	border: 2px dashed rgb(220, 220, 220);\n"
+"	border-radius: 5px;\n"
 "}\n"
 "\n"
 "")
@@ -1261,7 +1302,7 @@ class Ui_MainWindow(object):
         sizePolicy5.setHeightForWidth(self.status_label.sizePolicy().hasHeightForWidth())
         self.status_label.setSizePolicy(sizePolicy5)
         self.status_label.setStyleSheet(u"color: rgb(96, 96, 96);")
-        self.status_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.status_label.setAlignment(Qt.AlignCenter)
         self.status_label.setMargin(5)
 
         self.horizontalLayout_3.addWidget(self.status_label)
@@ -1592,7 +1633,7 @@ class Ui_MainWindow(object):
         self.video_viewer.setStyleSheet(u"border: 1px solid rgb(220, 220, 220);\n"
 "border-radius: 5px;\n"
 "background-color: rgb(233, 233, 233);\n"
-"padding: 5px;")
+"padding: 3px;")
         self.video_viewer.setAlignment(Qt.AlignCenter)
         self.splitter.addWidget(self.video_viewer)
         self.layoutWidget = QWidget(self.splitter)
@@ -1659,6 +1700,7 @@ class Ui_MainWindow(object):
         sizePolicy11.setHeightForWidth(self.btn_scan.sizePolicy().hasHeightForWidth())
         self.btn_scan.setSizePolicy(sizePolicy11)
         self.btn_scan.setMinimumSize(QSize(110, 40))
+        self.btn_scan.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_scan.setStyleSheet(u"background-color: rgb(136, 112, 173);\n"
 "")
         icon17 = QIcon()
@@ -1672,6 +1714,7 @@ class Ui_MainWindow(object):
         sizePolicy11.setHeightForWidth(self.btn_update.sizePolicy().hasHeightForWidth())
         self.btn_update.setSizePolicy(sizePolicy11)
         self.btn_update.setMinimumSize(QSize(110, 40))
+        self.btn_update.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_update.setStyleSheet(u"background-color: rgb(136, 112, 173);\n"
 "")
         icon18 = QIcon()
@@ -1711,6 +1754,7 @@ class Ui_MainWindow(object):
         sizePolicy6.setHeightForWidth(self.btn_file.sizePolicy().hasHeightForWidth())
         self.btn_file.setSizePolicy(sizePolicy6)
         self.btn_file.setMinimumSize(QSize(110, 35))
+        self.btn_file.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_file.setAcceptDrops(False)
         self.btn_file.setStyleSheet(u"background-color: rgb(136, 112, 173);")
         icon19 = QIcon()
@@ -1767,6 +1811,7 @@ class Ui_MainWindow(object):
         sizePolicy11.setHeightForWidth(self.btn_result.sizePolicy().hasHeightForWidth())
         self.btn_result.setSizePolicy(sizePolicy11)
         self.btn_result.setMinimumSize(QSize(110, 40))
+        self.btn_result.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_result.setStyleSheet(u"background-color: rgb(136, 112, 173);")
         icon20 = QIcon()
         icon20.addFile(u":/icons/images/icons/image_white.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -1791,22 +1836,23 @@ class Ui_MainWindow(object):
         self.verticalLayout_22.setObjectName(u"verticalLayout_22")
         self.verticalLayout_22.setSizeConstraint(QLayout.SetMaximumSize)
         self.verticalLayout_22.setContentsMargins(0, 0, 0, 0)
-        self.label_14 = QLabel(self.layoutWidget2)
-        self.label_14.setObjectName(u"label_14")
+        self.detect_header = QLabel(self.layoutWidget2)
+        self.detect_header.setObjectName(u"detect_header")
         sizePolicy12 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
         sizePolicy12.setHorizontalStretch(0)
         sizePolicy12.setVerticalStretch(0)
-        sizePolicy12.setHeightForWidth(self.label_14.sizePolicy().hasHeightForWidth())
-        self.label_14.setSizePolicy(sizePolicy12)
-        self.label_14.setMinimumSize(QSize(180, 25))
-        self.label_14.setMaximumSize(QSize(400, 16777215))
-        self.label_14.setStyleSheet(u"background-color: rgb(237, 232, 239);\n"
+        sizePolicy12.setHeightForWidth(self.detect_header.sizePolicy().hasHeightForWidth())
+        self.detect_header.setSizePolicy(sizePolicy12)
+        self.detect_header.setMinimumSize(QSize(180, 30))
+        self.detect_header.setMaximumSize(QSize(400, 16777215))
+        self.detect_header.setStyleSheet(u"background-color: rgb(237, 232, 239);\n"
 "font-size: 12pt;\n"
 "font-weight: bold;\n"
-"color: rgb(96, 96, 96);")
-        self.label_14.setAlignment(Qt.AlignCenter)
+"color: rgb(96, 96, 96);\n"
+"border-bottom: 5px solid qlineargradient(y0:0, y1:1,stop: 0 rgba(242, 242, 242,1),  stop: 1  #ececef);")
+        self.detect_header.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_22.addWidget(self.label_14)
+        self.verticalLayout_22.addWidget(self.detect_header)
 
         self.textBrowser = QTextBrowser(self.layoutWidget2)
         self.textBrowser.setObjectName(u"textBrowser")
@@ -2830,7 +2876,7 @@ class Ui_MainWindow(object):
         self.btn_stop_file.setText(QCoreApplication.translate("MainWindow", u" Stop", None))
         self.btn_result.setText(QCoreApplication.translate("MainWindow", u" Open Result", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.file), QCoreApplication.translate("MainWindow", u"File Detect", None))
-        self.label_14.setText(QCoreApplication.translate("MainWindow", u"Detect Status Output", None))
+        self.detect_header.setText(QCoreApplication.translate("MainWindow", u"Detect Status Output", None))
         self.textBrowser.setPlaceholderText("")
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Batch Number", None))
         self.batch_number.setText(QCoreApplication.translate("MainWindow", u"001", None))

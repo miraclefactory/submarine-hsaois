@@ -224,7 +224,7 @@ class MainWindow(QMainWindow):
         # PYQTGRAPH_report
         # ///////////////////////////////////////////////////////////////
         widgets.batch_data_graph.setBackground((240, 240, 245))
-        widgets.batch_data_graph.setLabel('left', ' accuracy(%)', color='#705597')
+        widgets.batch_data_graph.setLabel('left', 'Yield(%)', color='#705597')
         widgets.batch_data_graph.setLabel('bottom', 'Class', color='#705597')
         widgets.batch_data_graph.showGrid(x=True, y=True)
         widgets.batch_data_graph.setXRange(min=0, max=20)
