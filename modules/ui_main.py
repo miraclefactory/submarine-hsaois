@@ -947,7 +947,7 @@ class Ui_MainWindow(object):
         self.btn_detect_2.setSizePolicy(sizePolicy1)
         self.btn_detect_2.setMinimumSize(QSize(0, 45))
         self.btn_detect_2.setFont(font)
-        self.btn_detect_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_detect_2.setCursor(QCursor(Qt.ArrowCursor))
         self.btn_detect_2.setLayoutDirection(Qt.LeftToRight)
         self.btn_detect_2.setStyleSheet(u"background-color: transparent;\n"
 "border: none;")
@@ -1529,44 +1529,44 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_30.addWidget(self.label_13)
 
-        self.label_11 = QLabel(self.home)
-        self.label_11.setObjectName(u"label_11")
-        sizePolicy5.setHeightForWidth(self.label_11.sizePolicy().hasHeightForWidth())
-        self.label_11.setSizePolicy(sizePolicy5)
-        self.label_11.setStyleSheet(u"border-top-right-radius: 5px;\n"
+        self.label_documentation = QLabel(self.home)
+        self.label_documentation.setObjectName(u"label_documentation")
+        sizePolicy5.setHeightForWidth(self.label_documentation.sizePolicy().hasHeightForWidth())
+        self.label_documentation.setSizePolicy(sizePolicy5)
+        self.label_documentation.setStyleSheet(u"border-top-right-radius: 5px;\n"
 "border-bottom-right-radius: 5px;\n"
 "border-left: 2px solid rgb(112, 85, 151);\n"
 "background-color: rgb(237, 237, 249);\n"
 "font-size: 12pt;\n"
 "padding: 12px;")
 
-        self.verticalLayout_30.addWidget(self.label_11)
+        self.verticalLayout_30.addWidget(self.label_documentation)
 
-        self.label_12 = QLabel(self.home)
-        self.label_12.setObjectName(u"label_12")
-        sizePolicy5.setHeightForWidth(self.label_12.sizePolicy().hasHeightForWidth())
-        self.label_12.setSizePolicy(sizePolicy5)
-        self.label_12.setStyleSheet(u"border-top-right-radius: 5px;\n"
+        self.label_database = QLabel(self.home)
+        self.label_database.setObjectName(u"label_database")
+        sizePolicy5.setHeightForWidth(self.label_database.sizePolicy().hasHeightForWidth())
+        self.label_database.setSizePolicy(sizePolicy5)
+        self.label_database.setStyleSheet(u"border-top-right-radius: 5px;\n"
 "border-bottom-right-radius: 5px;\n"
 "border-left: 2px solid rgb(112, 85, 151);\n"
 "background-color: rgb(237, 237, 249);\n"
 "font-size: 12pt;\n"
 "padding: 12px;")
 
-        self.verticalLayout_30.addWidget(self.label_12)
+        self.verticalLayout_30.addWidget(self.label_database)
 
-        self.label_9 = QLabel(self.home)
-        self.label_9.setObjectName(u"label_9")
-        sizePolicy5.setHeightForWidth(self.label_9.sizePolicy().hasHeightForWidth())
-        self.label_9.setSizePolicy(sizePolicy5)
-        self.label_9.setStyleSheet(u"border-top-right-radius: 5px;\n"
+        self.label_custom_model = QLabel(self.home)
+        self.label_custom_model.setObjectName(u"label_custom_model")
+        sizePolicy5.setHeightForWidth(self.label_custom_model.sizePolicy().hasHeightForWidth())
+        self.label_custom_model.setSizePolicy(sizePolicy5)
+        self.label_custom_model.setStyleSheet(u"border-top-right-radius: 5px;\n"
 "border-bottom-right-radius: 5px;\n"
 "border-left: 2px solid rgb(112, 85, 151);\n"
 "background-color: rgb(237, 237, 249);\n"
 "font-size: 12pt;\n"
 "padding: 12px;")
 
-        self.verticalLayout_30.addWidget(self.label_9)
+        self.verticalLayout_30.addWidget(self.label_custom_model)
 
         self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -1658,7 +1658,7 @@ class Ui_MainWindow(object):
         self.layoutWidget = QWidget(self.splitter)
         self.layoutWidget.setObjectName(u"layoutWidget")
         self.horizontalLayout_11 = QHBoxLayout(self.layoutWidget)
-        self.horizontalLayout_11.setSpacing(15)
+        self.horizontalLayout_11.setSpacing(20)
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
         self.horizontalLayout_11.setContentsMargins(0, 5, 0, 0)
         self.btn_start_live = QPushButton(self.layoutWidget)
@@ -1724,19 +1724,6 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_11.addWidget(self.btn_scan)
 
-        self.btn_update = QPushButton(self.layoutWidget)
-        self.btn_update.setObjectName(u"btn_update")
-        sizePolicy11.setHeightForWidth(self.btn_update.sizePolicy().hasHeightForWidth())
-        self.btn_update.setSizePolicy(sizePolicy11)
-        self.btn_update.setMinimumSize(QSize(110, 35))
-        self.btn_update.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_update.setStyleSheet(u"background-color: rgb(136, 112, 173); ")
-        icon18 = QIcon()
-        icon18.addFile(u":/icons/images/icons/cil-data-transfer-up.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_update.setIcon(icon18)
-
-        self.horizontalLayout_11.addWidget(self.btn_update)
-
         self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_11.addItem(self.horizontalSpacer_9)
@@ -1771,9 +1758,9 @@ class Ui_MainWindow(object):
         self.btn_file.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_file.setAcceptDrops(False)
         self.btn_file.setStyleSheet(u"background-color: rgb(136, 112, 173); ")
-        icon19 = QIcon()
-        icon19.addFile(u":/icons/images/icons/folder-add_white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_file.setIcon(icon19)
+        icon18 = QIcon()
+        icon18.addFile(u":/icons/images/icons/folder-add_white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_file.setIcon(icon18)
 
         self.horizontalLayout_29.addWidget(self.btn_file)
 
@@ -1781,7 +1768,7 @@ class Ui_MainWindow(object):
         self.layoutWidget1 = QWidget(self.splitter_2)
         self.layoutWidget1.setObjectName(u"layoutWidget1")
         self.horizontalLayout_8 = QHBoxLayout(self.layoutWidget1)
-        self.horizontalLayout_8.setSpacing(15)
+        self.horizontalLayout_8.setSpacing(20)
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
         self.horizontalLayout_8.setContentsMargins(0, 5, 0, 0)
         self.btn_start_file = QPushButton(self.layoutWidget1)
@@ -1827,9 +1814,9 @@ class Ui_MainWindow(object):
         self.btn_result.setMinimumSize(QSize(110, 35))
         self.btn_result.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_result.setStyleSheet(u"background-color: rgb(136, 112, 173); ")
-        icon20 = QIcon()
-        icon20.addFile(u":/icons/images/icons/image_white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_result.setIcon(icon20)
+        icon19 = QIcon()
+        icon19.addFile(u":/icons/images/icons/image_white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_result.setIcon(icon19)
 
         self.horizontalLayout_8.addWidget(self.btn_result)
 
@@ -2399,9 +2386,9 @@ class Ui_MainWindow(object):
         self.btn_search.setStyleSheet(u"background-color: rgb(136, 112, 173); \n"
 "color: white;\n"
 "border-radius: 8px;")
-        icon21 = QIcon()
-        icon21.addFile(u":/icons/images/icons/search_white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_search.setIcon(icon21)
+        icon20 = QIcon()
+        icon20.addFile(u":/icons/images/icons/search_white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_search.setIcon(icon20)
         self.btn_search.setFlat(False)
 
         self.horizontalLayout_22.addWidget(self.btn_search)
@@ -2415,9 +2402,9 @@ class Ui_MainWindow(object):
         self.btn_save.setStyleSheet(u"background-color: rgb(136, 112, 173); \n"
 "color: white;\n"
 "border-radius: 8px;")
-        icon22 = QIcon()
-        icon22.addFile(u":/icons/images/icons/download_white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_save.setIcon(icon22)
+        icon21 = QIcon()
+        icon21.addFile(u":/icons/images/icons/download_white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_save.setIcon(icon21)
         self.btn_save.setFlat(False)
 
         self.horizontalLayout_22.addWidget(self.btn_save)
@@ -2751,9 +2738,9 @@ class Ui_MainWindow(object):
         self.btn_python.setMaximumSize(QSize(16777196, 16777215))
         self.btn_python.setStyleSheet(u"background-color:  rgb(78, 60, 105);\n"
 "border: none;")
-        icon23 = QIcon()
-        icon23.addFile(u":/icons/images/icons/python.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_python.setIcon(icon23)
+        icon22 = QIcon()
+        icon22.addFile(u":/icons/images/icons/python.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_python.setIcon(icon22)
         self.btn_python.setFlat(True)
 
         self.horizontalLayout_5.addWidget(self.btn_python)
@@ -2809,7 +2796,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
         self.tabWidget.setCurrentIndex(0)
 
 
@@ -2875,15 +2862,14 @@ class Ui_MainWindow(object):
         self.home_logo_line.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>HSAOIS<span style=\" font-size:14pt; vertical-align:sub;\">by Submarine</span></p></body></html>", None))
         self.home_logo_line2.setText(QCoreApplication.translate("MainWindow", u"Invoke The Next Era In Optical Inspection", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt;\">Start</span></p></body></html>", None))
-        self.label_11.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:600;\">Documentation</span></p><p><a href =\"https://www.osl.ink\" style=\" font-size:13pt; text-decoration:none; color: #333\">New to HSAOIS? Check out our documentation.</a></p></body></html>", None))
-        self.label_12.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Access to your database</p></body></html>", None))
-        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Learn to train a custom model", None))
+        self.label_documentation.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:600;\">Documentation</span></p><p><a href =\"https://www.osl.ink\" style=\" font-size:13pt; text-decoration:none; color: #333\">New to HSAOIS? Check out our documentation.</a></p></body></html>", None))
+        self.label_database.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Access to your database</p></body></html>", None))
+        self.label_custom_model.setText(QCoreApplication.translate("MainWindow", u"Learn to train a custom model", None))
         self.video_tu.setText(QCoreApplication.translate("MainWindow", u" Video Tutorial", None))
         self.video_viewer.setText("")
         self.btn_start_live.setText(QCoreApplication.translate("MainWindow", u" Start", None))
         self.btn_stop_live.setText(QCoreApplication.translate("MainWindow", u" Stop", None))
         self.btn_scan.setText(QCoreApplication.translate("MainWindow", u" Scan", None))
-        self.btn_update.setText(QCoreApplication.translate("MainWindow", u" Update", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.live), QCoreApplication.translate("MainWindow", u"Live Detect", None))
         self.btn_file.setText(QCoreApplication.translate("MainWindow", u" Select File", None))
         self.btn_start_file.setText(QCoreApplication.translate("MainWindow", u" Start", None))

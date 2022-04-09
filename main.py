@@ -25,6 +25,7 @@ from PySide6.QtGui import QDropEvent
 from threading import Thread, Lock
 from cv2 import getTickCount, getTickFrequency
 from concurrent.futures import ThreadPoolExecutor
+from modules import report_text
 # IMPORT GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
 from widgets import *
@@ -33,15 +34,14 @@ from modules.db import *
 from modules.detect import *
 from modules import global_var
 from modules.letterbox import *
-# from modules.report_text import *
+from modules.report_text import *
 from modules.shit_algorithm import *
 from modules.data_visualization import *
 from utils.torch_utils import select_device
 from models.experimental import attempt_load
 from modules.image_broswer import Window_img_broswer, get_pure_list
 from widgets.custom_grips.custom_grips import Widgets
-from utils.general import (
-    check_img_size, non_max_suppression, scale_coords, plot_one_box)
+from utils.general import (check_img_size, non_max_suppression, scale_coords, plot_one_box)
 
 # SET DPI AND SCALING
 # ///////////////////////////////////////////////////////////////
@@ -66,7 +66,6 @@ seq = 1                 # SERIAL NUMBER
 class_total = [0 for i in range(12)]
 defected_total = 0
 global_var._init()
-trig = False
 
 init_table()
 if verify_general_table():
@@ -171,6 +170,9 @@ class MainWindow(QMainWindow):
         # HOME PAGE
         # ///////////////////////////////////////////////////////////////
         widgets.video_tu.clicked.connect(self.openURL)
+        widgets.label_documentation.linkActivated.connect(self.openURL)
+        widgets.label_database.linkActivated.connect(self.openURL)
+        widgets.label_custom_model.linkActivated.connect(self.openURL)
 
         # SIGNAL
         # ///////////////////////////////////////////////////////////////
@@ -204,7 +206,6 @@ class MainWindow(QMainWindow):
         widgets.btn_scan.clicked.connect(self.scanDetectMode)
         widgets.video_viewer.setAlignment(Qt.AlignCenter)
         # widgets.video_viewer.setPixmap(QPixmap(":images/images/images/smile.png").scaledToWidth(50))
-        widgets.btn_update.clicked.connect(self.sync_database)
 
         # PYQTGRAPH
         # ///////////////////////////////////////////////////////////////
@@ -231,15 +232,14 @@ class MainWindow(QMainWindow):
         # PYQTGRAPH_report
         # ///////////////////////////////////////////////////////////////
         widgets.batch_data_graph.setBackground((240, 240, 245))
-        widgets.batch_data_graph.setLabel('left', 'Yield(%)', color='#705597')
+        widgets.batch_data_graph.setLabel('left', 'Defective per Batch(%)', color='#705597')
         widgets.batch_data_graph.setLabel('bottom', 'Class', color='#705597')
         widgets.batch_data_graph.showGrid(x=True, y=True)
         widgets.batch_data_graph.setXRange(min=0, max=20)
         widgets.batch_data_graph.setMouseEnabled(x=True, y=False)
         pg.setConfigOptions(leftButtonPan=False, antialias=True)
         pen = pg.mkPen({'color': "#705597", 'width': 4})
-        self.curve2 = widgets.batch_data_graph.plot(
-            pen=pen, symbol='s', symbolBrush=QColor("#705597"))
+        self.curve2 = widgets.batch_data_graph.plot(pen=pen, symbol='s', symbolBrush=QColor("#705597"))
         self.x_axis_batch = fetch_batch_num()
         self.y_axis_batch = self.handle_per_list(fecth_defective_data())
 
@@ -258,7 +258,7 @@ class MainWindow(QMainWindow):
             UIFunctions.theme(self, themeFile, True)
 
             # SET HACKS
-            AppFunctions.setThemeHack(self)
+            app_functions.AppFunctions.setThemeHack(self)
 
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////
@@ -341,7 +341,7 @@ class MainWindow(QMainWindow):
         self.curve.setData(self.x_axis, data)
         widgets.detected.setText(str(seq))
         widgets.frac_defective.setText(str(round(frac, 2) * 100) + "%")
-        text = [self.xtick[0][int(i[1])][1] for i in (data, self.x_axis) if i[0] == max([i for i in data])]
+        text = [self.xtick[0][int(i[1])][1] for i in zip(data, self.x_axis) if i[0] == max(data)]
         if len(text) > 0:
             widgets.most_defected.setText(str(text[0]))
         mb = class_total[6]+class_total[7]+class_total[8]+class_total[9]
@@ -410,6 +410,7 @@ class MainWindow(QMainWindow):
         widgets.btn_stop_live.setEnabled(False)
         widgets.btn_scan.setEnabled(True)
         widgets.status_label.setText("Ready")
+        self.updateDataGraph()
 
     def terminate(self):
         # RAISE INTERRUPT EXCEPTION
@@ -479,21 +480,10 @@ class MainWindow(QMainWindow):
         trig = True
         hashpool = []
         input_list = []
+        batch_num += 1
         defected_total = 0
         self.y_axis = [0, 0, 0, 0, 0, 0, 0]
-        class_total = [0 for i in range(12)]
-        # self.y_axis_2[batch_num]= widgets.frac_defective.text()
-        frac_d_n = self.handle_per(widgets.frac_defective.text())
-        update_general_table(batch_num, frac_d_n)
-        self.x_axis_batch = fetch_batch_num()
-        self.y_axis_batch = self.handle_per_list(fecth_defective_data())
-        cal_frac(self.y_axis_batch)
-        cal_class(fetch_general_class())
-        self.update_report_frac(self.x_axis_batch, self.y_axis_batch)
-        # self.update_table_widget2(batch_num,fetch_general_class())
-        batch_num += 1
-        self.update_table_report(fetch_general_class())
-        delete_class_table()
+        class_total = [0 for i in range(11)]
         self.es.update_graph.emit(self.y_axis, seq-1, defected_total/seq)
         widgets.most_defected.setText("None")
         widgets.batch_number.setText(str(batch_num))
@@ -502,42 +492,6 @@ class MainWindow(QMainWindow):
         widgets.tableWidget.setItem(0, 1, QTableWidgetItem("Serial Number"))
         widgets.tableWidget.setItem(0, 2, QTableWidgetItem("Result Class"))
         widgets.tableWidget.setItem(0, 3, QTableWidgetItem("Notes"))
-
-    def update_table_report(self, ls):
-        for i in range(1, len(ls)):
-            for j in range(len(ls[i])):
-                widgets.tableWidget_2.setItem(i, j, QTableWidgetItem(ls[i][j]))
-
-    def handle_per(self, strwithper):  # for cloud side
-        strx = strwithper.split("%", 1)[0]
-        return float(strx)
-
-    def update_report_frac(self, ls, list):
-        self.curve2.setData(ls, list)
-
-    def handle_per_list(self, ls) -> list:
-        data = []
-        for i in ls:
-            i = i.split("%", 1)[0]
-            data.append(float(i))
-        return data
-    
-    def sync_database(self):
-        global batch_num, trig
-        if trig == True:
-            frac_d_n = self.handle_per(widgets.frac_defective.text())
-            print(self.handle_per(widgets.frac_defective.text()))
-            update_general_table(batch_num, frac_d_n)
-            self.update_table_report(fetch_general_class())
-            self.x_axis_batch = fetch_batch_num()
-            self.y_axis_batch = self.handle_per_list(fecth_defective_data())
-            self.update_report_frac(self.x_axis_batch, self.y_axis_batch)
-            batch_num += 1
-            delete_class_table()
-            trig = False
-        # connect to the cloud
-        # 1. overwrite the file in the cloud
-        # 2. upload last record for general table
 
     def openFrame(self):
         global pool, is_scan_mode, is_live_mode
@@ -576,7 +530,7 @@ class MainWindow(QMainWindow):
                                 for i in input_list[len(input_list)-1]:
                                     if i in [0, 1, 3, 5, 6, 7, 8, 9]:
                                         cv2.imwrite(
-                                            f"defected/defected - {seq}.jpg", cvimg)
+                                            f"defected/SN-{seq}.jpg", cvimg)
                                         # update_error_pic(handleimg)
                         hashpool = hashpool[i+1:]
                         break
@@ -589,12 +543,10 @@ class MainWindow(QMainWindow):
                                 bn = batch_num
                                 self.es.update_table.emit(["BN-"+str(bn)+"-SN-"+str(seq),
                                                           str(a), "none"], defected_total)
-                                update_error_details(
-                                    Vector_output=a, serial_number="BN-"+str(bn)+"-SN-"+str(seq))
-                            self.y_axis = update_line_graph(
-                                self.y_axis, a, class_total, seq)
-                            self.es.update_graph.emit(
-                                self.y_axis, seq, defected_total/seq)
+                                update_error_details(Vector_output=a, \
+                                                     serial_number="BN-"+str(bn)+"-SN-"+str(seq))
+                            self.y_axis = update_line_graph(self.y_axis, a, class_total, seq)
+                            self.es.update_graph.emit(self.y_axis, seq, defected_total/seq)
                             seq += 1
                         is_defetced = False
                         input_list = []
@@ -637,7 +589,8 @@ class MainWindow(QMainWindow):
                                 is_defetced = True
                                 for i in input_list[len(input_list)-1]:
                                     if i in [0, 1, 3, 5, 6, 7, 8, 9]:
-                                        cv2.imwrite(f"defected/defected - {seq}.jpg", cvimg)
+                                        cv2.imwrite(
+                                            f"defected/SN-{seq}.jpg", cvimg)
                             if cnt >= 6:
                                 if len(input_list) > 0:
                                     a = feature_max_pooling([length_weighted_average_pooling(i)
@@ -768,6 +721,42 @@ class MainWindow(QMainWindow):
             if len(file_list) > 0:
                 for file in file_list:
                     shutil.move(ori_path+file, target+file)
+
+    # DATABASE OPERATIONS
+    # ///////////////////////////////////////////////////////////////
+    def updateDataGraph(self):
+        # UPDATE
+        # self.y_axis_2[batch_num]= widgets.frac_defective.text()
+        frac_d_n = self.handle_per(widgets.frac_defective.text())
+        update_general_table(batch_num, frac_d_n)
+        self.x_axis_batch = fetch_batch_num()
+        self.y_axis_batch = self.handle_per_list(fecth_defective_data())
+        cal_frac(self.y_axis_batch)
+        cal_class(fetch_general_class())
+        self.update_report_frac(self.x_axis_batch, self.y_axis_batch)
+        # self.update_table_widget2(batch_num,fetch_general_class())
+        self.update_table_report(fetch_general_class())
+        delete_class_table()
+
+    def update_table_report(self, ls):
+        for i in range(1, len(ls)):
+            for j in range(len(ls[i])):
+                widgets.tableWidget_2.setItem(i, j, QTableWidgetItem(ls[i][j]))
+
+    def handle_per(self, strwithper):  # for cloud side
+        strx = strwithper.split("%", 1)[0]
+        return float(strx)
+
+    def update_report_frac(self, ls, list):
+        self.curve2.setData(ls, list)
+
+    def handle_per_list(self, ls) -> list:
+        data = []
+        for i in ls:
+            i = i.split("%", 1)[0]
+            data.append(float(i))
+        return data
+
 
 def handle_str_table(ls):
     for i in range(len(ls)):

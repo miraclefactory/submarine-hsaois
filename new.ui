@@ -1045,7 +1045,7 @@ Custome */
               </font>
              </property>
              <property name="cursor">
-              <cursorShape>PointingHandCursor</cursorShape>
+              <cursorShape>ArrowCursor</cursorShape>
              </property>
              <property name="layoutDirection">
               <enum>Qt::LeftToRight</enum>
@@ -2362,7 +2362,7 @@ p, li { white-space: pre-wrap; }
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>1</number>
+                      <number>0</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="styleSheet">
@@ -2536,7 +2536,7 @@ color: rgb(170,170,170);</string>
                               </widget>
                              </item>
                              <item>
-                              <widget class="QLabel" name="label_11">
+                              <widget class="QLabel" name="label_documentation">
                                <property name="sizePolicy">
                                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                                  <horstretch>1</horstretch>
@@ -2557,7 +2557,7 @@ padding: 12px;</string>
                               </widget>
                              </item>
                              <item>
-                              <widget class="QLabel" name="label_12">
+                              <widget class="QLabel" name="label_database">
                                <property name="sizePolicy">
                                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                                  <horstretch>1</horstretch>
@@ -2578,7 +2578,7 @@ padding: 12px;</string>
                               </widget>
                              </item>
                              <item>
-                              <widget class="QLabel" name="label_9">
+                              <widget class="QLabel" name="label_custom_model">
                                <property name="sizePolicy">
                                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                                  <horstretch>1</horstretch>
@@ -2784,7 +2784,7 @@ padding: 3px;</string>
                               <widget class="QWidget" name="layoutWidget">
                                <layout class="QHBoxLayout" name="horizontalLayout_11">
                                 <property name="spacing">
-                                 <number>15</number>
+                                 <number>20</number>
                                 </property>
                                 <property name="topMargin">
                                  <number>5</number>
@@ -2909,35 +2909,6 @@ border: none;</string>
                                  </widget>
                                 </item>
                                 <item>
-                                 <widget class="QPushButton" name="btn_update">
-                                  <property name="sizePolicy">
-                                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                                    <horstretch>1</horstretch>
-                                    <verstretch>0</verstretch>
-                                   </sizepolicy>
-                                  </property>
-                                  <property name="minimumSize">
-                                   <size>
-                                    <width>110</width>
-                                    <height>35</height>
-                                   </size>
-                                  </property>
-                                  <property name="cursor">
-                                   <cursorShape>PointingHandCursor</cursorShape>
-                                  </property>
-                                  <property name="styleSheet">
-                                   <string notr="true">background-color: rgb(136, 112, 173); </string>
-                                  </property>
-                                  <property name="text">
-                                   <string> Update</string>
-                                  </property>
-                                  <property name="icon">
-                                   <iconset resource="resources.qrc">
-                                    <normaloff>:/icons/images/icons/cil-data-transfer-up.png</normaloff>:/icons/images/icons/cil-data-transfer-up.png</iconset>
-                                  </property>
-                                 </widget>
-                                </item>
-                                <item>
                                  <spacer name="horizontalSpacer_9">
                                   <property name="orientation">
                                    <enum>Qt::Horizontal</enum>
@@ -3026,7 +2997,7 @@ border: none;</string>
                               <widget class="QWidget" name="layoutWidget">
                                <layout class="QHBoxLayout" name="horizontalLayout_8">
                                 <property name="spacing">
-                                 <number>15</number>
+                                 <number>20</number>
                                 </property>
                                 <property name="topMargin">
                                  <number>5</number>
