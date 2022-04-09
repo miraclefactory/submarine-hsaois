@@ -783,7 +783,9 @@ ProgressBar */
 
 QProgressBar
 {
-	border-radius: 5px;
+	border-radius: 2px;
+	border-right: 2px solid rgb(220, 220, 220);
+	border-left: 2px solid rgb(220, 220, 220);
 }
 
 QProgressBar::chunk
@@ -805,7 +807,7 @@ QProgressBar::chunk
 
 #progressBar_3::chunk
 {
-	background-color: #b194da;
+	background-color: #a787d5;
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -838,6 +840,21 @@ Custome */
 {
 	border: 2px dashed rgb(220, 220, 220);
 	border-radius: 5px;
+}
+
+#pagesContainer #video_tu
+{
+	color: #555;
+	font-size: 12pt;
+	border: 1px solid rgb(220, 220, 220);
+	background-color: rgb(248, 248, 255);
+}
+
+#pagesContainer #video_tu:hover
+{
+	color: #705597;
+	background-color: rgb(228, 228, 235);
+	text-decoration: underline #705597;
 }
 
 </string>
@@ -2345,7 +2362,7 @@ p, li { white-space: pre-wrap; }
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>0</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="styleSheet">
@@ -2535,7 +2552,7 @@ font-size: 12pt;
 padding: 12px;</string>
                                </property>
                                <property name="text">
-                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Documentation&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:13pt;&quot;&gt;New to HSAOIS? Check out our documentation.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Documentation&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;a href =&quot;https://www.osl.ink&quot; style=&quot; font-size:13pt; text-decoration:none; color: #333&quot;&gt;New to HSAOIS? Check out our documentation.&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                </property>
                               </widget>
                              </item>
@@ -2626,6 +2643,9 @@ padding: 12px;</string>
                                <width>120</width>
                                <height>32</height>
                               </size>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
                              </property>
                              <property name="styleSheet">
                               <string notr="true">color: #555;
@@ -2780,16 +2800,14 @@ padding: 3px;</string>
                                   <property name="minimumSize">
                                    <size>
                                     <width>110</width>
-                                    <height>40</height>
+                                    <height>35</height>
                                    </size>
                                   </property>
                                   <property name="cursor">
                                    <cursorShape>PointingHandCursor</cursorShape>
                                   </property>
                                   <property name="styleSheet">
-                                   <string notr="true">background-color: rgb(136, 112, 173);
-
-</string>
+                                   <string notr="true">background-color: rgb(136, 112, 173); </string>
                                   </property>
                                   <property name="text">
                                    <string> Start</string>
@@ -2814,15 +2832,14 @@ padding: 3px;</string>
                                   <property name="minimumSize">
                                    <size>
                                     <width>110</width>
-                                    <height>40</height>
+                                    <height>35</height>
                                    </size>
                                   </property>
                                   <property name="cursor">
                                    <cursorShape>PointingHandCursor</cursorShape>
                                   </property>
                                   <property name="styleSheet">
-                                   <string notr="true">background-color: rgb(136, 112, 173);
-</string>
+                                   <string notr="true">background-color: rgb(136, 112, 173); </string>
                                   </property>
                                   <property name="text">
                                    <string> Stop</string>
@@ -2847,11 +2864,11 @@ padding: 3px;</string>
                                   <property name="minimumSize">
                                    <size>
                                     <width>2</width>
-                                    <height>40</height>
+                                    <height>35</height>
                                    </size>
                                   </property>
                                   <property name="styleSheet">
-                                   <string notr="true">background-color: rgb(200, 200, 200);
+                                   <string notr="true">background-color: rgb(220, 220, 220);
 border: none;</string>
                                   </property>
                                   <property name="lineWidth">
@@ -2873,15 +2890,14 @@ border: none;</string>
                                   <property name="minimumSize">
                                    <size>
                                     <width>110</width>
-                                    <height>40</height>
+                                    <height>35</height>
                                    </size>
                                   </property>
                                   <property name="cursor">
                                    <cursorShape>PointingHandCursor</cursorShape>
                                   </property>
                                   <property name="styleSheet">
-                                   <string notr="true">background-color: rgb(136, 112, 173);
-</string>
+                                   <string notr="true">background-color: rgb(136, 112, 173); </string>
                                   </property>
                                   <property name="text">
                                    <string> Scan</string>
@@ -2903,15 +2919,14 @@ border: none;</string>
                                   <property name="minimumSize">
                                    <size>
                                     <width>110</width>
-                                    <height>40</height>
+                                    <height>35</height>
                                    </size>
                                   </property>
                                   <property name="cursor">
                                    <cursorShape>PointingHandCursor</cursorShape>
                                   </property>
                                   <property name="styleSheet">
-                                   <string notr="true">background-color: rgb(136, 112, 173);
-</string>
+                                   <string notr="true">background-color: rgb(136, 112, 173); </string>
                                   </property>
                                   <property name="text">
                                    <string> Update</string>
@@ -2995,7 +3010,7 @@ border: none;</string>
                                    <bool>false</bool>
                                   </property>
                                   <property name="styleSheet">
-                                   <string notr="true">background-color: rgb(136, 112, 173);</string>
+                                   <string notr="true">background-color: rgb(136, 112, 173); </string>
                                   </property>
                                   <property name="text">
                                    <string> Select File</string>
@@ -3027,14 +3042,14 @@ border: none;</string>
                                   <property name="minimumSize">
                                    <size>
                                     <width>110</width>
-                                    <height>40</height>
+                                    <height>35</height>
                                    </size>
                                   </property>
                                   <property name="cursor">
                                    <cursorShape>PointingHandCursor</cursorShape>
                                   </property>
                                   <property name="styleSheet">
-                                   <string notr="true">background-color: rgb(136, 112, 173);</string>
+                                   <string notr="true">background-color: rgb(136, 112, 173); </string>
                                   </property>
                                   <property name="text">
                                    <string> Start</string>
@@ -3059,14 +3074,14 @@ border: none;</string>
                                   <property name="minimumSize">
                                    <size>
                                     <width>110</width>
-                                    <height>40</height>
+                                    <height>35</height>
                                    </size>
                                   </property>
                                   <property name="cursor">
                                    <cursorShape>PointingHandCursor</cursorShape>
                                   </property>
                                   <property name="styleSheet">
-                                   <string notr="true">background-color: rgb(136, 112, 173);</string>
+                                   <string notr="true">background-color: rgb(136, 112, 173); </string>
                                   </property>
                                   <property name="text">
                                    <string> Stop</string>
@@ -3091,11 +3106,11 @@ border: none;</string>
                                   <property name="minimumSize">
                                    <size>
                                     <width>2</width>
-                                    <height>40</height>
+                                    <height>35</height>
                                    </size>
                                   </property>
                                   <property name="styleSheet">
-                                   <string notr="true">background-color: rgb(200, 200, 200);
+                                   <string notr="true">background-color: rgb(220, 220, 220);
 border: none;</string>
                                   </property>
                                   <property name="orientation">
@@ -3114,14 +3129,14 @@ border: none;</string>
                                   <property name="minimumSize">
                                    <size>
                                     <width>110</width>
-                                    <height>40</height>
+                                    <height>35</height>
                                    </size>
                                   </property>
                                   <property name="cursor">
                                    <cursorShape>PointingHandCursor</cursorShape>
                                   </property>
                                   <property name="styleSheet">
-                                   <string notr="true">background-color: rgb(136, 112, 173);</string>
+                                   <string notr="true">background-color: rgb(136, 112, 173); </string>
                                   </property>
                                   <property name="text">
                                    <string> Open Result</string>

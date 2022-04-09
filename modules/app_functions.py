@@ -43,3 +43,4 @@ class AppFunctions(MainWindow):
         self.ui.most_defected.setStyleSheet("color: #705597; font-weight: bold; font-size: 24pt;")
         self.ui.label_5.setStyleSheet("color: #705597; font-weight: bold;")
         self.ui.label_7.setStyleSheet("color: #705597; font-weight: bold;")
+        # self.ui.video_tu.setStyleSheet("color: #555; font-size: 12pt; border: 1px solid rgb(220, 220, 220); background-color: rgb(248, 248, 255);")

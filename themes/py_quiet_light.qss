@@ -71,7 +71,6 @@ Left Menu */
 #topLogo
 {
 	background-color: rgb(237, 237, 249);
-	/* background-image: url(:/images/images/images/PyDracula.png); */
 	background-position: centered;
 	background-repeat: no-repeat;
 }
@@ -713,7 +712,7 @@ QTabWidget::tab-bar {
 
 QTabBar::tab:first
 {
-	border-top-left-radius: -5px;
+	border-top-left-radius: 0px;
 	border-bottom-left-radius: 5px;
 }
 
@@ -757,7 +756,9 @@ ProgressBar */
 
 QProgressBar
 {
-	border-radius: 5px;
+	border-radius: 2px;
+	border-right: 2px solid rgb(220, 220, 220);
+	border-left: 2px solid rgb(220, 220, 220);
 }
 
 QProgressBar::chunk
@@ -779,7 +780,7 @@ QProgressBar::chunk
 
 #progressBar_3::chunk
 {
-	background-color: #b194da;
+	background-color: #a787d5;
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -812,4 +813,29 @@ Custome */
 {
 	border: 2px dashed rgb(220, 220, 220);
 	border-radius: 5px;
+}
+
+#pagesContainer #home #video_tu
+{
+	color: #555;
+	font-size: 12pt;
+	border: 1px solid rgb(220, 220, 220);
+	background-color: rgb(248, 248, 255);
+}
+
+#pagesContainer #home #video_tu:hover
+{
+	color: #705597;
+	background-color: rgb(228, 228, 235);
+	text-decoration: underline #705597;
+}
+
+#pagesContainer #home #label_11
+{
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-left: 2px solid rgb(112, 85, 151);
+	background-color: rgb(237, 237, 249);
+	font-size: 12pt;
+	padding: 12px;
 }

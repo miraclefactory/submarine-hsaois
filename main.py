@@ -42,6 +42,9 @@ from modules.image_broswer import Window_img_broswer, get_pure_list
 from widgets.custom_grips.custom_grips import Widgets
 from utils.general import (
     check_img_size, non_max_suppression, scale_coords, plot_one_box)
+
+# SET DPI AND SCALING
+# ///////////////////////////////////////////////////////////////
 os.environ["QT_FONT_DPI"] = "70"    # FIX Problem for High DPI and Scale above 100%
 # os.environ["QT_SCALE_FACTOR"] = "2"
 
@@ -164,6 +167,10 @@ class MainWindow(QMainWindow):
         def openCloseRightBox():
             UIFunctions.toggleRightBox(self, True)
         widgets.settingsTopBtn.clicked.connect(openCloseRightBox)
+
+        # HOME PAGE
+        # ///////////////////////////////////////////////////////////////
+        widgets.video_tu.clicked.connect(self.openURL)
 
         # SIGNAL
         # ///////////////////////////////////////////////////////////////
@@ -353,6 +360,9 @@ class MainWindow(QMainWindow):
 
     # BUTTON FUNCTIONS
     # ///////////////////////////////////////////////////////////////
+    def openURL(self):
+        QDesktopServices.openUrl(QUrl("https://www.osl.ink"))
+
     def selectFiles(self):
         # OPEN FILES
         widgets.textBrowser.append("Working Directory: " + os.getcwd())
@@ -663,7 +673,7 @@ class MainWindow(QMainWindow):
     def process_image(self, img, showimg, total_name):
         with torch.no_grad():
             img = letterbox(img, new_shape=self.opt.img_size)[0]
-            # Convert
+            # CONVERT MATRIX
             img = img[:, :, ::-1].transpose(2, 0, 1)
             img = np.ascontiguousarray(img)
             img = torch.from_numpy(img).to(self.device)
@@ -671,18 +681,18 @@ class MainWindow(QMainWindow):
             img /= 255.0  # 0 - 255 to 0.0 - 1.0
             if img.ndimension() == 3:
                 img = img.unsqueeze(0)
-            # Inference
+            # INFERENCE
             pred = self.model(img, augment=self.opt.augment)[0]
-            # Apply NMS
+            # APPLY NMS
             pred = non_max_suppression(pred, self.opt.conf_thres, self.opt.iou_thres,
                                        classes=self.opt.classes, agnostic=self.opt.agnostic_nms)
-            # Process detections
+            # PROCESS DETECTIONS
             class_list = []
-            for i, det in enumerate(pred):  # detections per image
+            for i, det in enumerate(pred):  # DETECTTIONS PER IMAGE
                 if det is not None and len(det):
-                    # Rescale boxes from img_size to im0 size
+                    # RESCALE BOXES FROM img_size TO im0 SIZE
                     det[:, :4] = scale_coords(img.shape[2:], det[:, :4], showimg.shape).round()
-                    # Write results（修改yolov5的detect函数主要是修改输出结果
+                    # WRITE RESULTS
                     for *xyxy, conf, cls in reversed(det):
                         label = '%s %.2f' % (self.names[int(cls)], conf)
                         total_name.append(label)
@@ -690,10 +700,9 @@ class MainWindow(QMainWindow):
                             str(int(xyxy[2])) + ' ' + str(int(xyxy[3])))
                         total_name.append(box)
                         plot_one_box(xyxy, showimg, label=label, color=self.colors[int(cls)],
-                                     line_thickness=2)  # 在图像img上绘制一个边界框
+                                     line_thickness=2)  # DRAW A BOUNDING BOX ON THE IMAGE
                         class_list.append(int(cls.item()))
-        # line/font thickness
-        tl = round(0.002 * (showimg.shape[0] + showimg.shape[1]) / 2) + 1
+        tl = round(0.002 * (showimg.shape[0] + showimg.shape[1]) / 2) + 1 # LINE/FONT THICKNESS
         self.reclabel = total_name
         self.result = cv2.cvtColor(showimg, cv2.COLOR_BGR2RGB)
         showImage = QImage(self.result.data, self.result.shape[1], self.result.shape[0],

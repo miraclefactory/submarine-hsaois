@@ -806,14 +806,16 @@ class Ui_MainWindow(object):
 "\n"
 "QProgressBar\n"
 "{\n"
-"	border-radius: 5px;\n"
+"	border-radius: 2px;\n"
+"	border-right: 2px solid rgb(220, 220, 220);\n"
+"	border-left: 2"
+                        "px solid rgb(220, 220, 220);\n"
 "}\n"
 "\n"
 "QProgressBar::chunk\n"
 "{\n"
 "	border-radius: 1px;\n"
-""
-                        "	width: 5px;\n"
+"	width: 5px;\n"
 "	margin: 1px;\n"
 "}\n"
 "\n"
@@ -829,7 +831,7 @@ class Ui_MainWindow(object):
 "\n"
 "#progressBar_3::chunk\n"
 "{\n"
-"	background-color: #b194da;\n"
+"	background-color: #a787d5;\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
@@ -859,9 +861,25 @@ class Ui_MainWindow(object):
 "Custome */\n"
 "\n"
 "#upload\n"
-"{\n"
+""
+                        "{\n"
 "	border: 2px dashed rgb(220, 220, 220);\n"
 "	border-radius: 5px;\n"
+"}\n"
+"\n"
+"#pagesContainer #video_tu\n"
+"{\n"
+"	color: #555;\n"
+"	font-size: 12pt;\n"
+"	border: 1px solid rgb(220, 220, 220);\n"
+"	background-color: rgb(248, 248, 255);\n"
+"}\n"
+"\n"
+"#pagesContainer #video_tu:hover\n"
+"{\n"
+"	color: #705597;\n"
+"	background-color: rgb(228, 228, 235);\n"
+"	text-decoration: underline #705597;\n"
 "}\n"
 "\n"
 "")
@@ -1571,6 +1589,7 @@ class Ui_MainWindow(object):
         sizePolicy6.setHeightForWidth(self.video_tu.sizePolicy().hasHeightForWidth())
         self.video_tu.setSizePolicy(sizePolicy6)
         self.video_tu.setMinimumSize(QSize(120, 32))
+        self.video_tu.setCursor(QCursor(Qt.PointingHandCursor))
         self.video_tu.setStyleSheet(u"color: #555;\n"
 "font-size: 12pt;\n"
 "border: 1px solid rgb(220, 220, 220);\n"
@@ -1649,11 +1668,9 @@ class Ui_MainWindow(object):
         sizePolicy9.setVerticalStretch(0)
         sizePolicy9.setHeightForWidth(self.btn_start_live.sizePolicy().hasHeightForWidth())
         self.btn_start_live.setSizePolicy(sizePolicy9)
-        self.btn_start_live.setMinimumSize(QSize(110, 40))
+        self.btn_start_live.setMinimumSize(QSize(110, 35))
         self.btn_start_live.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_start_live.setStyleSheet(u"background-color: rgb(136, 112, 173);\n"
-"\n"
-"")
+        self.btn_start_live.setStyleSheet(u"background-color: rgb(136, 112, 173); ")
         icon15 = QIcon()
         icon15.addFile(u":/icons/images/icons/play_white.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_start_live.setIcon(icon15)
@@ -1665,10 +1682,9 @@ class Ui_MainWindow(object):
         self.btn_stop_live.setObjectName(u"btn_stop_live")
         sizePolicy9.setHeightForWidth(self.btn_stop_live.sizePolicy().hasHeightForWidth())
         self.btn_stop_live.setSizePolicy(sizePolicy9)
-        self.btn_stop_live.setMinimumSize(QSize(110, 40))
+        self.btn_stop_live.setMinimumSize(QSize(110, 35))
         self.btn_stop_live.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_stop_live.setStyleSheet(u"background-color: rgb(136, 112, 173);\n"
-"")
+        self.btn_stop_live.setStyleSheet(u"background-color: rgb(136, 112, 173); ")
         icon16 = QIcon()
         icon16.addFile(u":/icons/images/icons/rectangle_white.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_stop_live.setIcon(icon16)
@@ -1683,8 +1699,8 @@ class Ui_MainWindow(object):
         sizePolicy10.setVerticalStretch(0)
         sizePolicy10.setHeightForWidth(self.line.sizePolicy().hasHeightForWidth())
         self.line.setSizePolicy(sizePolicy10)
-        self.line.setMinimumSize(QSize(2, 40))
-        self.line.setStyleSheet(u"background-color: rgb(200, 200, 200);\n"
+        self.line.setMinimumSize(QSize(2, 35))
+        self.line.setStyleSheet(u"background-color: rgb(220, 220, 220);\n"
 "border: none;")
         self.line.setLineWidth(1)
         self.line.setFrameShape(QFrame.VLine)
@@ -1699,10 +1715,9 @@ class Ui_MainWindow(object):
         sizePolicy11.setVerticalStretch(0)
         sizePolicy11.setHeightForWidth(self.btn_scan.sizePolicy().hasHeightForWidth())
         self.btn_scan.setSizePolicy(sizePolicy11)
-        self.btn_scan.setMinimumSize(QSize(110, 40))
+        self.btn_scan.setMinimumSize(QSize(110, 35))
         self.btn_scan.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_scan.setStyleSheet(u"background-color: rgb(136, 112, 173);\n"
-"")
+        self.btn_scan.setStyleSheet(u"background-color: rgb(136, 112, 173); ")
         icon17 = QIcon()
         icon17.addFile(u":/icons/images/icons/aperture_white.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_scan.setIcon(icon17)
@@ -1713,10 +1728,9 @@ class Ui_MainWindow(object):
         self.btn_update.setObjectName(u"btn_update")
         sizePolicy11.setHeightForWidth(self.btn_update.sizePolicy().hasHeightForWidth())
         self.btn_update.setSizePolicy(sizePolicy11)
-        self.btn_update.setMinimumSize(QSize(110, 40))
+        self.btn_update.setMinimumSize(QSize(110, 35))
         self.btn_update.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_update.setStyleSheet(u"background-color: rgb(136, 112, 173);\n"
-"")
+        self.btn_update.setStyleSheet(u"background-color: rgb(136, 112, 173); ")
         icon18 = QIcon()
         icon18.addFile(u":/icons/images/icons/cil-data-transfer-up.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_update.setIcon(icon18)
@@ -1756,7 +1770,7 @@ class Ui_MainWindow(object):
         self.btn_file.setMinimumSize(QSize(110, 35))
         self.btn_file.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_file.setAcceptDrops(False)
-        self.btn_file.setStyleSheet(u"background-color: rgb(136, 112, 173);")
+        self.btn_file.setStyleSheet(u"background-color: rgb(136, 112, 173); ")
         icon19 = QIcon()
         icon19.addFile(u":/icons/images/icons/folder-add_white.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_file.setIcon(icon19)
@@ -1774,9 +1788,9 @@ class Ui_MainWindow(object):
         self.btn_start_file.setObjectName(u"btn_start_file")
         sizePolicy9.setHeightForWidth(self.btn_start_file.sizePolicy().hasHeightForWidth())
         self.btn_start_file.setSizePolicy(sizePolicy9)
-        self.btn_start_file.setMinimumSize(QSize(110, 40))
+        self.btn_start_file.setMinimumSize(QSize(110, 35))
         self.btn_start_file.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_start_file.setStyleSheet(u"background-color: rgb(136, 112, 173);")
+        self.btn_start_file.setStyleSheet(u"background-color: rgb(136, 112, 173); ")
         self.btn_start_file.setIcon(icon15)
         self.btn_start_file.setFlat(False)
 
@@ -1786,9 +1800,9 @@ class Ui_MainWindow(object):
         self.btn_stop_file.setObjectName(u"btn_stop_file")
         sizePolicy9.setHeightForWidth(self.btn_stop_file.sizePolicy().hasHeightForWidth())
         self.btn_stop_file.setSizePolicy(sizePolicy9)
-        self.btn_stop_file.setMinimumSize(QSize(110, 40))
+        self.btn_stop_file.setMinimumSize(QSize(110, 35))
         self.btn_stop_file.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_stop_file.setStyleSheet(u"background-color: rgb(136, 112, 173);")
+        self.btn_stop_file.setStyleSheet(u"background-color: rgb(136, 112, 173); ")
         self.btn_stop_file.setIcon(icon16)
         self.btn_stop_file.setFlat(False)
 
@@ -1798,8 +1812,8 @@ class Ui_MainWindow(object):
         self.line_2.setObjectName(u"line_2")
         sizePolicy10.setHeightForWidth(self.line_2.sizePolicy().hasHeightForWidth())
         self.line_2.setSizePolicy(sizePolicy10)
-        self.line_2.setMinimumSize(QSize(2, 40))
-        self.line_2.setStyleSheet(u"background-color: rgb(200, 200, 200);\n"
+        self.line_2.setMinimumSize(QSize(2, 35))
+        self.line_2.setStyleSheet(u"background-color: rgb(220, 220, 220);\n"
 "border: none;")
         self.line_2.setFrameShape(QFrame.VLine)
         self.line_2.setFrameShadow(QFrame.Sunken)
@@ -1810,9 +1824,9 @@ class Ui_MainWindow(object):
         self.btn_result.setObjectName(u"btn_result")
         sizePolicy11.setHeightForWidth(self.btn_result.sizePolicy().hasHeightForWidth())
         self.btn_result.setSizePolicy(sizePolicy11)
-        self.btn_result.setMinimumSize(QSize(110, 40))
+        self.btn_result.setMinimumSize(QSize(110, 35))
         self.btn_result.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_result.setStyleSheet(u"background-color: rgb(136, 112, 173);")
+        self.btn_result.setStyleSheet(u"background-color: rgb(136, 112, 173); ")
         icon20 = QIcon()
         icon20.addFile(u":/icons/images/icons/image_white.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_result.setIcon(icon20)
@@ -2861,7 +2875,7 @@ class Ui_MainWindow(object):
         self.home_logo_line.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>HSAOIS<span style=\" font-size:14pt; vertical-align:sub;\">by Submarine</span></p></body></html>", None))
         self.home_logo_line2.setText(QCoreApplication.translate("MainWindow", u"Invoke The Next Era In Optical Inspection", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt;\">Start</span></p></body></html>", None))
-        self.label_11.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:600;\">Documentation</span></p><p><span style=\" font-size:13pt;\">New to HSAOIS? Check out our documentation.</span></p></body></html>", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:600;\">Documentation</span></p><p><a href =\"https://www.osl.ink\" style=\" font-size:13pt; text-decoration:none; color: #333\">New to HSAOIS? Check out our documentation.</a></p></body></html>", None))
         self.label_12.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Access to your database</p></body></html>", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Learn to train a custom model", None))
         self.video_tu.setText(QCoreApplication.translate("MainWindow", u" Video Tutorial", None))
