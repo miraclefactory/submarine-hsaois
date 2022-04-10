@@ -344,12 +344,13 @@ QLineEdit
 
 QLineEdit:hover
 {
-	border: 2px solid rgb(64, 71, 88);
+	border: 2px solid rgb(112, 85, 151);
 }
 
 QLineEdit:focus
 {
 	border: 2px solid #ab90d1;
+	outline: auto 5px -webkit-focus-ring-color;
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
