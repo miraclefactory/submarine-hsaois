@@ -771,51 +771,52 @@ def handle_str_table(ls):
     return ls
 
 def cal_frac(ls) -> None:
-    if len(ls) == 0:
-        return None
-    cnt = 0
-    loss_point = 0
+    frac = 0
+    count = 0
+    dam_cnt = 0
     dam_point = False
     len_ls = len(ls)
+    if len_ls == 0:
+        return None
     for i in ls:
-        if i == 100:
+        if i == 0:
             continue
-        if i != 100:
-            cnt += 1
-        if i < 90 and i > 80:
-            loss_point += 1
+        if i != 0:
+            count += 1
+        if i < 10 and i > 5:
+            frac += 0.05
             continue
-        if i < 80:
-            dam_point = True
+        if i > 10:
+            dam_cnt += 1
             continue
-    frac = cnt/len_ls
-    if loss_point >= 2:
-        frac += 0.1
-    if frac >= 0 and frac <= 0.15 and dam_point == False:
+    if dam_cnt/len_ls >= 0.02:
+        dam_point = True
+    frac += count/len_ls
+    if frac >= 0.20 or dam_point is True:
         widgets.textBrowser_report.setMarkdown(f"### Generally Bad\n\
-> deviations is unacceptable  \n\
-> Seek the most infective error on the table below  \n\
+> The defective rate of the current batch is **{ls[-1]}%**, overall deviation has failed the testing standard;  \n\
+> Seek the most defected class on the green section below.  \n\
 ### More details on this graph\n\
-> Highest recorded deviation: **{round(max(ls), 2)}%**  \n\
-> Lowest recorded deviation: **{round(min(ls), 2)}%**  \n\
-> Average recorded deviation: **{round(sum(ls)/len_ls, 2)}%**  \n")
-    if frac > 0.15 and frac <= 0.25 and dam_point == False:
-        widgets.textBrowser_report.setMarkdown(f"### Generally Not bad\n\
-> deviations should be taken care of  \n\
-> Seek the most infective error on the table below  \n\
+> Highest recorded deviation: **{round(max(ls), 2)}%**;  \n\
+> Lowest recorded deviation: **{round(min(ls), 2)}%**;  \n\
+> Average recorded deviation: **{round(sum(ls)/len_ls, 2)}%**.  \n")
+    if frac > 0.10 and frac <= 0.20 and dam_point is False:
+        widgets.textBrowser_report.setMarkdown(f"### Generally Average\n\
+> The defective rate of the current batch is **{ls[-1]}%**, limited overall deviation but can still be improved;  \n\
+> Seek the most defected class on the green section below.  \n\
 ### More details on this graph\n\
-> Highest recorded deviation: **{round(max(ls), 2)}%**  \n\
-> Lowest recorded deviation: **{round(min(ls), 2)}%**  \n\
-> Average recorded deviation: **{round(sum(ls)/len_ls, 2)}%**  \n")
-    elif frac > 0.25 or dam_point:
+> Highest recorded deviation: **{round(max(ls), 2)}%**;  \n\
+> Lowest recorded deviation: **{round(min(ls), 2)}%**;  \n\
+> Average recorded deviation: **{round(sum(ls)/len_ls, 2)}%**.  \n")
+    elif frac <= 0.10 and dam_point is False:
         widgets.textBrowser_report.setMarkdown(f"### Generally Good\n\
-> Almost No deviation  \n\
-> Keep going  \n\
-> Predictions are given  \n\
+> The defective rate of the current batch is **{ls[-1]}%**, minimum deviation overall;  \n\
+> Keep it on track;  \n\
+> Predictions are given below.  \n\
 ### More details on this graph\n\
-> Highest recorded deviation: **{round(max(ls), 2)}%**  \n\
-> Lowest recorded deviation: **{round(min(ls), 2)}%**  \n\
-> Average recorded deviation: **{round(sum(ls)/len_ls, 2)}%**  \n")
+> Highest recorded deviation: **{round(max(ls), 2)}%**;  \n\
+> Lowest recorded deviation: **{round(min(ls), 2)}%**;  \n\
+> Average recorded deviation: **{round(sum(ls)/len_ls, 2)}%**.  \n")
     return None
 # quote machine lerning --》 to introduce
 
@@ -851,12 +852,12 @@ def pre_for_class():
     pass
 
 def class_res_best(tmp_min):
-    l = ["MB", "CPU Fan", "Fan Port"]
-    widgets.def_total_text.setMarkdown("You are best at " + l[tmp_min])
+    l = ["Motherboard", "CPU_FAN", "FAN_Port"]
+    widgets.def_total_text.setMarkdown(f"Overall, the highest yield is on {l[tmp_min]}")
 
 def class_res_worse(tmp_max):
-    l = ["MB", "CPU Fan", "Fan Port"]
-    widgets.def_total_text.setMarkdown("You are worst at " + l[tmp_max])
+    l = ["Motherboard", "CPU_FAN", "FAN_Port"]
+    widgets.def_total_text.setMarkdown(f"Overall, the lowest yield is on {l[tmp_max]}")
 
 def general_res_adv():
     # use ml to predicate frac and class res and give a general advice
