@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'new.ui'
+## Form generated from reading UI file 'main.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.3
 ##
@@ -2355,8 +2355,8 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.new_page)
         self.report = QWidget()
         self.report.setObjectName(u"report")
-        self.horizontalLayout_23 = QHBoxLayout(self.report)
-        self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
+        self.horizontalLayout_20 = QHBoxLayout(self.report)
+        self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
         self.verticalLayout_27 = QVBoxLayout()
         self.verticalLayout_27.setObjectName(u"verticalLayout_27")
         self.horizontalLayout_22 = QHBoxLayout()
@@ -2430,52 +2430,95 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_27.addLayout(self.horizontalLayout_22)
 
-        self.horizontalLayout_20 = QHBoxLayout()
-        self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
-        self.batch_data_graph = PlotWidget(self.report)
-        self.batch_data_graph.setObjectName(u"batch_data_graph")
-        sizePolicy18 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        sizePolicy18.setHorizontalStretch(2)
-        sizePolicy18.setVerticalStretch(1)
-        sizePolicy18.setHeightForWidth(self.batch_data_graph.sizePolicy().hasHeightForWidth())
-        self.batch_data_graph.setSizePolicy(sizePolicy18)
-        self.batch_data_graph.setStyleSheet(u"background-color: rgb(240, 240, 245);\n"
-"border-radius: 5px;\n"
-"font-size: 14pt;\n"
-"font-weight: normal;\n"
-"padding: 8px;")
+        self.gridLayout = QGridLayout()
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setVerticalSpacing(0)
+        self.label_15 = QLabel(self.report)
+        self.label_15.setObjectName(u"label_15")
+        sizePolicy5.setHeightForWidth(self.label_15.sizePolicy().hasHeightForWidth())
+        self.label_15.setSizePolicy(sizePolicy5)
+        self.label_15.setStyleSheet(u"background-color: rgba(179, 215, 255, 60);\n"
+"border-top-left-radius: 5px;\n"
+"border-top-right-radius: 5px;\n"
+"padding: 4px;")
 
-        self.horizontalLayout_20.addWidget(self.batch_data_graph)
+        self.gridLayout.addWidget(self.label_15, 0, 1, 1, 1)
 
         self.textBrowser_report = QTextBrowser(self.report)
         self.textBrowser_report.setObjectName(u"textBrowser_report")
-        sizePolicy19 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        sizePolicy19.setHorizontalStretch(1)
-        sizePolicy19.setVerticalStretch(1)
-        sizePolicy19.setHeightForWidth(self.textBrowser_report.sizePolicy().hasHeightForWidth())
-        self.textBrowser_report.setSizePolicy(sizePolicy19)
-        self.textBrowser_report.setStyleSheet(u"background-color: rgb(240, 240, 245);\n"
-"border-radius: 5px;\n"
+        sizePolicy18 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy18.setHorizontalStretch(1)
+        sizePolicy18.setVerticalStretch(1)
+        sizePolicy18.setHeightForWidth(self.textBrowser_report.sizePolicy().hasHeightForWidth())
+        self.textBrowser_report.setSizePolicy(sizePolicy18)
+        self.textBrowser_report.setStyleSheet(u"background-color: rgb(245, 245,248);\n"
+"border-bottom-left-radius: 5px;\n"
+"border-bottom-right-radius: 5px;\n"
 "font-size: 14pt;\n"
 "font-weight: normal;\n"
 "padding: 8px;")
 
-        self.horizontalLayout_20.addWidget(self.textBrowser_report)
+        self.gridLayout.addWidget(self.textBrowser_report, 1, 1, 2, 1)
+
+        self.label_14 = QLabel(self.report)
+        self.label_14.setObjectName(u"label_14")
+        sizePolicy19 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy19.setHorizontalStretch(2)
+        sizePolicy19.setVerticalStretch(0)
+        sizePolicy19.setHeightForWidth(self.label_14.sizePolicy().hasHeightForWidth())
+        self.label_14.setSizePolicy(sizePolicy19)
+        self.label_14.setStyleSheet(u"background-color: rgba(179, 215, 255, 60);\n"
+"border-top-left-radius: 5px;\n"
+"border-top-right-radius: 5px;\n"
+"padding: 4px;\n"
+"")
+
+        self.gridLayout.addWidget(self.label_14, 0, 0, 1, 1)
+
+        self.batch_data_graph = PlotWidget(self.report)
+        self.batch_data_graph.setObjectName(u"batch_data_graph")
+        sizePolicy20 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy20.setHorizontalStretch(2)
+        sizePolicy20.setVerticalStretch(1)
+        sizePolicy20.setHeightForWidth(self.batch_data_graph.sizePolicy().hasHeightForWidth())
+        self.batch_data_graph.setSizePolicy(sizePolicy20)
+        self.batch_data_graph.setStyleSheet(u"background-color: rgb(245, 245,248);\n"
+"border-bottom-left-radius: 5px;\n"
+"border-bottom-right-radius: 5px;\n"
+"font-size: 14pt;\n"
+"font-weight: normal;\n"
+"padding: 8px;")
+
+        self.gridLayout.addWidget(self.batch_data_graph, 1, 0, 2, 1)
 
 
-        self.verticalLayout_27.addLayout(self.horizontalLayout_20)
+        self.verticalLayout_27.addLayout(self.gridLayout)
 
         self.horizontalLayout_21 = QHBoxLayout()
         self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
+        self.verticalLayout_24 = QVBoxLayout()
+        self.verticalLayout_24.setSpacing(0)
+        self.verticalLayout_24.setObjectName(u"verticalLayout_24")
+        self.label_12 = QLabel(self.report)
+        self.label_12.setObjectName(u"label_12")
+        self.label_12.setStyleSheet(u"background-color: rgba(40, 205, 65, 60);\n"
+"border-top-left-radius: 5px;\n"
+"border-top-right-radius: 5px;\n"
+"padding: 4px;\n"
+"")
+
+        self.verticalLayout_24.addWidget(self.label_12)
+
         self.def_total_table = QFrame(self.report)
         self.def_total_table.setObjectName(u"def_total_table")
         sizePolicy.setHeightForWidth(self.def_total_table.sizePolicy().hasHeightForWidth())
         self.def_total_table.setSizePolicy(sizePolicy)
-        self.def_total_table.setStyleSheet(u"background-color: rgb(240, 240, 245);\n"
-"border-radius: 5px;\n"
+        self.def_total_table.setStyleSheet(u"background-color: rgb(245, 245,248);\n"
+"border-bottom-left-radius: 5px;\n"
+"border-bottom-right-radius: 5px;\n"
 "font-size: 14pt;\n"
 "font-weight: normal;\n"
-"padding: 8px;")
+"padding: 4px;")
         self.def_total_table.setFrameShape(QFrame.StyledPanel)
         self.def_total_table.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_26 = QHBoxLayout(self.def_total_table)
@@ -2532,14 +2575,14 @@ class Ui_MainWindow(object):
         __qtablewidgetitem45 = QTableWidgetItem()
         self.tableWidget_2.setItem(0, 2, __qtablewidgetitem45)
         self.tableWidget_2.setObjectName(u"tableWidget_2")
-        sizePolicy20 = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
-        sizePolicy20.setHorizontalStretch(0)
-        sizePolicy20.setVerticalStretch(0)
-        sizePolicy20.setHeightForWidth(self.tableWidget_2.sizePolicy().hasHeightForWidth())
-        self.tableWidget_2.setSizePolicy(sizePolicy20)
+        sizePolicy21 = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
+        sizePolicy21.setHorizontalStretch(0)
+        sizePolicy21.setVerticalStretch(0)
+        sizePolicy21.setHeightForWidth(self.tableWidget_2.sizePolicy().hasHeightForWidth())
+        self.tableWidget_2.setSizePolicy(sizePolicy21)
         palette1 = QPalette()
         palette1.setBrush(QPalette.Active, QPalette.WindowText, brush)
-        brush6 = QBrush(QColor(240, 240, 245, 255))
+        brush6 = QBrush(QColor(245, 245, 248, 255))
         brush6.setStyle(Qt.SolidPattern)
         palette1.setBrush(QPalette.Active, QPalette.Button, brush6)
         palette1.setBrush(QPalette.Active, QPalette.Text, brush)
@@ -2576,12 +2619,12 @@ class Ui_MainWindow(object):
         self.tableWidget_2.setSelectionMode(QAbstractItemView.SingleSelection)
         self.tableWidget_2.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.tableWidget_2.setShowGrid(True)
-        self.tableWidget_2.setGridStyle(Qt.SolidLine)
-        self.tableWidget_2.setSortingEnabled(False)
+        self.tableWidget_2.setGridStyle(Qt.DashLine)
+        self.tableWidget_2.setCornerButtonEnabled(True)
         self.tableWidget_2.setRowCount(20)
         self.tableWidget_2.horizontalHeader().setVisible(False)
         self.tableWidget_2.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableWidget_2.horizontalHeader().setDefaultSectionSize(200)
+        self.tableWidget_2.horizontalHeader().setDefaultSectionSize(120)
         self.tableWidget_2.horizontalHeader().setStretchLastSection(True)
         self.tableWidget_2.verticalHeader().setVisible(False)
         self.tableWidget_2.verticalHeader().setCascadingSectionResizes(False)
@@ -2591,40 +2634,77 @@ class Ui_MainWindow(object):
         self.horizontalLayout_26.addWidget(self.tableWidget_2)
 
 
-        self.horizontalLayout_21.addWidget(self.def_total_table)
+        self.verticalLayout_24.addWidget(self.def_total_table)
+
+
+        self.horizontalLayout_21.addLayout(self.verticalLayout_24)
+
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setSpacing(0)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.label_9 = QLabel(self.report)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setStyleSheet(u"background-color: rgba(40, 205, 65, 60);\n"
+"border-top-left-radius: 5px;\n"
+"border-top-right-radius: 5px;\n"
+"padding: 4px;\n"
+"")
+
+        self.verticalLayout.addWidget(self.label_9)
 
         self.def_total_text = QTextBrowser(self.report)
         self.def_total_text.setObjectName(u"def_total_text")
-        sizePolicy21 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        sizePolicy21.setHorizontalStretch(0)
-        sizePolicy21.setVerticalStretch(0)
-        sizePolicy21.setHeightForWidth(self.def_total_text.sizePolicy().hasHeightForWidth())
-        self.def_total_text.setSizePolicy(sizePolicy21)
-        self.def_total_text.setStyleSheet(u"background-color: rgb(240, 240, 245);\n"
-"border-radius: 5px;\n"
+        sizePolicy22 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy22.setHorizontalStretch(0)
+        sizePolicy22.setVerticalStretch(0)
+        sizePolicy22.setHeightForWidth(self.def_total_text.sizePolicy().hasHeightForWidth())
+        self.def_total_text.setSizePolicy(sizePolicy22)
+        self.def_total_text.setStyleSheet(u"background-color: rgb(245, 245,248);\n"
+"border-bottom-left-radius: 5px;\n"
+"border-bottom-right-radius: 5px;\n"
 "font-size: 14pt;\n"
 "font-weight: normal;\n"
 "padding: 8px;")
 
-        self.horizontalLayout_21.addWidget(self.def_total_text)
+        self.verticalLayout.addWidget(self.def_total_text)
+
+
+        self.horizontalLayout_21.addLayout(self.verticalLayout)
+
+        self.verticalLayout_19 = QVBoxLayout()
+        self.verticalLayout_19.setSpacing(0)
+        self.verticalLayout_19.setObjectName(u"verticalLayout_19")
+        self.label_11 = QLabel(self.report)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setStyleSheet(u"background-color: rgba(255, 149, 0, 60);\n"
+"border-top-left-radius: 5px;\n"
+"border-top-right-radius: 5px;\n"
+"padding: 4px;\n"
+"")
+
+        self.verticalLayout_19.addWidget(self.label_11)
 
         self.final_words = QTextBrowser(self.report)
         self.final_words.setObjectName(u"final_words")
-        sizePolicy21.setHeightForWidth(self.final_words.sizePolicy().hasHeightForWidth())
-        self.final_words.setSizePolicy(sizePolicy21)
-        self.final_words.setStyleSheet(u"background-color: rgb(240, 240, 245);\n"
-"border-radius: 5px;\n"
+        sizePolicy22.setHeightForWidth(self.final_words.sizePolicy().hasHeightForWidth())
+        self.final_words.setSizePolicy(sizePolicy22)
+        self.final_words.setStyleSheet(u"background-color: rgb(245, 245,248);\n"
+"border-bottom-left-radius: 5px;\n"
+"border-bottom-right-radius: 5px;\n"
 "font-size: 14pt;\n"
 "font-weight: normal;\n"
 "padding: 8px;")
 
-        self.horizontalLayout_21.addWidget(self.final_words)
+        self.verticalLayout_19.addWidget(self.final_words)
+
+
+        self.horizontalLayout_21.addLayout(self.verticalLayout_19)
 
 
         self.verticalLayout_27.addLayout(self.horizontalLayout_21)
 
 
-        self.horizontalLayout_23.addLayout(self.verticalLayout_27)
+        self.horizontalLayout_20.addLayout(self.verticalLayout_27)
 
         self.stackedWidget.addWidget(self.report)
 
@@ -2729,11 +2809,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
         self.btn_python = QPushButton(self.bottomBar)
         self.btn_python.setObjectName(u"btn_python")
-        sizePolicy22 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Minimum)
-        sizePolicy22.setHorizontalStretch(0)
-        sizePolicy22.setVerticalStretch(0)
-        sizePolicy22.setHeightForWidth(self.btn_python.sizePolicy().hasHeightForWidth())
-        self.btn_python.setSizePolicy(sizePolicy22)
+        sizePolicy23 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Minimum)
+        sizePolicy23.setHorizontalStretch(0)
+        sizePolicy23.setVerticalStretch(0)
+        sizePolicy23.setHeightForWidth(self.btn_python.sizePolicy().hasHeightForWidth())
+        self.btn_python.setSizePolicy(sizePolicy23)
         self.btn_python.setMinimumSize(QSize(33, 22))
         self.btn_python.setMaximumSize(QSize(16777196, 16777215))
         self.btn_python.setStyleSheet(u"background-color:  rgb(78, 60, 105);\n"
@@ -2761,11 +2841,11 @@ class Ui_MainWindow(object):
 
         self.version = QLabel(self.bottomBar)
         self.version.setObjectName(u"version")
-        sizePolicy23 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
-        sizePolicy23.setHorizontalStretch(1)
-        sizePolicy23.setVerticalStretch(0)
-        sizePolicy23.setHeightForWidth(self.version.sizePolicy().hasHeightForWidth())
-        self.version.setSizePolicy(sizePolicy23)
+        sizePolicy24 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy24.setHorizontalStretch(1)
+        sizePolicy24.setVerticalStretch(0)
+        sizePolicy24.setHeightForWidth(self.version.sizePolicy().hasHeightForWidth())
+        self.version.setSizePolicy(sizePolicy24)
         self.version.setMinimumSize(QSize(0, 16))
         self.version.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
@@ -2951,6 +3031,9 @@ class Ui_MainWindow(object):
         self.btn_search.setText("")
         self.btn_save.setText(QCoreApplication.translate("MainWindow", u" Save", None))
         self.btn_question.setText(QCoreApplication.translate("MainWindow", u"?", None))
+        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Analysis", None))
+        self.label_14.setText(QCoreApplication.translate("MainWindow", u"Overall Defective Precentage per Batch", None))
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Overall Defected Class Number per Batch", None))
         ___qtablewidgetitem24 = self.tableWidget_2.horizontalHeaderItem(0)
         ___qtablewidgetitem24.setText(QCoreApplication.translate("MainWindow", u"0", None));
         ___qtablewidgetitem25 = self.tableWidget_2.horizontalHeaderItem(1)
@@ -3000,6 +3083,8 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem45.setText(QCoreApplication.translate("MainWindow", u"FAN_Port", None));
         self.tableWidget_2.setSortingEnabled(__sortingEnabled1)
 
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Analysis", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Overall Conclusion", None))
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))

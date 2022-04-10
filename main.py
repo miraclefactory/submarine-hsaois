@@ -168,10 +168,10 @@ class MainWindow(QMainWindow):
 
         # HOME PAGE
         # ///////////////////////////////////////////////////////////////
-        widgets.video_tu.clicked.connect(self.openVideo)
-        widgets.label_documentation.linkActivated.connect(self.openDocumentation)
-        widgets.label_database.linkActivated.connect(self.openDatabase)
-        widgets.label_custom_model.linkActivated.connect(self.openCustomTutorial)
+        widgets.video_tu.clicked.connect(self.openURL)
+        widgets.label_documentation.setOpenExternalLinks(True)
+        widgets.label_database.setOpenExternalLinks(True)
+        widgets.label_custom_model.setOpenExternalLinks(True)
 
         # DETECT PAGE
         # ///////////////////////////////////////////////////////////////
@@ -220,7 +220,7 @@ class MainWindow(QMainWindow):
         widgets.line_graph.setXRange(min=0, max=6)
         widgets.line_graph.setMouseEnabled(x=False, y=False)
         pg.setConfigOptions(leftButtonPan=False, antialias=True)
-        pen = pg.mkPen({'color': "#705597", 'width': 4})
+        pen = pg.mkPen({'color': "#705597", 'width': 3})
         self.curve = widgets.line_graph.plot(pen=pen, symbol='o', symbolBrush=QColor("#705597"))
         self.xtick = [list(zip(range(7), ("mbns", "mbls", "cfns", "cfls", "cfpd", "mbs", "mbws")))]
         xax = widgets.line_graph.getAxis('bottom')
@@ -234,7 +234,7 @@ class MainWindow(QMainWindow):
 
         # PYQTGRAPH_report
         # ///////////////////////////////////////////////////////////////
-        widgets.batch_data_graph.setBackground((240, 240, 245))
+        widgets.batch_data_graph.setBackground((245, 245,248))
         widgets.batch_data_graph.setLabel('left', 'Defective per Batch(%)', color='#705597')
         widgets.batch_data_graph.setLabel('bottom', 'Class', color='#705597')
         widgets.batch_data_graph.showGrid(x=True, y=True)
@@ -242,7 +242,7 @@ class MainWindow(QMainWindow):
         widgets.batch_data_graph.setYRange(min=0, max=100)
         widgets.batch_data_graph.setMouseEnabled(x=True, y=False)
         pg.setConfigOptions(leftButtonPan=False, antialias=True)
-        pen = pg.mkPen({'color': "#705597", 'width': 4})
+        pen = pg.mkPen({'color': "#705597", 'width': 3})
         self.curve2 = widgets.batch_data_graph.plot(pen=pen, symbol='s', symbolBrush=QColor("#705597"))
         self.x_axis_batch = fetch_batch_num()
         self.y_axis_batch = self.handle_per_list(fecth_defective_data())
@@ -364,16 +364,7 @@ class MainWindow(QMainWindow):
     
     # OPEN LINKS
     # ///////////////////////////////////////////////////////////////
-    def openVideo(self):
-        QDesktopServices.openUrl(QUrl("https://www.osl.ink"))
-    
-    def openDocumentation(self):
-        QDesktopServices.openUrl(QUrl("https://www.osl.ink"))
-    
-    def openDatabase(self):
-        QDesktopServices.openUrl(QUrl("http://124.223.101.237/"))
-    
-    def openCustomTutorial(self):
+    def openURL(self):
         QDesktopServices.openUrl(QUrl("https://www.osl.ink"))
 
     # BUTTON FUNCTIONS
@@ -801,11 +792,30 @@ def cal_frac(ls) -> None:
     if loss_point >= 2:
         frac += 0.1
     if frac >= 0 and frac <= 0.15 and dam_point == False:
-        frac_res_worse()
+        widgets.textBrowser_report.setMarkdown(f"### Generally Bad\n\
+> deviations is unacceptable  \n\
+> Seek the most infective error on the table below  \n\
+### More details on this graph\n\
+> Highest recorded deviation: **{round(max(ls), 2)}%**  \n\
+> Lowest recorded deviation: **{round(min(ls), 2)}%**  \n\
+> Average recorded deviation: **{round(sum(ls)/len_ls, 2)}%**  \n")
     if frac > 0.15 and frac <= 0.25 and dam_point == False:
-        frac_res_average()
+        widgets.textBrowser_report.setMarkdown(f"### Generally Not bad\n\
+> deviations should be taken care of  \n\
+> Seek the most infective error on the table below  \n\
+### More details on this graph\n\
+> Highest recorded deviation: **{round(max(ls), 2)}%**  \n\
+> Lowest recorded deviation: **{round(min(ls), 2)}%**  \n\
+> Average recorded deviation: **{round(sum(ls)/len_ls, 2)}%**  \n")
     elif frac > 0.25 or dam_point:
-        frac_res_good()
+        widgets.textBrowser_report.setMarkdown(f"### Generally Good\n\
+> Almost No deviation  \n\
+> Keep going  \n\
+> Predictions are given  \n\
+### More details on this graph\n\
+> Highest recorded deviation: **{round(max(ls), 2)}%**  \n\
+> Lowest recorded deviation: **{round(min(ls), 2)}%**  \n\
+> Average recorded deviation: **{round(sum(ls)/len_ls, 2)}%**  \n")
     return None
 # quote machine lerning --》 to introduce
 
@@ -840,33 +850,13 @@ def pre_for_frac():
 def pre_for_class():
     pass
 
-def frac_res_good():
-    # text to be shown upper side
-    widgets.textBrowser_report.setText("Generally Good.\n\
-        Almost No deviation.\n\
-        Keep going.\n\
-        Predictions are given.")
-
-def frac_res_average():
-    # text to be shown upper side
-    widgets.textBrowser_report.setText("Generally Not bad.\n\
-        deviations should be taken care of.\n\
-        Seek the most infective error on the table below\n\
-        ")
-
-def frac_res_worse():
-    # text to be shown upper side
-    widgets.textBrowser_report.setText("<strong>Generally Bad!</strong>\n\
-        deviations is unacceptable.\n\
-        Seek the most infective error on the table below.\n")
-
 def class_res_best(tmp_min):
     l = ["MB", "CPU Fan", "Fan Port"]
-    widgets.def_total_text.append("You are best at " + l[tmp_min])
+    widgets.def_total_text.setMarkdown("You are best at " + l[tmp_min])
 
 def class_res_worse(tmp_max):
     l = ["MB", "CPU Fan", "Fan Port"]
-    widgets.def_total_text.append("You are worst at " + l[tmp_max])
+    widgets.def_total_text.setMarkdown("You are worst at " + l[tmp_max])
 
 def general_res_adv():
     # use ml to predicate frac and class res and give a general advice
