@@ -61,6 +61,7 @@ def detect_error(self, list, seq):
     Detect the defeteced classes in the model output, 
     return True if the defeted classes are found
     '''
+    self.es.text_print.emit(f"<span>Class of subject {seq}: {str(list)}</span><\n")
     ret = False
     for i in list:
         if i in [0,1,3,5,6,7,8,9]:
@@ -68,9 +69,9 @@ def detect_error(self, list, seq):
             self.es.text_print.emit(f"<span style='color: rgb(170,55,49);'>\
                                     Defect detected: {all_class[i]}</span>\n")
     if ret:
-        self.es.text_print.emit("")
+        self.es.text_print.emit(f"<span style='color: rgb(170,55,49); font-weight: bold;'>• Result: Failed</span><br/>\n")
     else:
-        self.es.text_print.emit(f"<span>Result of subject {seq}: {str(list)}</span><br/>\n")
+        self.es.text_print.emit(f"<span style='color: rgb(68,140,39); font-weight: bold;'>• Result: Passed</span><br/>\n")
     return ret
 
 def update_line_graph(y_axis, ls, class_total, seq=None):
