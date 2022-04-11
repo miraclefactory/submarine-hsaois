@@ -236,14 +236,14 @@ def fetch_batch_num():
 # fetch_batch_num()
 
 def fetch_frac_limited(lim_num):
-    num = int(lim_num)
+    num = int(lim_num)+1
     conn = sqlite3.connect("hsaois.db")
     c = conn.cursor()
     s = f"SELECT defective FROM general_table ORDER BY batch_number LIMIT {num}"
     c.execute(s)
     data = c.fetchall()
     data = [i[0] for i in data]
-    return data
+    return data[1:]
 
 def fetch_general_class_limited(lim_num):
     num = int(lim_num)
@@ -265,3 +265,8 @@ def fetch_limited_batch_num(lim_num):
     data = [i[0] for i in data]
     return data[1:num]
 
+# print(fetch_limited_batch_num(3))
+# print(fetch_batch_num())
+
+# print(fetch_frac_limited(3))
+# print(fecth_defective_data())

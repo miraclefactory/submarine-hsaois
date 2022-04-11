@@ -681,8 +681,6 @@ class MainWindow(QMainWindow):
     # FILE DETECT
     # ///////////////////////////////////////////////////////////////
     def fileDetectMode(self):
-        shutil.rmtree(os.getcwd()+"/buffer_img")
-        os.mkdir(os.getcwd()+"/buffer_img")
         if len(selectedFile) == 0:
             QMessageBox.warning(None, "Warning",
                                 "Please select a file first!", QMessageBox.Ok)
@@ -692,6 +690,8 @@ class MainWindow(QMainWindow):
             thread.start()
 
     def fileDetectThread(self):
+        shutil.rmtree(os.getcwd()+"/buffer_img")
+        os.mkdir(os.getcwd()+"/buffer_img")
         global status_code
         status_code = 0
         e1 = getTickCount()                                     # START TIME
@@ -725,7 +725,12 @@ class MainWindow(QMainWindow):
                                      "Warning:\n\nAn Error Occurred During Process.\nProcess Finished in "
                                      + str(round(time, 3)) + "s.")
         len_of_dir = len(os.listdir(os.getcwd()+"/modules/runs/detect"))
-        for i in range(len_of_dir-1):
+        try:
+            os.remove(os.getcwd()+"/modules/runs/detect/.DS_Store")
+            os.remove(os.getcwd()+"/buffer_img/.DS_Store")
+        except Exception as e:
+            print(e)
+        for i in range(len_of_dir):
             target = os.getcwd()+"/buffer_img/"
             if i == 0:
                 ori_path = os.getcwd()+f"/modules/runs/detect/exp/"
