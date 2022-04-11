@@ -16,6 +16,7 @@
 
 import os
 import sys
+import scipy
 import shutil
 import random
 import numpy as np
@@ -209,6 +210,10 @@ class MainWindow(QMainWindow):
         widgets.btn_scan.clicked.connect(self.scanDetectMode)
         widgets.video_viewer.setAlignment(Qt.AlignCenter)
         # widgets.video_viewer.setPixmap(QPixmap(":images/images/images/smile.png").scaledToWidth(50))
+
+        # REPORT PAGE
+        # ///////////////////////////////////////////////////////////////
+        widgets.btn_search.clicked.connect(self.search_for_batch_results)
 
         # PYQTGRAPH
         # ///////////////////////////////////////////////////////////////
@@ -442,7 +447,8 @@ class MainWindow(QMainWindow):
                 widgets.btn_stop_live.setEnabled(True)
                 widgets.btn_scan.setEnabled(False)
                 widgets.status_label.setText("Live Detecting")
-                widgets.textBrowser.append("\n[Run] Live Detecing...\n")
+                widgets.textBrowser.append("\n<h4 style='color: #705597; font-weight: normal;\
+                                           font-family: monaco;'>[Run] Live Detecing...</h4>\n")
                 self.timer_camera.start(50)
                 pool = ThreadPoolExecutor(max_workers=5)
         else:
@@ -469,7 +475,8 @@ class MainWindow(QMainWindow):
                 widgets.btn_stop_live.setEnabled(True)
                 widgets.btn_scan.setEnabled(False)
                 widgets.status_label.setText("Scan Detecting")
-                widgets.textBrowser.append("\n[Run] Scan Detecing...\n")
+                widgets.textBrowser.append("\n<h4 style='color: #705597;font-weight: normal;\
+                                           font-family: monaco;'>[Run] Scan Detecing...</h4>\n")
                 self.timer_camera.start(50)
                 pool = ThreadPoolExecutor(max_workers=5)
         else:
@@ -563,7 +570,8 @@ class MainWindow(QMainWindow):
             if is_live_mode is False:
                 self.es.stop.emit()
                 self.cap.release()
-                self.es.text_print.emit("[Stop] Live Detect Session Suspended")
+                self.es.text_print.emit("<h4 style='color: rgb(49,107,205);font-weight: normal;\
+                                        font-family: monaco;'>[Stop] Live Detect Session Suspended</h4>")
         else:
             flag = False
             self.es.clear.emit()
@@ -623,7 +631,8 @@ class MainWindow(QMainWindow):
             if is_scan_mode is False:
                 self.es.stop.emit()
                 self.cap.release()
-                self.es.text_print.emit("[Stop] Scan Detect Session Suspended")
+                self.es.text_print.emit("<h4 style='color: rgb(49,107,205);font-weight: normal;\
+                                        font-family: monaco;'>[Stop] Scan Detect Session Suspended</h4>")
         else:
             flag = False
             self.es.clear.emit()
@@ -739,6 +748,8 @@ class MainWindow(QMainWindow):
         self.y_axis_batch = self.handle_per_list(fecth_defective_data())
         cal_frac(self.y_axis_batch)
         cal_class(fetch_general_class())
+        x, y = cal_slope_intercept(self.y_axis_batch)
+        prac_res_frac(x, y, self.y_axis_batch)
         self.update_report_frac(self.x_axis_batch, self.y_axis_batch)
         # self.update_table_widget2(batch_num,fetch_general_class())
         self.update_table_report(fetch_general_class())
@@ -762,6 +773,22 @@ class MainWindow(QMainWindow):
             i = i.split("%", 1)[0]
             data.append(float(i))
         return data
+    
+    def search_for_batch_results(self):
+        search_string = widgets.search_box.text()
+        self.x_axis_batch = fetch_limited_batch_num(search_string)
+        self.y_axis_batch = self.handle_per_list(fetch_frac_limited(search_string))
+        cal_frac(self.y_axis_batch)
+        x,y = cal_slope_intercept(self.y_axis_batch)
+        prac_res_frac(x,y,self.y_axis_batch)
+        cal_class(fetch_general_class_limited(search_string))
+        self.update_report_frac(self.x_axis_batch, self.y_axis_batch)
+        widgets.tableWidget_2.clearContents()
+        widgets.tableWidget_2.setItem(0, 0, QTableWidgetItem("Log Entry"))
+        widgets.tableWidget_2.setItem(0, 1, QTableWidgetItem("Serial Number"))
+        widgets.tableWidget_2.setItem(0, 2, QTableWidgetItem("Result Class"))
+        widgets.tableWidget_2.setItem(0, 3, QTableWidgetItem("Notes"))
+        self.update_table_report(fetch_general_class_limited(search_string))
 
 
 def handle_str_table(ls):
@@ -863,23 +890,32 @@ def general_res_adv():
     # use ml to predicate frac and class res and give a general advice
     pass
 
-class Upload(QWidget):
-    """实现文件拖放功能"""
+def cal_slope_intercept(ls)->list:
+    x = []
+    y = []
+    for i,j in enumerate(ls):
+        x.append(i)    
+        y.append(j)
+    slope, intercept, r_value, p_value, std_err = scipy.stats.linregress(x, y)
+    return slope,intercept
 
-    def __init__(self):
-        super().__init__()
-        self.setAcceptDrops(True)
+def prac_res_frac(slope,intercept,ls)->float:
+    x_new = len(ls)
+    y_new = slope*x_new+intercept
+    if(y_new<0):
+        y_new = 0
+    if(y_new>100):
+        y_new = 100
+    if(y_new>=0 and y_new<=3):
+        widgets.final_words.setText(f"The predicted value is {round(y_new,2)}%,\
+            which is very profound.")
+    elif(y_new>3 and y_new<=6):
+        widgets.final_words.setText(f"The predicted value is {round(y_new,2)}%,\
+            which is so-so.")
+    elif(y_new>6):
+        widgets.final_words.setText(f"The predicted value is {round(y_new,2)}%,\
+            which is not good.")
 
-    def dragEnterEvent(self, e):
-        if e.mimeData().text().endswith('.png'):
-            e.accept()
-        else:
-            e.ignore()
-
-    def dropEvent(self, e):
-        global selectedFile
-        path = e.mimeData().text().replace('file:///', '')
-        selectedFile.append(path)
 
 # CLASS FOR EMITTING SIGNALS
 class EmitSignal(QObject):

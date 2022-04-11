@@ -831,19 +831,19 @@ Custome */
 	text-decoration: underline #705597;
 }
 
-#label_documentation
+#home_res .QLabel
 {
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 	border-left: 2px solid rgb(112, 85, 151);
 	background-color: rgb(237, 237, 249);
-	font-size: 12pt;
 	padding: 12px;
 }
 
-#label_documentation:hover
+#home_res .QLabel:hover
 {
-	text-decoration: underline #705597;
+	border-left: 2px solid rgb(169, 143, 205);
+	background-color: #ddd;
 }
 
 #btn_python:hover

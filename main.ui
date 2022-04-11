@@ -97,7 +97,6 @@ Left Menu */
 #topLogo
 {
 	background-color: rgb(237, 237, 249);
-	/* background-image: url(:/images/images/images/PyDracula.png); */
 	background-position: centered;
 	background-repeat: no-repeat;
 }
@@ -371,12 +370,13 @@ QLineEdit
 
 QLineEdit:hover
 {
-	border: 2px solid rgb(64, 71, 88);
+	border: 2px solid rgb(112, 85, 151);
 }
 
 QLineEdit:focus
 {
 	border: 2px solid #ab90d1;
+	outline: auto 5px -webkit-focus-ring-color;
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -813,9 +813,9 @@ QProgressBar::chunk
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
 QSplitter */
 
-QSplitter::handle
+QSplitter::handle:hover
 {
-	/* background-color: whitesmoke; */
+	background-color: rgb(166, 179, 155);
 }
 
 QSplitter::handle:horizontal {
@@ -842,7 +842,7 @@ Custome */
 	border-radius: 5px;
 }
 
-#pagesContainer #video_tu
+#video_tu
 {
 	color: #555;
 	font-size: 12pt;
@@ -850,11 +850,30 @@ Custome */
 	background-color: rgb(248, 248, 255);
 }
 
-#pagesContainer #video_tu:hover
+#video_tu:hover
 {
 	color: #705597;
 	background-color: rgb(228, 228, 235);
 	text-decoration: underline #705597;
+}
+
+#home_res .QLabel
+{
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-left: 2px solid rgb(112, 85, 151);
+	background-color: rgb(237, 237, 249);
+	padding: 12px;
+}
+
+#home_res .QLabel:hover
+{
+	border-left: 2px solid rgb(169, 143, 205);
+}
+
+#btn_python:hover
+{
+	background-color: #957db6;
 }
 
 </string>
@@ -2508,7 +2527,7 @@ color: rgb(170,170,170);</string>
                             </spacer>
                            </item>
                            <item>
-                            <layout class="QVBoxLayout" name="verticalLayout_30">
+                            <layout class="QVBoxLayout" name="home_resource">
                              <property name="spacing">
                               <number>15</number>
                              </property>
@@ -2531,71 +2550,86 @@ color: rgb(170,170,170);</string>
                                 <string notr="true">color: rgb(100, 100, 100);</string>
                                </property>
                                <property name="text">
-                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Start&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Resources&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                </property>
                               </widget>
                              </item>
                              <item>
-                              <widget class="QLabel" name="label_documentation">
-                               <property name="sizePolicy">
-                                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                                 <horstretch>1</horstretch>
-                                 <verstretch>0</verstretch>
-                                </sizepolicy>
+                              <widget class="QFrame" name="home_res">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>30</height>
+                                </size>
                                </property>
-                               <property name="styleSheet">
-                                <string notr="true">border-top-right-radius: 5px;
-border-bottom-right-radius: 5px;
-border-left: 2px solid rgb(112, 85, 151);
-background-color: rgb(237, 237, 249);
-font-size: 12pt;
-padding: 12px;</string>
+                               <property name="frameShape">
+                                <enum>QFrame::StyledPanel</enum>
                                </property>
-                               <property name="text">
-                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Documentation&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;a href =&quot;https://www.osl.ink&quot; style=&quot; font-size:13pt; text-decoration:none; color: #333&quot;&gt;New to HSAOIS? Check out our documentation.&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                               <property name="frameShadow">
+                                <enum>QFrame::Raised</enum>
                                </property>
-                              </widget>
-                             </item>
-                             <item>
-                              <widget class="QLabel" name="label_database">
-                               <property name="sizePolicy">
-                                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                                 <horstretch>1</horstretch>
-                                 <verstretch>0</verstretch>
-                                </sizepolicy>
-                               </property>
-                               <property name="styleSheet">
-                                <string notr="true">border-top-right-radius: 5px;
-border-bottom-right-radius: 5px;
-border-left: 2px solid rgb(112, 85, 151);
-background-color: rgb(237, 237, 249);
-font-size: 12pt;
-padding: 12px;</string>
-                               </property>
-                               <property name="text">
-                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;a href=&quot;http://124.223.101.237/&quot; style=&quot;color: #333; text-decoration:none;&quot;&gt;Access to your database&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item>
-                              <widget class="QLabel" name="label_custom_model">
-                               <property name="sizePolicy">
-                                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                                 <horstretch>1</horstretch>
-                                 <verstretch>0</verstretch>
-                                </sizepolicy>
-                               </property>
-                               <property name="styleSheet">
-                                <string notr="true">border-top-right-radius: 5px;
-border-bottom-right-radius: 5px;
-border-left: 2px solid rgb(112, 85, 151);
-background-color: rgb(237, 237, 249);
-font-size: 12pt;
-padding: 12px;</string>
-                               </property>
-                               <property name="text">
-                                <string>Learn to train a custom model</string>
-                               </property>
+                               <layout class="QVBoxLayout" name="verticalLayout_30">
+                                <property name="leftMargin">
+                                 <number>0</number>
+                                </property>
+                                <property name="topMargin">
+                                 <number>0</number>
+                                </property>
+                                <property name="rightMargin">
+                                 <number>0</number>
+                                </property>
+                                <property name="bottomMargin">
+                                 <number>0</number>
+                                </property>
+                                <item>
+                                 <widget class="QLabel" name="label_documentation">
+                                  <property name="sizePolicy">
+                                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                                    <horstretch>1</horstretch>
+                                    <verstretch>0</verstretch>
+                                   </sizepolicy>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true">background-color: rgb(237, 237, 249); </string>
+                                  </property>
+                                  <property name="text">
+                                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Documentation&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;a href =&quot;https://www.osl.ink&quot; style=&quot; font-size:13pt; text-decoration:none; color: #333&quot;&gt;New to HSAOIS? Check out our documentation.&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                  </property>
+                                 </widget>
+                                </item>
+                                <item>
+                                 <widget class="QLabel" name="label_database">
+                                  <property name="sizePolicy">
+                                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                                    <horstretch>1</horstretch>
+                                    <verstretch>0</verstretch>
+                                   </sizepolicy>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true">background-color: rgb(237, 237, 249);</string>
+                                  </property>
+                                  <property name="text">
+                                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://124.223.101.237/&quot;&gt;&lt;span style=&quot; font-size:13pt; color:#333333; text-decoration: none;&quot;&gt;Access to your online database&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                  </property>
+                                 </widget>
+                                </item>
+                                <item>
+                                 <widget class="QLabel" name="label_custom_model">
+                                  <property name="sizePolicy">
+                                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                                    <horstretch>1</horstretch>
+                                    <verstretch>0</verstretch>
+                                   </sizepolicy>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true">background-color: rgb(237, 237, 249);</string>
+                                  </property>
+                                  <property name="text">
+                                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://www.osl.ink&quot;&gt;&lt;span style=&quot; font-size:13pt; color:#333333; text-decoration: none;&quot;&gt;Learn to train a custom model&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                  </property>
+                                 </widget>
+                                </item>
+                               </layout>
                               </widget>
                              </item>
                              <item>
@@ -4085,6 +4119,9 @@ padding: 8px;</string>
                               </disabled>
                              </palette>
                             </property>
+                            <property name="styleSheet">
+                             <string notr="true"/>
+                            </property>
                             <property name="frameShape">
                              <enum>QFrame::NoFrame</enum>
                             </property>
@@ -5432,19 +5469,6 @@ border: none;</string>
      </widget>
     </item>
    </layout>
-   <widget class="QSplitter" name="splitter_4">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>0</width>
-      <height>0</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
   </widget>
  </widget>
  <customwidgets>

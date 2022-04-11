@@ -105,7 +105,6 @@ class Ui_MainWindow(object):
 "#topLogo\n"
 "{\n"
 "	background-color: rgb(237, 237, 249);\n"
-"	/* background-image: url(:/images/images/images/PyDracula.png); */\n"
 "	background-position: centered;\n"
 "	background-repeat: no-repeat;\n"
 "}\n"
@@ -128,11 +127,11 @@ class Ui_MainWindow(object):
 "    color: rgb(112, 85, 151);\n"
 "}\n"
 "\n"
-"#topMenu "
-                        ".QPushButton:hover\n"
+"#topMenu .QPushButton:hover\n"
 "{\n"
 "	background-color: rgb(230, 230, 249);\n"
-"}\n"
+""
+                        "}\n"
 "\n"
 "#topMenu .QPushButton:pressed\n"
 "{	\n"
@@ -177,11 +176,11 @@ class Ui_MainWindow(object):
 "\n"
 "#toggleButton:hover\n"
 "{\n"
-""
-                        "	background-color: rgb(230, 230, 249);\n"
+"	background-color: rgb(230, 230, 249);\n"
 "}\n"
 "\n"
-"#toggleButton:pressed\n"
+"#toggleButton:pres"
+                        "sed\n"
 "{	\n"
 "	background-color: rgb(217, 217, 255);\n"
 "}\n"
@@ -218,8 +217,8 @@ class Ui_MainWindow(object):
 "/* Btn Close */\n"
 "#extraCloseColumnBtn { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
 "#extraCloseColumnBtn:hover { background-color: rgb(196, 161, 249); border-style: solid; border-radius: 4px; }\n"
-"#extraClose"
-                        "ColumnBtn:pressed { background-color: rgb(180, 141, 238); border-style: solid; border-radius: 4px; }\n"
+"#extraCloseColumnBtn:pressed { background-color: rgb(180, 141, 238); border-style: "
+                        "solid; border-radius: 4px; }\n"
 "\n"
 "/* Extra Content */\n"
 "/* #extraContent\n"
@@ -264,14 +263,14 @@ class Ui_MainWindow(object):
 "{\n"
 "	border-top: 1px solid #eee;\n"
 "}\n"
-""
-                        "\n"
+"\n"
 "#titleRightInfo\n"
 "{\n"
 "    color: gray;\n"
 "}\n"
 "\n"
-"/* Top Buttons */\n"
+"/* Top"
+                        " Buttons */\n"
 "#rightButtons .QPushButton { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
 "#rightButtons .QPushButton:hover { background-color: rgb(240, 240, 240); border-style: solid; border-radius: 4px; }\n"
 "#rightButtons .QPushButton:pressed { background-color: rgb(220, 220, 220); border-style: solid; border-radius: 4px; }\n"
@@ -292,10 +291,10 @@ class Ui_MainWindow(object):
 "#contentSettings .QPushButton\n"
 "{\n"
 "    background-position: left center;\n"
-"    backg"
-                        "round-repeat: no-repeat;\n"
+"    background-repeat: no-repeat;\n"
 "	border: none;\n"
-"	border-left: 22px solid transparent;\n"
+"	border-left: 22px so"
+                        "lid transparent;\n"
 "	background-color:transparent;\n"
 "	text-align: left;\n"
 "	padding-left: 44px;\n"
@@ -337,12 +336,12 @@ class Ui_MainWindow(object):
 "QTableWidget::item:selected\n"
 "{\n"
 "	background-color: rgb(240, 240, 245);\n"
-""
-                        "    color: #705597;\n"
+"    color: #705597;\n"
 "	font-weight: bold;\n"
 "}\n"
 "\n"
-"QHeaderView::section\n"
+"QHeader"
+                        "View::section\n"
 "{\n"
 "	background-color: #6272a4;\n"
 "	max-width: 30px;\n"
@@ -385,13 +384,14 @@ class Ui_MainWindow(object):
 "\n"
 "QLineEdit:hover\n"
 "{\n"
-"	border: 2px solid rgb(64, 71, 88);\n"
-""
-                        "}\n"
+"	border: 2px solid rgb(112, 85, 151);\n"
+"}\n"
 "\n"
 "QLineEdit:focus\n"
 "{\n"
-"	border: 2px solid #ab90d1;\n"
+"	border: 2px solid #ab9"
+                        "0d1;\n"
+"	outline: auto 5px -webkit-focus-ring-color;\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
@@ -438,8 +438,8 @@ class Ui_MainWindow(object):
 "	border-radius: 0px;\n"
 "}\n"
 "\n"
-""
-                        "QScrollBar::handle:horizontal\n"
+"QScrollBar:"
+                        ":handle:horizontal\n"
 "{\n"
 "    background: rgb(213, 213, 213);\n"
 "    min-width: 25px;\n"
@@ -482,8 +482,8 @@ class Ui_MainWindow(object):
 "{\n"
 "	border: none;\n"
 "    background-color: rgb(136, 112, 173);\n"
-" "
-                        "   width: 8px;\n"
+"    width: 8"
+                        "px;\n"
 "    margin: 21px 0 21px 0;\n"
 "	border-radius: 0px;\n"
 "}\n"
@@ -527,8 +527,8 @@ class Ui_MainWindow(object):
 "    background: none;\n"
 "}\n"
 "\n"
-"/* ///////////////////////"
-                        "//////////////////////////////////////////////////////////////////////////\n"
+"/* //////////////////////////////////"
+                        "///////////////////////////////////////////////////////////////\n"
 "CheckBox */\n"
 "\n"
 "QCheckBox::indicator\n"
@@ -571,9 +571,9 @@ class Ui_MainWindow(object):
 "\n"
 "QRadioButton::indicator:checked\n"
 "{\n"
-"    background: 3px solid #bd93f"
-                        "9;\n"
-"	border: 3px solid #bd93f9;	\n"
+"    background: 3px solid #bd93f9;\n"
+"	bor"
+                        "der: 3px solid #bd93f9;	\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
@@ -614,9 +614,9 @@ class Ui_MainWindow(object):
 "	color: rgb(255, 121, 198);	\n"
 "	background-color: #6272a4;\n"
 "	padding: 10px;\n"
-"	selection-background-color: "
-                        "#6272a4;\n"
-"}\n"
+"	selection-background-color: #6272a4;\n"
+""
+                        "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Sliders */\n"
@@ -667,8 +667,8 @@ class Ui_MainWindow(object):
 "	background-color: #6272a4;\n"
 "}\n"
 "\n"
-"QSl"
-                        "ider::handle:vertical\n"
+"QSlider::handle:"
+                        "vertical\n"
 "{\n"
 "    background-color: rgb(213, 213, 213);\n"
 "	border: none;\n"
@@ -712,8 +712,8 @@ class Ui_MainWindow(object):
 "	background-color: #586796;\n"
 "}\n"
 "\n"
-"/* ////////////////////////////////////////////"
-                        "/////////////////////////////////////////////////////\n"
+"/* /////////////////////////////////////////////////////////"
+                        "////////////////////////////////////////\n"
 "Button */\n"
 "\n"
 "#pagesContainer QPushButton\n"
@@ -759,10 +759,10 @@ class Ui_MainWindow(object):
 "    alignment: center;\n"
 "}\n"
 "\n"
-"QTabBar::tab:fi"
-                        "rst\n"
+"QTabBar::tab:first\n"
 "{\n"
-"	border-top-left-radius: 0px;\n"
+""
+                        "	border-top-left-radius: 0px;\n"
 "	border-bottom-left-radius: 5px;\n"
 "}\n"
 "\n"
@@ -808,8 +808,8 @@ class Ui_MainWindow(object):
 "{\n"
 "	border-radius: 2px;\n"
 "	border-right: 2px solid rgb(220, 220, 220);\n"
-"	border-left: 2"
-                        "px solid rgb(220, 220, 220);\n"
+"	border-left: 2px solid rgb(2"
+                        "20, 220, 220);\n"
 "}\n"
 "\n"
 "QProgressBar::chunk\n"
@@ -837,9 +837,9 @@ class Ui_MainWindow(object):
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "QSplitter */\n"
 "\n"
-"QSplitter::handle\n"
+"QSplitter::handle:hover\n"
 "{\n"
-"	/* background-color: whitesmoke; */\n"
+"	background-color: rgb(166, 179, 155);\n"
 "}\n"
 "\n"
 "QSplitter::handle:horizontal {\n"
@@ -861,13 +861,13 @@ class Ui_MainWindow(object):
 "Custome */\n"
 "\n"
 "#upload\n"
+"{\n"
 ""
-                        "{\n"
-"	border: 2px dashed rgb(220, 220, 220);\n"
+                        "	border: 2px dashed rgb(220, 220, 220);\n"
 "	border-radius: 5px;\n"
 "}\n"
 "\n"
-"#pagesContainer #video_tu\n"
+"#video_tu\n"
 "{\n"
 "	color: #555;\n"
 "	font-size: 12pt;\n"
@@ -875,18 +875,33 @@ class Ui_MainWindow(object):
 "	background-color: rgb(248, 248, 255);\n"
 "}\n"
 "\n"
-"#pagesContainer #video_tu:hover\n"
+"#video_tu:hover\n"
 "{\n"
 "	color: #705597;\n"
 "	background-color: rgb(228, 228, 235);\n"
 "	text-decoration: underline #705597;\n"
 "}\n"
 "\n"
+"#home_res .QLabel\n"
+"{\n"
+"	border-top-right-radius: 5px;\n"
+"	border-bottom-right-radius: 5px;\n"
+"	border-left: 2px solid rgb(112, 85, 151);\n"
+"	background-color: rgb(237, 237, 249);\n"
+"	padding: 12px;\n"
+"}\n"
+"\n"
+"#home_res .QLabel:hover\n"
+"{\n"
+"	border-left: 2px solid rgb(169, 143, 205);\n"
+"}\n"
+"\n"
+"#btn_python:hover\n"
+"{\n"
+"	background-color: #957db6;\n"
+"}\n"
+"\n"
 "")
-        self.splitter_4 = QSplitter(self.styleSheet)
-        self.splitter_4.setObjectName(u"splitter_4")
-        self.splitter_4.setGeometry(QRect(0, 0, 0, 0))
-        self.splitter_4.setOrientation(Qt.Vertical)
         self.appMargins = QVBoxLayout(self.styleSheet)
         self.appMargins.setSpacing(0)
         self.appMargins.setObjectName(u"appMargins")
@@ -1516,64 +1531,60 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_27.addItem(self.horizontalSpacer_5)
 
-        self.verticalLayout_30 = QVBoxLayout()
-        self.verticalLayout_30.setSpacing(15)
-        self.verticalLayout_30.setObjectName(u"verticalLayout_30")
+        self.home_resource = QVBoxLayout()
+        self.home_resource.setSpacing(15)
+        self.home_resource.setObjectName(u"home_resource")
         self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout_30.addItem(self.verticalSpacer_5)
+        self.home_resource.addItem(self.verticalSpacer_5)
 
         self.label_13 = QLabel(self.home)
         self.label_13.setObjectName(u"label_13")
         self.label_13.setStyleSheet(u"color: rgb(100, 100, 100);")
 
-        self.verticalLayout_30.addWidget(self.label_13)
+        self.home_resource.addWidget(self.label_13)
 
-        self.label_documentation = QLabel(self.home)
+        self.home_res = QFrame(self.home)
+        self.home_res.setObjectName(u"home_res")
+        self.home_res.setMinimumSize(QSize(0, 30))
+        self.home_res.setFrameShape(QFrame.StyledPanel)
+        self.home_res.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_30 = QVBoxLayout(self.home_res)
+        self.verticalLayout_30.setObjectName(u"verticalLayout_30")
+        self.verticalLayout_30.setContentsMargins(0, 0, 0, 0)
+        self.label_documentation = QLabel(self.home_res)
         self.label_documentation.setObjectName(u"label_documentation")
         sizePolicy5.setHeightForWidth(self.label_documentation.sizePolicy().hasHeightForWidth())
         self.label_documentation.setSizePolicy(sizePolicy5)
-        self.label_documentation.setStyleSheet(u"border-top-right-radius: 5px;\n"
-"border-bottom-right-radius: 5px;\n"
-"border-left: 2px solid rgb(112, 85, 151);\n"
-"background-color: rgb(237, 237, 249);\n"
-"font-size: 12pt;\n"
-"padding: 12px;")
+        self.label_documentation.setStyleSheet(u"background-color: rgb(237, 237, 249); ")
 
         self.verticalLayout_30.addWidget(self.label_documentation)
 
-        self.label_database = QLabel(self.home)
+        self.label_database = QLabel(self.home_res)
         self.label_database.setObjectName(u"label_database")
         sizePolicy5.setHeightForWidth(self.label_database.sizePolicy().hasHeightForWidth())
         self.label_database.setSizePolicy(sizePolicy5)
-        self.label_database.setStyleSheet(u"border-top-right-radius: 5px;\n"
-"border-bottom-right-radius: 5px;\n"
-"border-left: 2px solid rgb(112, 85, 151);\n"
-"background-color: rgb(237, 237, 249);\n"
-"font-size: 12pt;\n"
-"padding: 12px;")
+        self.label_database.setStyleSheet(u"background-color: rgb(237, 237, 249);")
 
         self.verticalLayout_30.addWidget(self.label_database)
 
-        self.label_custom_model = QLabel(self.home)
+        self.label_custom_model = QLabel(self.home_res)
         self.label_custom_model.setObjectName(u"label_custom_model")
         sizePolicy5.setHeightForWidth(self.label_custom_model.sizePolicy().hasHeightForWidth())
         self.label_custom_model.setSizePolicy(sizePolicy5)
-        self.label_custom_model.setStyleSheet(u"border-top-right-radius: 5px;\n"
-"border-bottom-right-radius: 5px;\n"
-"border-left: 2px solid rgb(112, 85, 151);\n"
-"background-color: rgb(237, 237, 249);\n"
-"font-size: 12pt;\n"
-"padding: 12px;")
+        self.label_custom_model.setStyleSheet(u"background-color: rgb(237, 237, 249);")
 
         self.verticalLayout_30.addWidget(self.label_custom_model)
 
+
+        self.home_resource.addWidget(self.home_res)
+
         self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout_30.addItem(self.verticalSpacer_6)
+        self.home_resource.addItem(self.verticalSpacer_6)
 
 
-        self.horizontalLayout_27.addLayout(self.verticalLayout_30)
+        self.horizontalLayout_27.addLayout(self.home_resource)
 
         self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -2328,6 +2339,7 @@ class Ui_MainWindow(object):
         palette.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush3)
 #endif
         self.tableWidget.setPalette(palette)
+        self.tableWidget.setStyleSheet(u"")
         self.tableWidget.setFrameShape(QFrame.NoFrame)
         self.tableWidget.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
         self.tableWidget.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
@@ -2941,10 +2953,10 @@ class Ui_MainWindow(object):
         self.home_logo.setText("")
         self.home_logo_line.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>HSAOIS<span style=\" font-size:14pt; vertical-align:sub;\">by Submarine</span></p></body></html>", None))
         self.home_logo_line2.setText(QCoreApplication.translate("MainWindow", u"Invoke The Next Era In Optical Inspection", None))
-        self.label_13.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt;\">Start</span></p></body></html>", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt;\">Resources</span></p></body></html>", None))
         self.label_documentation.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:600;\">Documentation</span></p><p><a href =\"https://www.osl.ink\" style=\" font-size:13pt; text-decoration:none; color: #333\">New to HSAOIS? Check out our documentation.</a></p></body></html>", None))
-        self.label_database.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><a href=\"http://124.223.101.237/\" style=\"color: #333; text-decoration:none;\">Access to your database</a></body></html>", None))
-        self.label_custom_model.setText(QCoreApplication.translate("MainWindow", u"Learn to train a custom model", None))
+        self.label_database.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><a href=\"http://124.223.101.237/\"><span style=\" font-size:13pt; color:#333333; text-decoration: none;\">Access to your online database</span></a></p></body></html>", None))
+        self.label_custom_model.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><a href=\"http://www.osl.ink\"><span style=\" font-size:13pt; color:#333333; text-decoration: none;\">Learn to train a custom model</span></a></p></body></html>", None))
         self.video_tu.setText(QCoreApplication.translate("MainWindow", u" Video Tutorial", None))
         self.video_viewer.setText("")
         self.btn_start_live.setText(QCoreApplication.translate("MainWindow", u" Start", None))

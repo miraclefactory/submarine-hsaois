@@ -68,7 +68,7 @@ def init_batch() -> None:
     # c.execute('''SELECT batch_number FROM general_table
     # ORDER BY batch_number DESC LIMIT 1''')
     # last_batch = c.fetchall()
-    c.execute("INSERT INTO general_table VALUES (0,'0%',0,0,0)")
+    c.execute("INSERT INTO general_table VALUES (0,'0',0,0,0)")
     conn.commit()
     conn.close()
 
@@ -234,4 +234,34 @@ def fetch_batch_num():
 
 # print(fecth_defective_data())
 # fetch_batch_num()
+
+def fetch_frac_limited(lim_num):
+    num = int(lim_num)
+    conn = sqlite3.connect("hsaois.db")
+    c = conn.cursor()
+    s = f"SELECT defective FROM general_table ORDER BY batch_number LIMIT {num}"
+    c.execute(s)
+    data = c.fetchall()
+    data = [i[0] for i in data]
+    return data
+
+def fetch_general_class_limited(lim_num):
+    num = int(lim_num)
+    conn = sqlite3.connect("hsaois.db")
+    c = conn.cursor()
+    s = f"SELECT mb,cpu_fan,fan_port FROM general_table ORDER BY batch_number LIMIT {num+1}"
+    c.execute(s)
+    data = c.fetchall()
+    conn.close()
+    return data
+
+def fetch_limited_batch_num(lim_num):
+    num = int(lim_num)+1
+    # 异常处理
+    conn = sqlite3.connect("hsaois.db")
+    c = conn.cursor()
+    c.execute("SELECT batch_number FROM general_table order by batch_number limit {num}".format(num=num))
+    data = c.fetchall()
+    data = [i[0] for i in data]
+    return data[1:num]
 

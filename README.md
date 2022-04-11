@@ -1,1 +1,1 @@
-So Fuck me, Submarine!
+So Fuck You, Nvidia!

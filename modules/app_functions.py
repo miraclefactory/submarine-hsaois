@@ -43,9 +43,3 @@ class AppFunctions(MainWindow):
         self.ui.most_defected.setStyleSheet("color: #705597; font-weight: bold; font-size: 24pt;")
         self.ui.label_5.setStyleSheet("color: #705597; font-weight: bold;")
         self.ui.label_7.setStyleSheet("color: #705597; font-weight: bold;")
-        self.ui.splitter.setAttribute(Qt.WA_Hover, True)
-        self.ui.splitter_2.setAttribute(Qt.WA_Hover, True)
-        self.ui.splitter_3.setAttribute(Qt.WA_Hover, True)
-        self.ui.splitter_4.setAttribute(Qt.WA_Hover, True)
-
-
