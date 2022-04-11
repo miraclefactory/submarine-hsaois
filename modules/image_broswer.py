@@ -19,6 +19,7 @@ class Window_img_broswer:
         self.ui.pushButton_3.clicked.connect(self.generate_vis)
         self.num_img = 0
         self.img_set = []
+        
         list_all_img = os.listdir(os.getcwd()+"/buffer_img")
         for i in list_all_img:
             if os.path.splitext(i)[1] == '.jpg':
@@ -69,14 +70,14 @@ class Window_img_broswer:
         plt.figure(dpi=100)
         plt.bar(x,y)
         plt.savefig("./fileResult.jpg")
-        self.ui.label_img.setPixmap(QPixmap("fileResult.jpg").scaledToWidth(self.ui.label_img.width()))
+        self.ui.label_img.setPixmap(QPixmap("fileResult.jpg").scaledToWidth(self.ui.label_img.width(), Qt.SmoothTransformation))
         self.num_img = 0
 
     def scale_img(self,tar_hwr,hwr,current_img):
         if hwr > tar_hwr:
-            current_img = current_img.scaledToWidth(self.ui.label_img.width())
+            current_img = current_img.scaledToWidth(self.ui.label_img.width(), Qt.SmoothTransformation)
         if hwr < tar_hwr:
-            current_img = current_img.scaledToHeight(self.ui.label_img.height())
+            current_img = current_img.scaledToHeight(self.ui.label_img.height(), Qt.SmoothTransformation)
         return current_img
 
 
