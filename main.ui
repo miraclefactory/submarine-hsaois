@@ -5362,6 +5362,9 @@ padding: 8px;</string>
                     <height>16777215</height>
                    </size>
                   </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">background-color:  rgb(78, 60, 105);
 border: none;</string>
@@ -5372,6 +5375,45 @@ border: none;</string>
                   <property name="icon">
                    <iconset resource="resources.qrc">
                     <normaloff>:/icons/images/icons/python.svg</normaloff>:/icons/images/icons/python.svg</iconset>
+                  </property>
+                  <property name="flat">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btn_data_upload">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Maximum" vsizetype="Minimum">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>33</width>
+                    <height>22</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777196</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color:  rgb(112, 85, 151);
+border: none;</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="resources.qrc">
+                    <normaloff>:/icons/images/icons/cloud.svg</normaloff>:/icons/images/icons/cloud.svg</iconset>
                   </property>
                   <property name="flat">
                    <bool>true</bool>
@@ -5402,7 +5444,7 @@ border: none;</string>
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true"/>
+                   <string notr="true">padding-left: 2px;</string>
                   </property>
                   <property name="text">
                    <string>PySide 6.2.3</string>

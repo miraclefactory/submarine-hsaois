@@ -18,6 +18,7 @@ from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 
 # GUI FILE
+# SWITCH TO 'ui_main_cn' FOR CHINESE VERSION
 from . ui_main import Ui_MainWindow
 
 # APP SETTINGS

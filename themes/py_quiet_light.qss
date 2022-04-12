@@ -842,8 +842,8 @@ Custome */
 
 #home_res .QLabel:hover
 {
-	border-left: 2px solid rgb(169, 143, 205);
-	background-color: #ddd;
+	border-left: 3px solid rgb(170,55,49);
+	background: #ddd;
 }
 
 #btn_python:hover

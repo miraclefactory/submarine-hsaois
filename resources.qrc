@@ -302,5 +302,7 @@
     <file>images/icons/ellypsis_1.svg</file>
     <file>images/icons/h.png</file>
     <file>images/icons/v.png</file>
+    <file>images/icons/upload.svg</file>
+    <file>images/icons/cloud.svg</file>
   </qresource>
 </RCC>

@@ -2828,6 +2828,7 @@ class Ui_MainWindow(object):
         self.btn_python.setSizePolicy(sizePolicy23)
         self.btn_python.setMinimumSize(QSize(33, 22))
         self.btn_python.setMaximumSize(QSize(16777196, 16777215))
+        self.btn_python.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_python.setStyleSheet(u"background-color:  rgb(78, 60, 105);\n"
 "border: none;")
         icon22 = QIcon()
@@ -2836,6 +2837,22 @@ class Ui_MainWindow(object):
         self.btn_python.setFlat(True)
 
         self.horizontalLayout_5.addWidget(self.btn_python)
+
+        self.btn_data_upload = QPushButton(self.bottomBar)
+        self.btn_data_upload.setObjectName(u"btn_data_upload")
+        sizePolicy23.setHeightForWidth(self.btn_data_upload.sizePolicy().hasHeightForWidth())
+        self.btn_data_upload.setSizePolicy(sizePolicy23)
+        self.btn_data_upload.setMinimumSize(QSize(33, 22))
+        self.btn_data_upload.setMaximumSize(QSize(16777196, 16777215))
+        self.btn_data_upload.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_data_upload.setStyleSheet(u"background-color:  rgb(112, 85, 151);\n"
+"border: none;")
+        icon23 = QIcon()
+        icon23.addFile(u":/icons/images/icons/cloud.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_data_upload.setIcon(icon23)
+        self.btn_data_upload.setFlat(True)
+
+        self.horizontalLayout_5.addWidget(self.btn_data_upload)
 
         self.creditsLabel = QLabel(self.bottomBar)
         self.creditsLabel.setObjectName(u"creditsLabel")
@@ -2846,7 +2863,7 @@ class Ui_MainWindow(object):
         font5.setBold(False)
         font5.setItalic(False)
         self.creditsLabel.setFont(font5)
-        self.creditsLabel.setStyleSheet(u"")
+        self.creditsLabel.setStyleSheet(u"padding-left: 2px;")
         self.creditsLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.horizontalLayout_5.addWidget(self.creditsLabel)
@@ -3101,6 +3118,7 @@ class Ui_MainWindow(object):
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
         self.btn_python.setText("")
+        self.btn_data_upload.setText("")
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"PySide 6.2.3", None))
         self.version.setText(QCoreApplication.translate("MainWindow", u"Demo Version V1.0.0 Asterisk", None))
     # retranslateUi
