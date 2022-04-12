@@ -35,6 +35,7 @@ from modules.detect import *
 from modules import global_var
 from modules.letterbox import *
 from modules.report_text import *
+from modules.sync_database import *
 from modules.shit_algorithm import *
 from modules.data_visualization import *
 from utils.torch_utils import select_device
@@ -252,6 +253,10 @@ class MainWindow(QMainWindow):
         self.x_axis_batch = fetch_batch_num()
         self.y_axis_batch = self.handle_per_list(fecth_defective_data())
 
+        # DATABASE
+        # ///////////////////////////////////////////////////////////////
+        widgets.btn_data_upload.clicked.connect(self.uploadDatabase)
+
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
         self.show()
@@ -422,10 +427,16 @@ class MainWindow(QMainWindow):
         widgets.btn_scan.setEnabled(True)
         widgets.status_label.setText("Ready")
         self.updateDataGraph()
+        self.uploadDatabase()
 
     def terminate(self):
         # RAISE INTERRUPT EXCEPTION
         raise (InterruptedError("Session Terminated"))
+    
+    def uploadDatabase(self):
+        widgets.btn_data_upload.setIcon(QIcon(":/icons/images/icons/upload.svg"))
+        thread = Thread(target=self.sync_db)
+        thread.start()
 
     # LIVE DETECT
     # ///////////////////////////////////////////////////////////////
@@ -741,6 +752,117 @@ class MainWindow(QMainWindow):
             if len(file_list) > 0:
                 for file in file_list:
                     shutil.move(ori_path+file, target+file)
+    
+    # REPORT FUNCTIONS
+    # ///////////////////////////////////////////////////////////////
+    def handle_str_table(self, ls):
+        for i in range(len(ls)):
+            for j in range(len(ls[i])):
+                ls[i][j] = int(ls[i][j])
+        return ls
+
+    def cal_frac(self, ls) -> None:
+        frac = 0
+        count = 0
+        dam_cnt = 0
+        dam_point = False
+        len_ls = len(ls)
+        if len_ls == 0:
+            return None
+        for i in ls:
+            if i == 0:
+                continue
+            if i != 0:
+                count += 1
+            if i < 10 and i > 5:
+                frac += 0.05
+                continue
+            if i > 10:
+                dam_cnt += 1
+                continue
+        if dam_cnt/len_ls >= 0.02:
+            dam_point = True
+        frac += count/len_ls
+        if frac >= 0.20 or dam_point is True:
+            widgets.textBrowser_report.setMarkdown(f"### Generally Bad\n\
+> The defective rate of the current batch is **{ls[-1]}%**, \
+overall deviation has failed the testing standard;  \n\
+> Seek the most defected class on the green section below.  \n\
+### More details on this graph\n\
+> Highest recorded deviation: **{round(max(ls), 2)}%**;  \n\
+> Lowest recorded deviation: **{round(min(ls), 2)}%**;  \n\
+> Average recorded deviation: **{round(sum(ls)/len_ls, 2)}%**.  \n")
+        if frac > 0.10 and frac <= 0.20 and dam_point is False:
+            widgets.textBrowser_report.setMarkdown(f"### Generally Average\n\
+> The defective rate of the current batch is **{ls[-1]}%**, \
+limited overall deviation but can still be improved;  \n\
+> Seek the most defected class on the green section below.  \n\
+### More details on this graph\n\
+> Highest recorded deviation: **{round(max(ls), 2)}%**;  \n\
+> Lowest recorded deviation: **{round(min(ls), 2)}%**;  \n\
+> Average recorded deviation: **{round(sum(ls)/len_ls, 2)}%**.  \n")
+        elif frac <= 0.10 and dam_point is False:
+            widgets.textBrowser_report.setMarkdown(f"### Generally Good\n\
+> The defective rate of the current batch is **{ls[-1]}%**, minimum deviation overall;  \n\
+> Keep it on track;  \n\
+> Predictions are given below.  \n\
+### More details on this graph\n\
+> Highest recorded deviation: **{round(max(ls), 2)}%**;  \n\
+> Lowest recorded deviation: **{round(min(ls), 2)}%**;  \n\
+> Average recorded deviation: **{round(sum(ls)/len_ls, 2)}%**.  \n")
+        return None
+
+    def cal_class(self, ls):
+        if len(ls) == 0:
+            return None
+        cls_pool = [0,0,0]
+        cl_mb = 0
+        cl_cpu_fan = 0
+        cl_fan_port = 0
+        for i in range(1,len(ls)):
+            for idx,j in enumerate(ls[i]):
+                if idx == 0:
+                    cl_mb += int(j)
+                if idx == 1:
+                    cl_cpu_fan += int(j)
+                if idx == 2:
+                    cl_fan_port += int(j)
+        # comment on the res
+        cls_pool[0]=cl_mb
+        cls_pool[1]=cl_cpu_fan
+        cls_pool[2]=cl_fan_port
+        tmp_max = cls_pool.index(max(cls_pool))
+        tmp_min = cls_pool.index(min(cls_pool))
+        # return tmp_max,tmp_min
+        l = ["Motherboard", "CPU_FAN", "FAN_Port"]
+        widgets.def_total_text.setMarkdown(f"Overall, the highest yield is on {l[tmp_min]}  \n\
+                                        Overall, the lowest yield is on {l[tmp_max]}")
+
+    def cal_slope_intercept(self, ls)->list:
+        x = []
+        y = []
+        for i,j in enumerate(ls):
+            x.append(i)    
+            y.append(j)
+        slope, intercept, r_value, p_value, std_err = scipy.stats.linregress(x, y)
+        return slope,intercept
+
+    def prac_res_frac(self, slope,intercept,ls)->float:
+        x_new = len(ls)
+        y_new = slope*x_new+intercept
+        if(y_new<0):
+            y_new = 0
+        if(y_new>100):
+            y_new = 100
+        if(y_new>=0 and y_new<=3):
+            widgets.final_words.setText(f"The predicted value is {round(y_new,2)}%,\
+                which is very profound.")
+        elif(y_new>3 and y_new<=6):
+            widgets.final_words.setText(f"The predicted value is {round(y_new,2)}%,\
+                which is so-so.")
+        elif(y_new>6):
+            widgets.final_words.setText(f"The predicted value is {round(y_new,2)}%,\
+                which is not good.")
 
     # DATABASE OPERATIONS
     # ///////////////////////////////////////////////////////////////
@@ -751,10 +873,10 @@ class MainWindow(QMainWindow):
         update_general_table(batch_num, frac_d_n)
         self.x_axis_batch = fetch_batch_num()
         self.y_axis_batch = self.handle_per_list(fecth_defective_data())
-        cal_frac(self.y_axis_batch)
-        cal_class(fetch_general_class())
-        x, y = cal_slope_intercept(self.y_axis_batch)
-        prac_res_frac(x, y, self.y_axis_batch)
+        self.cal_frac(self.y_axis_batch)
+        self.cal_class(fetch_general_class())
+        x, y = self.cal_slope_intercept(self.y_axis_batch)
+        self.prac_res_frac(x, y, self.y_axis_batch)
         self.update_report_frac(self.x_axis_batch, self.y_axis_batch)
         # self.update_table_widget2(batch_num,fetch_general_class())
         self.update_table_report(fetch_general_class())
@@ -783,10 +905,10 @@ class MainWindow(QMainWindow):
         search_string = widgets.search_box.text()
         self.x_axis_batch = fetch_limited_batch_num(search_string)
         self.y_axis_batch = self.handle_per_list(fetch_frac_limited(search_string))
-        cal_frac(self.y_axis_batch)
-        x,y = cal_slope_intercept(self.y_axis_batch)
-        prac_res_frac(x,y,self.y_axis_batch)
-        cal_class(fetch_general_class_limited(search_string))
+        self.cal_frac(self.y_axis_batch)
+        x,y = self.cal_slope_intercept(self.y_axis_batch)
+        self.prac_res_frac(x,y,self.y_axis_batch)
+        self.cal_class(fetch_general_class_limited(search_string))
         self.update_report_frac(self.x_axis_batch, self.y_axis_batch)
         widgets.tableWidget_2.clearContents()
         widgets.tableWidget_2.setItem(0, 0, QTableWidgetItem("Log Entry"))
@@ -794,123 +916,28 @@ class MainWindow(QMainWindow):
         widgets.tableWidget_2.setItem(0, 2, QTableWidgetItem("Result Class"))
         widgets.tableWidget_2.setItem(0, 3, QTableWidgetItem("Notes"))
         self.update_table_report(fetch_general_class_limited(search_string))
-
-
-def handle_str_table(ls):
-    for i in range(len(ls)):
-        for j in range(len(ls[i])):
-            ls[i][j] = int(ls[i][j])
-    return ls
-
-def cal_frac(ls) -> None:
-    frac = 0
-    count = 0
-    dam_cnt = 0
-    dam_point = False
-    len_ls = len(ls)
-    if len_ls == 0:
-        return None
-    for i in ls:
-        if i == 0:
-            continue
-        if i != 0:
-            count += 1
-        if i < 10 and i > 5:
-            frac += 0.05
-            continue
-        if i > 10:
-            dam_cnt += 1
-            continue
-    if dam_cnt/len_ls >= 0.02:
-        dam_point = True
-    frac += count/len_ls
-    if frac >= 0.20 or dam_point is True:
-        widgets.textBrowser_report.setMarkdown(f"### Generally Bad\n\
-> The defective rate of the current batch is **{ls[-1]}%**, \
-overall deviation has failed the testing standard;  \n\
-> Seek the most defected class on the green section below.  \n\
-### More details on this graph\n\
-> Highest recorded deviation: **{round(max(ls), 2)}%**;  \n\
-> Lowest recorded deviation: **{round(min(ls), 2)}%**;  \n\
-> Average recorded deviation: **{round(sum(ls)/len_ls, 2)}%**.  \n")
-    if frac > 0.10 and frac <= 0.20 and dam_point is False:
-        widgets.textBrowser_report.setMarkdown(f"### Generally Average\n\
-> The defective rate of the current batch is **{ls[-1]}%**, \
-limited overall deviation but can still be improved;  \n\
-> Seek the most defected class on the green section below.  \n\
-### More details on this graph\n\
-> Highest recorded deviation: **{round(max(ls), 2)}%**;  \n\
-> Lowest recorded deviation: **{round(min(ls), 2)}%**;  \n\
-> Average recorded deviation: **{round(sum(ls)/len_ls, 2)}%**.  \n")
-    elif frac <= 0.10 and dam_point is False:
-        widgets.textBrowser_report.setMarkdown(f"### Generally Good\n\
-> The defective rate of the current batch is **{ls[-1]}%**, minimum deviation overall;  \n\
-> Keep it on track;  \n\
-> Predictions are given below.  \n\
-### More details on this graph\n\
-> Highest recorded deviation: **{round(max(ls), 2)}%**;  \n\
-> Lowest recorded deviation: **{round(min(ls), 2)}%**;  \n\
-> Average recorded deviation: **{round(sum(ls)/len_ls, 2)}%**.  \n")
-    return None
-
-def cal_class(ls):
-    if len(ls) == 0:
-        return None
-    cls_pool = [0,0,0]
-    cl_mb = 0
-    cl_cpu_fan = 0
-    cl_fan_port = 0
-    for i in range(1,len(ls)):
-        for idx,j in enumerate(ls[i]):
-            if idx == 0:
-                cl_mb += int(j)
-            if idx == 1:
-                cl_cpu_fan += int(j)
-            if idx == 2:
-                cl_fan_port += int(j)
-    # comment on the res
-    cls_pool[0]=cl_mb
-    cls_pool[1]=cl_cpu_fan
-    cls_pool[2]=cl_fan_port
-    tmp_max = cls_pool.index(max(cls_pool))
-    tmp_min = cls_pool.index(min(cls_pool))
-    # return tmp_max,tmp_min
-    class_res_best(tmp_min)
-    class_res_worse(tmp_max)
-
-def class_res_best(tmp_min):
-    l = ["Motherboard", "CPU_FAN", "FAN_Port"]
-    widgets.def_total_text.setMarkdown(f"Overall, the highest yield is on {l[tmp_min]}")
-
-def class_res_worse(tmp_max):
-    l = ["Motherboard", "CPU_FAN", "FAN_Port"]
-    widgets.def_total_text.setMarkdown(f"Overall, the lowest yield is on {l[tmp_max]}")
-
-def cal_slope_intercept(ls)->list:
-    x = []
-    y = []
-    for i,j in enumerate(ls):
-        x.append(i)    
-        y.append(j)
-    slope, intercept, r_value, p_value, std_err = scipy.stats.linregress(x, y)
-    return slope,intercept
-
-def prac_res_frac(slope,intercept,ls)->float:
-    x_new = len(ls)
-    y_new = slope*x_new+intercept
-    if(y_new<0):
-        y_new = 0
-    if(y_new>100):
-        y_new = 100
-    if(y_new>=0 and y_new<=3):
-        widgets.final_words.setText(f"The predicted value is {round(y_new,2)}%,\
-            which is very profound.")
-    elif(y_new>3 and y_new<=6):
-        widgets.final_words.setText(f"The predicted value is {round(y_new,2)}%,\
-            which is so-so.")
-    elif(y_new>6):
-        widgets.final_words.setText(f"The predicted value is {round(y_new,2)}%,\
-            which is not good.")
+    
+    def sync_db(self):
+        try:
+            tran = paramiko.Transport(('124.223.101.237', 22))
+            tran.connect(username="root", password='zzh_xyl_123')
+            # 获取SFTP实例
+            sftp = paramiko.SFTPClient.from_transport(tran)
+            # 设置上传的本地/远程文件路径
+            localpath = "./hsaois.db"
+            remotepath = "/www/wwwroot/hsaois_server/app/hsaois.db"
+            sftp.remove(remotepath)
+            sftp.put(localpath, remotepath)
+            tran.close()
+            client = paramiko.SSHClient()
+            client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            client.connect(hostname='124.223.101.237', port=22, username='root', password='zzh_xyl_123')
+            stdin, stdout, stderr = client.exec_command('chown www /www/wwwroot/hsaois_server/app/hsaois.db')
+            client.close()
+            widgets.btn_data_upload.setIcon(QIcon(":/icons/images/icons/cloud.svg"))
+        except Exception as e:
+            print(e)
+            self.es.message_box.emit("Error", "Failed to synchronize database:\n\n" + str(e))
 
 
 # CLASS FOR EMITTING SIGNALS

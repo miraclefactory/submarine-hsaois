@@ -24,7 +24,7 @@ class SingleCore():
                 mission[idx].append(j)
             e1 = cv2.getTickCount()  # START TIME
             for i in range(10):
-                thread = Thread(target = self.singleCoreDetectThread,args=(mission[i],))
+                thread = Thread(target=self.singleCoreDetectThread,args=(mission[i],))
                 thread.start()
             e2 = cv2.getTickCount()  # END TIME
             time = (e2 - e1) / cv2.getTickFrequency()

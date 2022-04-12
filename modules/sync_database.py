@@ -1,7 +1,7 @@
 
 import paramiko
 
-def sync_db():
+def sync_db(self):
     try:
         tran = paramiko.Transport(('124.223.101.237', 22))
         tran.connect(username="root", password='zzh_xyl_123')
@@ -21,4 +21,5 @@ def sync_db():
         return True
     except Exception as e:
         print(e)
+        self.es.message_box.emit("Error", "Error:\n\n" + str(e))
         return False
