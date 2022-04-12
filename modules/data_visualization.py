@@ -69,12 +69,17 @@ def detect_error(self, list, seq):
             self.es.text_print.emit(f"<span style='color: rgb(170,55,49);'>\
                                     Defect detected: {all_class[i]}</span>\n")
     if ret:
-        self.es.text_print.emit(f"<span style='color: rgb(170,55,49); font-weight: bold;'>• Result: Failed</span><br/>\n")
+        self.es.text_print.emit(f"<span style='color: rgb(170,55,49); \
+                                font-weight: bold;'>• Result: Failed</span><br/>\n")
     else:
-        self.es.text_print.emit(f"<span style='color: rgb(68,140,39); font-weight: bold;'>• Result: Passed</span><br/>\n")
+        self.es.text_print.emit(f"<span style='color: rgb(68,140,39); \
+                                font-weight: bold;'>• Result: Passed</span><br/>\n")
     return ret
 
 def update_line_graph(y_axis, ls, class_total, seq=None):
+    '''
+    Update the data field used to draw the line graph(y_axis list)
+    '''
     # 0 is mb no screw, 1 is mb loose screw, 2 is cpu fan no screw, 
     # 3 is cpu fan loose screw, 4 is cpu fan detached
     # 0 is mb, 1 is cpu fan, 2 is cpu fan port

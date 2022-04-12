@@ -778,7 +778,7 @@ class MainWindow(QMainWindow):
             i = i.split("%", 1)[0]
             data.append(float(i))
         return data
-    
+
     def search_for_batch_results(self):
         search_string = widgets.search_box.text()
         self.x_axis_batch = fetch_limited_batch_num(search_string)
@@ -826,7 +826,8 @@ def cal_frac(ls) -> None:
     frac += count/len_ls
     if frac >= 0.20 or dam_point is True:
         widgets.textBrowser_report.setMarkdown(f"### Generally Bad\n\
-> The defective rate of the current batch is **{ls[-1]}%**, overall deviation has failed the testing standard;  \n\
+> The defective rate of the current batch is **{ls[-1]}%**, \
+overall deviation has failed the testing standard;  \n\
 > Seek the most defected class on the green section below.  \n\
 ### More details on this graph\n\
 > Highest recorded deviation: **{round(max(ls), 2)}%**;  \n\
@@ -834,7 +835,8 @@ def cal_frac(ls) -> None:
 > Average recorded deviation: **{round(sum(ls)/len_ls, 2)}%**.  \n")
     if frac > 0.10 and frac <= 0.20 and dam_point is False:
         widgets.textBrowser_report.setMarkdown(f"### Generally Average\n\
-> The defective rate of the current batch is **{ls[-1]}%**, limited overall deviation but can still be improved;  \n\
+> The defective rate of the current batch is **{ls[-1]}%**, \
+limited overall deviation but can still be improved;  \n\
 > Seek the most defected class on the green section below.  \n\
 ### More details on this graph\n\
 > Highest recorded deviation: **{round(max(ls), 2)}%**;  \n\
@@ -850,7 +852,6 @@ def cal_frac(ls) -> None:
 > Lowest recorded deviation: **{round(min(ls), 2)}%**;  \n\
 > Average recorded deviation: **{round(sum(ls)/len_ls, 2)}%**.  \n")
     return None
-# quote machine lerning --》 to introduce
 
 def cal_class(ls):
     if len(ls) == 0:
@@ -877,12 +878,6 @@ def cal_class(ls):
     class_res_best(tmp_min)
     class_res_worse(tmp_max)
 
-def pre_for_frac():
-    pass
-
-def pre_for_class():
-    pass
-
 def class_res_best(tmp_min):
     l = ["Motherboard", "CPU_FAN", "FAN_Port"]
     widgets.def_total_text.setMarkdown(f"Overall, the highest yield is on {l[tmp_min]}")
@@ -890,10 +885,6 @@ def class_res_best(tmp_min):
 def class_res_worse(tmp_max):
     l = ["Motherboard", "CPU_FAN", "FAN_Port"]
     widgets.def_total_text.setMarkdown(f"Overall, the lowest yield is on {l[tmp_max]}")
-
-def general_res_adv():
-    # use ml to predicate frac and class res and give a general advice
-    pass
 
 def cal_slope_intercept(ls)->list:
     x = []
