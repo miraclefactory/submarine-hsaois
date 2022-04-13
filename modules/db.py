@@ -6,7 +6,7 @@ from io import BytesIO
 import base64
 from matplotlib import image
 import numpy as np
-
+import re 
 
 CREAT_TABLE_ERROR_DETAILS = """CREATE TABLE IF NOT EXISTS error_details ( 
     id_error INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -236,7 +236,9 @@ def fetch_batch_num():
 # fetch_batch_num()
 
 def fetch_frac_limited(lim_num):
-    num = int(lim_num)+1
+    # num = int(lim_num)+1
+    num = re.findall("\d+",lim_num)
+    num = int(num[0])+1
     conn = sqlite3.connect("hsaois.db")
     c = conn.cursor()
     s = f"SELECT defective FROM general_table ORDER BY batch_number LIMIT {num}"
@@ -246,7 +248,9 @@ def fetch_frac_limited(lim_num):
     return data[1:]
 
 def fetch_general_class_limited(lim_num):
-    num = int(lim_num)
+    # num = int(lim_num)
+    num  = re.findall("\d+", lim_num)
+    num = int(num[0])
     conn = sqlite3.connect("hsaois.db")
     c = conn.cursor()
     s = f"SELECT mb,cpu_fan,fan_port FROM general_table ORDER BY batch_number LIMIT {num+1}"
@@ -256,7 +260,9 @@ def fetch_general_class_limited(lim_num):
     return data
 
 def fetch_limited_batch_num(lim_num):
-    num = int(lim_num)+1
+    num = re.findall("\d+",lim_num)
+    num = int(num[0])+1
+    print(num)
     # 异常处理
     conn = sqlite3.connect("hsaois.db")
     c = conn.cursor()
@@ -265,7 +271,7 @@ def fetch_limited_batch_num(lim_num):
     data = [i[0] for i in data]
     return data[1:num]
 
-# print(fetch_limited_batch_num(3))
+print(fetch_limited_batch_num("Bn-4"))
 # print(fetch_batch_num())
 
 # print(fetch_frac_limited(3))
