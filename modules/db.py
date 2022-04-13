@@ -262,7 +262,6 @@ def fetch_general_class_limited(lim_num):
 def fetch_limited_batch_num(lim_num):
     num = re.findall("\d+",lim_num)
     num = int(num[0])+1
-    print(num)
     # 异常处理
     conn = sqlite3.connect("hsaois.db")
     c = conn.cursor()
@@ -271,7 +270,7 @@ def fetch_limited_batch_num(lim_num):
     data = [i[0] for i in data]
     return data[1:num]
 
-print(fetch_limited_batch_num("Bn-4"))
+# print(fetch_limited_batch_num("Bn-4"))
 # print(fetch_batch_num())
 
 # print(fetch_frac_limited(3))
