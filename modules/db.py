@@ -177,13 +177,20 @@ def fetch_last_batch_num() -> int:
 
 
 def update_error_pic(img):
-    img_x = cv2.imread(img)
-    img_blob = sqlite3.Binary(img_x)
+    cv2.imwrite('error_pic.jpg', img)
+    with open('error_pic.jpg', 'rb') as file:
+        blobData = file.read()
+    # img_blob = sqlite3.Binary(img)
     conn = sqlite3.connect('hsaois.db')
     c = conn.cursor()
-    s = f"INSERT INTO error_pic(img) VALUES ('{img_blob}')"
-    # print(s)
-    c.execute(s)
+    # s = f"INSERT INTO error_pic(img) VALUES ({blobData})"
+    sqlite_insert_blob_query = """ INSERT INTO error_pic(img) VALUES (?)"""
+    data = [blobData]
+    try:
+        c.execute(sqlite_insert_blob_query, data)
+    except Exception as e:
+        print(e)
+    print('done')
     conn.commit()
     conn.close()
 
@@ -199,20 +206,6 @@ def update_error_pic(img):
 #     conn.commit()
 #     conn.close()
 
-
-def retrieve_pic():  # need to be change after cloud deployment
-    image = []
-    conn = sqlite3.connect('hsapis.db')
-    c = conn.cursor()
-    c.execute("SELECT img FROM error_pic")
-    data = c.fetchall()
-    for i in data:
-        image.append(np.array(i[0]))
-    # cv2.imwrite('/Users/mac/Downloads/sub_GUI/modules/img.jpg', image[0])
-    # print(image)
-    # print(data)
-    conn.close()
-    return data
 
 
 def fetch_general_class():
@@ -273,5 +266,19 @@ def fetch_limited_batch_num(lim_num):
 # print(fetch_limited_batch_num("Bn-4"))
 # print(fetch_batch_num())
 
-# print(fetch_frac_limited(3))
-# print(fecth_defective_data())
+
+def retrieve_pic():  # need to be change after cloud deployment
+    image = []
+    conn = sqlite3.connect('hsaois.db')
+    c = conn.cursor()
+    c.execute("SELECT * FROM error_pic")
+    data = c.fetchall()
+    f = open('error_pic','wb')
+    print(data[0][1])
+    f.write(data[0][1].tobytes())
+    f.close()
+    # print(image)
+    # print(data)
+    conn.close()
+    return data
+# retrieve_pic()

@@ -568,6 +568,11 @@ class MainWindow(QMainWindow):
                                 bn = batch_num
                                 self.es.update_table.emit(["BN-"+str(bn)+"-SN-"+str(seq),
                                                           str(a), "none"], defected_total)
+                                print(a)
+                                for i in a:
+                                   if i in [0, 1, 3, 5, 6, 7, 8, 9]:
+                                        update_error_pic(cvimg)
+                                        break
                                 update_error_details(Vector_output=a, \
                                                      serial_number="BN-"+str(bn)+"-SN-"+str(seq))
                             self.y_axis = update_line_graph(self.y_axis, a, class_total, seq)
