@@ -1,1 +1,2 @@
-So Fuck You, Nvidia!
+we are the champion,
+yes
