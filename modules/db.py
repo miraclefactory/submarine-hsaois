@@ -177,8 +177,8 @@ def fetch_last_batch_num() -> int:
 
 
 def update_error_pic(img):
-    cv2.imwrite('error_pic.jpg', img)
-    with open('error_pic.jpg', 'rb') as file:
+    cv2.imwrite('img_buffer/error_pic.jpg', img)
+    with open('img_buffer/error_pic.jpg', 'rb') as file:
         blobData = file.read()
     # img_blob = sqlite3.Binary(img)
     conn = sqlite3.connect('hsaois.db')
@@ -206,8 +206,6 @@ def update_error_pic(img):
 #     conn.commit()
 #     conn.close()
 
-
-
 def fetch_general_class():
     conn = sqlite3.connect('hsaois.db')
     c = conn.cursor()
@@ -224,9 +222,6 @@ def fetch_batch_num():
     data = c.fetchall()
     data = [i[0] for i in data]
     return data[1:]
-
-# print(fecth_defective_data())
-# fetch_batch_num()
 
 def fetch_frac_limited(lim_num):
     # num = int(lim_num)+1
@@ -262,10 +257,6 @@ def fetch_limited_batch_num(lim_num):
     data = c.fetchall()
     data = [i[0] for i in data]
     return data[1:num]
-
-# print(fetch_limited_batch_num("Bn-4"))
-# print(fetch_batch_num())
-
 
 def retrieve_pic():  # need to be change after cloud deployment
     image = []

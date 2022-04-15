@@ -15,7 +15,6 @@
 # ///////////////////////////////////////////////////////////////
 
 import os
-import re
 import sys
 import scipy
 import shutil
@@ -47,8 +46,9 @@ from utils.general import (check_img_size, non_max_suppression, scale_coords, pl
 
 # SET DPI AND SCALING
 # ///////////////////////////////////////////////////////////////
-os.environ["QT_FONT_DPI"] = "70"    # FIX Problem for High DPI and Scale above 100%
+# os.environ["QT_FONT_DPI"] = "70"    # FIX Problem for High DPI and Scale above 100%
 # os.environ["QT_SCALE_FACTOR"] = "2"
+QT_AUTO_SCREEN_SCALE_FACTOR=2 
 
 # SET GLOBAL VARIABLES
 # ///////////////////////////////////////////////////////////////
@@ -552,11 +552,6 @@ class MainWindow(QMainWindow):
                             is_new_img = False
                             if is_defetced == False and len(input_list) > 1:
                                 is_defetced = True
-                                for i in input_list[len(input_list)-1]:
-                                    if i in [0, 1, 3, 5, 6, 7, 8, 9]:
-                                        cv2.imwrite(
-                                            f"defected/SN-{seq}.jpg", cvimg)
-                                        # update_error_pic(handleimg)
                         hashpool = hashpool[i+1:]
                         break
                     if hmd >= 5:
@@ -568,7 +563,6 @@ class MainWindow(QMainWindow):
                                 bn = batch_num
                                 self.es.update_table.emit(["BN-"+str(bn)+"-SN-"+str(seq),
                                                           str(a), "none"], defected_total)
-                                print(a)
                                 for i in a:
                                    if i in [0, 1, 3, 5, 6, 7, 8, 9]:
                                         update_error_pic(cvimg)
@@ -618,10 +612,6 @@ class MainWindow(QMainWindow):
                             is_new_img = False
                             if is_defetced == False and len(input_list) > 1:
                                 is_defetced = True
-                                for i in input_list[len(input_list)-1]:
-                                    if i in [0, 1, 3, 5, 6, 7, 8, 9]:
-                                        cv2.imwrite(
-                                            f"defected/SN-{seq}.jpg", cvimg)
                             if cnt >= 6:
                                 if len(input_list) > 0:
                                     a = feature_max_pooling([length_weighted_average_pooling(i)
@@ -631,6 +621,10 @@ class MainWindow(QMainWindow):
                                         bn = batch_num
                                         self.es.update_table.emit(["BN-"+str(bn)+"-SN-"+str(seq),
                                                                   str(a), "none"], defected_total)
+                                        for i in a:
+                                            if i in [0, 1, 3, 5, 6, 7, 8, 9]:
+                                                update_error_pic(cvimg)
+                                                break
                                         update_error_details(Vector_output=a, \
                                             serial_number="BN-"+str(bn)+"-SN-"+str(seq))                          
                                     self.y_axis = update_line_graph(self.y_axis, a, class_total, seq)
@@ -707,8 +701,8 @@ class MainWindow(QMainWindow):
             thread.start()
 
     def fileDetectThread(self):
-        shutil.rmtree(os.getcwd()+"/buffer_img")
-        os.mkdir(os.getcwd()+"/buffer_img")
+        shutil.rmtree(os.getcwd()+"/file_result")
+        os.mkdir(os.getcwd()+"/file_result")
         global status_code
         status_code = 0
         e1 = getTickCount()                                     # START TIME
@@ -744,11 +738,11 @@ class MainWindow(QMainWindow):
         len_of_dir = len(os.listdir(os.getcwd()+"/modules/runs/detect"))
         try:
             os.remove(os.getcwd()+"/modules/runs/detect/.DS_Store")
-            os.remove(os.getcwd()+"/buffer_img/.DS_Store")
+            os.remove(os.getcwd()+"/file_result/.DS_Store")
         except Exception as e:
             print(e)
         for i in range(len_of_dir):
-            target = os.getcwd()+"/buffer_img/"
+            target = os.getcwd()+"/file_result/"
             if i == 0:
                 ori_path = os.getcwd()+f"/modules/runs/detect/exp/"
             elif i != 0:

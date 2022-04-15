@@ -20,12 +20,12 @@ class Window_img_broswer:
         self.num_img = 0
         self.img_set = []
         
-        list_all_img = os.listdir(os.getcwd()+"/buffer_img")
+        list_all_img = os.listdir(os.getcwd()+"/file_result")
         for i in list_all_img:
             if os.path.splitext(i)[1] == '.jpg':
                 self.img_to_handle.append(i)
         self.ui.label_img.setAlignment(Qt.AlignCenter)
-        current_img = QPixmap(os.getcwd()+"/buffer_img/"+self.img_to_handle[self.num_img])
+        current_img = QPixmap(os.getcwd()+"/file_result/"+self.img_to_handle[self.num_img])
         current_img = self.scale_img(780/665,current_img.width()/current_img.height(),current_img)
         self.ui.label_img.setPixmap(current_img)
         self.ui.tb_img.setAlignment(Qt.AlignCenter)
@@ -38,7 +38,7 @@ class Window_img_broswer:
         if self.num_img < 0:
             self.num_img = 0 
         if self.num_img >= 0:
-            img = QPixmap(os.getcwd()+"/buffer_img/"+img_to_handle[self.num_img])
+            img = QPixmap(os.getcwd()+"/file_result/"+img_to_handle[self.num_img])
             img = self.scale_img(780/665,img.width()/img.height(),img)
             self.ui.label_img.setPixmap(img)
         self.ui.tb_img.clear()
@@ -49,7 +49,7 @@ class Window_img_broswer:
         self.num_img += 1 
         img_to_handle = self.img_to_handle
         if self.num_img <= len(img_to_handle)-1:
-            img = QPixmap(os.getcwd()+"/buffer_img/"+img_to_handle[self.num_img])
+            img = QPixmap(os.getcwd()+"/file_result/"+img_to_handle[self.num_img])
             img = self.scale_img(780/665,img.width()/img.height(),img)
             self.ui.label_img.setPixmap(img)
         if self.num_img >= len(img_to_handle):
