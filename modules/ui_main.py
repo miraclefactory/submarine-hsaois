@@ -53,7 +53,7 @@ class Ui_MainWindow(object):
 "QWidget\n"
 "{\n"
 "	color: #333;\n"
-"	font: 10pt \"Arial\";\n"
+"	font: 10px \"Arial\";\n"
 "}\n"
 "\n"
 "QLabel\n"
@@ -109,9 +109,9 @@ class Ui_MainWindow(object):
 "	background-repeat: no-repeat;\n"
 "}\n"
 "\n"
-"#titleLeftApp { font: 63 12pt \"Arial Semibold\"; color: gray; }\n"
+"#titleLeftApp { font: 63 12px \"Arial Semibold\"; color: gray; }\n"
 "\n"
-"#titleLeftDescription { font: 8pt \"Arial\"; color: #bd93f9; }\n"
+"#titleLeftDescription { font: 8px \"Arial\"; color: #bd93f9; }\n"
 "\n"
 "/* MENUS */\n"
 "\n"
@@ -788,9 +788,9 @@ class Ui_MainWindow(object):
 "    background-color: rgba(250, 250, 250, 1);\n"
 "	top: -26px;\n"
 "	padding-top: 0px;\n"
-"	padding-left: -8px;\n"
-"	padding-right: -8px;\n"
-"	padding-bottom: -8px;\n"
+"	padding-left: 0px;\n"
+"	padding-right: 0px;\n"
+"	padding-bottom: 0px;\n"
 "	border-radius: 0px;\n"
 "}\n"
 "\n"
@@ -808,8 +808,8 @@ class Ui_MainWindow(object):
 "{\n"
 "	border-radius: 2px;\n"
 "	border-right: 2px solid rgb(220, 220, 220);\n"
-"	border-left: 2px solid rgb(2"
-                        "20, 220, 220);\n"
+"	border-left: 2px solid rgb(220,"
+                        " 220, 220);\n"
 "}\n"
 "\n"
 "QProgressBar::chunk\n"
@@ -862,15 +862,15 @@ class Ui_MainWindow(object):
 "\n"
 "#upload\n"
 "{\n"
-""
-                        "	border: 2px dashed rgb(220, 220, 220);\n"
+"	b"
+                        "order: 2px dashed rgb(220, 220, 220);\n"
 "	border-radius: 5px;\n"
 "}\n"
 "\n"
 "#video_tu\n"
 "{\n"
 "	color: #555;\n"
-"	font-size: 12pt;\n"
+"	font-size: 12px;\n"
 "	border: 1px solid rgb(220, 220, 220);\n"
 "	background-color: rgb(248, 248, 255);\n"
 "}\n"
@@ -893,7 +893,8 @@ class Ui_MainWindow(object):
 "\n"
 "#home_res .QLabel:hover\n"
 "{\n"
-"	border-left: 2px solid rgb(169, 143, 205);\n"
+"	border-left: 3px solid rgb(170,55,49);\n"
+"	background: #ddd;\n"
 "}\n"
 "\n"
 "#btn_python:hover\n"
@@ -1499,7 +1500,7 @@ class Ui_MainWindow(object):
 
         self.home_logo_line = QLabel(self.home)
         self.home_logo_line.setObjectName(u"home_logo_line")
-        self.home_logo_line.setStyleSheet(u"font-size: 40pt;\n"
+        self.home_logo_line.setStyleSheet(u"font-size: 40px;\n"
 "font-weight: 600;\n"
 "color: rgb(150, 150, 150);")
         self.home_logo_line.setScaledContents(False)
@@ -1509,7 +1510,7 @@ class Ui_MainWindow(object):
 
         self.home_logo_line2 = QLabel(self.home)
         self.home_logo_line2.setObjectName(u"home_logo_line2")
-        self.home_logo_line2.setStyleSheet(u"font-size: 20pt;\n"
+        self.home_logo_line2.setStyleSheet(u"font-size: 20px;\n"
 "font-weight: 500;\n"
 "color: rgb(170,170,170);")
         self.home_logo_line2.setScaledContents(False)
@@ -1602,7 +1603,7 @@ class Ui_MainWindow(object):
         self.video_tu.setMinimumSize(QSize(120, 32))
         self.video_tu.setCursor(QCursor(Qt.PointingHandCursor))
         self.video_tu.setStyleSheet(u"color: #555;\n"
-"font-size: 12pt;\n"
+"font-size: 12px;\n"
 "border: 1px solid rgb(220, 220, 220);\n"
 "background-color: rgb(248, 248, 255);")
         self.video_tu.setIcon(icon9)
@@ -1647,6 +1648,7 @@ class Ui_MainWindow(object):
         self.live.setObjectName(u"live")
         self.horizontalLayout_7 = QHBoxLayout(self.live)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.horizontalLayout_7.setContentsMargins(8, 8, 3, 8)
         self.splitter = QSplitter(self.live)
         self.splitter.setObjectName(u"splitter")
         self.splitter.setOrientation(Qt.Vertical)
@@ -1748,6 +1750,7 @@ class Ui_MainWindow(object):
         self.file.setObjectName(u"file")
         self.horizontalLayout_9 = QHBoxLayout(self.file)
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.horizontalLayout_9.setContentsMargins(8, 8, 3, 8)
         self.splitter_2 = QSplitter(self.file)
         self.splitter_2.setObjectName(u"splitter_2")
         self.splitter_2.setOrientation(Qt.Vertical)
@@ -1858,7 +1861,7 @@ class Ui_MainWindow(object):
         self.detect_header.setMinimumSize(QSize(180, 30))
         self.detect_header.setMaximumSize(QSize(400, 16777215))
         self.detect_header.setStyleSheet(u"background-color: rgb(237, 232, 239);\n"
-"font-size: 12pt;\n"
+"font-size: 12px;\n"
 "font-weight: bold;\n"
 "color: rgb(96, 96, 96);\n"
 "border-bottom: 5px solid qlineargradient(y0:0, y1:1,stop: 0 rgba(242, 242, 242,1),  stop: 1  #ececef);")
@@ -1878,7 +1881,7 @@ class Ui_MainWindow(object):
         self.textBrowser.setStyleSheet(u"background-color: rgb(242, 242, 242);\n"
 "border: none;\n"
 "border-left: 1px rgb(230, 230, 230);\n"
-"font-size: 12pt;")
+"font-size: 12px;")
 
         self.verticalLayout_22.addWidget(self.textBrowser)
 
@@ -1921,7 +1924,7 @@ class Ui_MainWindow(object):
         self.dash_frame_1.setStyleSheet(u"background-color: rgb(229, 229, 237);\n"
 "border: 1px rgb(179, 181, 183) solid;\n"
 "border-radius: 5px;\n"
-"font-size: 14pt;\n"
+"font-size: 14px;\n"
 "font-weight: bold;\n"
 "padding: 8px;\n"
 "")
@@ -1940,7 +1943,7 @@ class Ui_MainWindow(object):
         sizePolicy15.setHeightForWidth(self.label_4.sizePolicy().hasHeightForWidth())
         self.label_4.setSizePolicy(sizePolicy15)
         self.label_4.setMinimumSize(QSize(0, 26))
-        self.label_4.setStyleSheet(u"font-size: 12pt;\n"
+        self.label_4.setStyleSheet(u"font-size: 12px;\n"
 "font-weight: normal;")
 
         self.verticalLayout_20.addWidget(self.label_4)
@@ -1949,7 +1952,7 @@ class Ui_MainWindow(object):
         self.batch_number.setObjectName(u"batch_number")
         sizePolicy2.setHeightForWidth(self.batch_number.sizePolicy().hasHeightForWidth())
         self.batch_number.setSizePolicy(sizePolicy2)
-        self.batch_number.setStyleSheet(u"font-size: 22pt;")
+        self.batch_number.setStyleSheet(u"font-size: 22px;")
         self.batch_number.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.verticalLayout_20.addWidget(self.batch_number)
@@ -1971,7 +1974,7 @@ class Ui_MainWindow(object):
         self.dash_frame_2.setStyleSheet(u"background-color: rgb(229, 229, 237);\n"
 "border: 1px rgb(179, 181, 183) solid;\n"
 "border-radius: 5px;\n"
-"font-size: 14pt;\n"
+"font-size: 14px;\n"
 "font-weight: bold;\n"
 "padding: 8px;\n"
 "")
@@ -1987,7 +1990,7 @@ class Ui_MainWindow(object):
         sizePolicy15.setHeightForWidth(self.label_6.sizePolicy().hasHeightForWidth())
         self.label_6.setSizePolicy(sizePolicy15)
         self.label_6.setMinimumSize(QSize(0, 26))
-        self.label_6.setStyleSheet(u"font-size: 12pt;\n"
+        self.label_6.setStyleSheet(u"font-size: 12px;\n"
 "font-weight: normal;")
 
         self.verticalLayout_23.addWidget(self.label_6)
@@ -1996,7 +1999,7 @@ class Ui_MainWindow(object):
         self.detected.setObjectName(u"detected")
         sizePolicy2.setHeightForWidth(self.detected.sizePolicy().hasHeightForWidth())
         self.detected.setSizePolicy(sizePolicy2)
-        self.detected.setStyleSheet(u"font-size: 22pt;")
+        self.detected.setStyleSheet(u"font-size: 22px;")
         self.detected.setFrameShape(QFrame.NoFrame)
         self.detected.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
@@ -2019,7 +2022,7 @@ class Ui_MainWindow(object):
         self.dash_frame_3.setStyleSheet(u"background-color: rgb(229, 229, 237);\n"
 "border: 1px rgb(179, 181, 183) solid;\n"
 "border-radius: 5px;\n"
-"font-size: 14pt;\n"
+"font-size: 14px;\n"
 "font-weight: bold;\n"
 "padding: 8px;\n"
 "")
@@ -2035,7 +2038,7 @@ class Ui_MainWindow(object):
         sizePolicy15.setHeightForWidth(self.label_8.sizePolicy().hasHeightForWidth())
         self.label_8.setSizePolicy(sizePolicy15)
         self.label_8.setMinimumSize(QSize(0, 26))
-        self.label_8.setStyleSheet(u"font-size: 12pt;\n"
+        self.label_8.setStyleSheet(u"font-size: 12px;\n"
 "font-weight: normal;")
 
         self.verticalLayout_25.addWidget(self.label_8)
@@ -2044,7 +2047,7 @@ class Ui_MainWindow(object):
         self.frac_defective.setObjectName(u"frac_defective")
         sizePolicy2.setHeightForWidth(self.frac_defective.sizePolicy().hasHeightForWidth())
         self.frac_defective.setSizePolicy(sizePolicy2)
-        self.frac_defective.setStyleSheet(u"font-size: 22pt;")
+        self.frac_defective.setStyleSheet(u"font-size: 22px;")
         self.frac_defective.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.verticalLayout_25.addWidget(self.frac_defective)
@@ -2066,7 +2069,7 @@ class Ui_MainWindow(object):
         self.dash_frame_4.setStyleSheet(u"background-color: rgb(229, 229, 237);\n"
 "border: 1px rgb(179, 181, 183) solid;\n"
 "border-radius: 5px;\n"
-"font-size: 14pt;\n"
+"font-size: 14px;\n"
 "font-weight: bold;\n"
 "padding: 8px;\n"
 "")
@@ -2082,7 +2085,7 @@ class Ui_MainWindow(object):
         sizePolicy15.setHeightForWidth(self.label_10.sizePolicy().hasHeightForWidth())
         self.label_10.setSizePolicy(sizePolicy15)
         self.label_10.setMinimumSize(QSize(0, 26))
-        self.label_10.setStyleSheet(u"font-size: 12pt;\n"
+        self.label_10.setStyleSheet(u"font-size: 12px;\n"
 "font-weight: normal;")
 
         self.verticalLayout_26.addWidget(self.label_10)
@@ -2091,7 +2094,7 @@ class Ui_MainWindow(object):
         self.most_defected.setObjectName(u"most_defected")
         sizePolicy2.setHeightForWidth(self.most_defected.sizePolicy().hasHeightForWidth())
         self.most_defected.setSizePolicy(sizePolicy2)
-        self.most_defected.setStyleSheet(u"font-size: 22pt;")
+        self.most_defected.setStyleSheet(u"font-size: 22px;")
         self.most_defected.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.verticalLayout_26.addWidget(self.most_defected)
@@ -2121,7 +2124,7 @@ class Ui_MainWindow(object):
         self.line_graph.setStyleSheet(u"background-color: rgb(229, 229, 237);\n"
 "border: 1px rgb(179, 181, 183) solid;\n"
 "border-radius: 5px;\n"
-"font-size: 14pt;\n"
+"font-size: 14px;\n"
 "font-weight: bold;\n"
 "padding: 8px;")
 
@@ -2135,7 +2138,7 @@ class Ui_MainWindow(object):
         self.frame_2.setStyleSheet(u"background-color: rgb(229, 229, 237);\n"
 "border: 1px rgb(179, 181, 183) solid;\n"
 "border-radius: 5px;\n"
-"font-size: 14pt;\n"
+"font-size: 14px;\n"
 "font-weight: bold;\n"
 "padding: 8px;")
         self.frame_2.setFrameShape(QFrame.StyledPanel)
@@ -2158,6 +2161,7 @@ class Ui_MainWindow(object):
         self.label_7.setObjectName(u"label_7")
         sizePolicy1.setHeightForWidth(self.label_7.sizePolicy().hasHeightForWidth())
         self.label_7.setSizePolicy(sizePolicy1)
+        self.label_7.setStyleSheet(u"")
 
         self.horizontalLayout_12.addWidget(self.label_7)
 
@@ -2383,7 +2387,7 @@ class Ui_MainWindow(object):
         self.search_box.setSizePolicy(sizePolicy17)
         self.search_box.setMinimumSize(QSize(0, 40))
         self.search_box.setStyleSheet(u"color: rgb(90,90,90);\n"
-"font-size: 12pt;\n"
+"font-size: 12px;\n"
 "font-style: italic;\n"
 "")
 
@@ -2433,7 +2437,7 @@ class Ui_MainWindow(object):
         self.btn_question.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_question.setStyleSheet(u"background-color: rgb(136, 112, 173); \n"
 "color: white;\n"
-"font-size: 16pt;\n"
+"font-size: 16px;\n"
 "border-radius: 20px;")
         self.btn_question.setFlat(False)
 
@@ -2466,7 +2470,7 @@ class Ui_MainWindow(object):
         self.textBrowser_report.setStyleSheet(u"background-color: rgb(245, 245,248);\n"
 "border-bottom-left-radius: 5px;\n"
 "border-bottom-right-radius: 5px;\n"
-"font-size: 14pt;\n"
+"font-size: 14px;\n"
 "font-weight: normal;\n"
 "padding: 8px;")
 
@@ -2497,7 +2501,7 @@ class Ui_MainWindow(object):
         self.batch_data_graph.setStyleSheet(u"background-color: rgb(245, 245,248);\n"
 "border-bottom-left-radius: 5px;\n"
 "border-bottom-right-radius: 5px;\n"
-"font-size: 14pt;\n"
+"font-size: 14px;\n"
 "font-weight: normal;\n"
 "padding: 8px;")
 
@@ -2528,7 +2532,7 @@ class Ui_MainWindow(object):
         self.def_total_table.setStyleSheet(u"background-color: rgb(245, 245,248);\n"
 "border-bottom-left-radius: 5px;\n"
 "border-bottom-right-radius: 5px;\n"
-"font-size: 14pt;\n"
+"font-size: 14px;\n"
 "font-weight: normal;\n"
 "padding: 4px;")
         self.def_total_table.setFrameShape(QFrame.StyledPanel)
@@ -2623,7 +2627,7 @@ class Ui_MainWindow(object):
         palette1.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush3)
 #endif
         self.tableWidget_2.setPalette(palette1)
-        self.tableWidget_2.setStyleSheet(u"font-size: 10pt;")
+        self.tableWidget_2.setStyleSheet(u"font-size: 10px;")
         self.tableWidget_2.setFrameShape(QFrame.NoFrame)
         self.tableWidget_2.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
         self.tableWidget_2.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
@@ -2674,7 +2678,7 @@ class Ui_MainWindow(object):
         self.def_total_text.setStyleSheet(u"background-color: rgb(245, 245,248);\n"
 "border-bottom-left-radius: 5px;\n"
 "border-bottom-right-radius: 5px;\n"
-"font-size: 14pt;\n"
+"font-size: 14px;\n"
 "font-weight: normal;\n"
 "padding: 8px;")
 
@@ -2703,7 +2707,7 @@ class Ui_MainWindow(object):
         self.final_words.setStyleSheet(u"background-color: rgb(245, 245,248);\n"
 "border-bottom-left-radius: 5px;\n"
 "border-bottom-right-radius: 5px;\n"
-"font-size: 14pt;\n"
+"font-size: 14px;\n"
 "font-weight: normal;\n"
 "padding: 8px;")
 
@@ -2935,17 +2939,17 @@ class Ui_MainWindow(object):
         self.textEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Arial'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">PyDracula</span></p>\n"
+"</style></head><body style=\" font-family:'Arial'; font-size:10px; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12px; font-weight:600; color:#ff79c6;\">PyDracula</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffffff;\">An interface created using Python and PySide (support for PyQt), and with colors based on the Dracula theme created by Zeno Rocha.</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><spa"
                         "n style=\" color:#ffffff;\">MIT License</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#bd93f9;\">Created by: Submarine</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">Convert UI</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-uic main.ui &gt; ui_main.py</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">Convert QRC</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12px; font-weight:600; color:#ff79c6;\">Convert UI</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9px; color:#ffffff;\">pyside6-uic main.ui &gt; ui_main.py</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12px; font-weight:600; color:#ff79c6;\">Convert QRC</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:"
-                        "12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-rcc resources.qrc -o resources_rc.py</span></p></body></html>", None))
+                        "12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9px; color:#ffffff;\">pyside6-rcc resources.qrc -o resources_rc.py</span></p></body></html>", None))
         self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"Submarine - Hyper Speed Automatic Optical Inspection System", None))
         self.status_label.setText(QCoreApplication.translate("MainWindow", u"Ready", None))
         self.top_start_live.setText("")
@@ -2968,12 +2972,12 @@ class Ui_MainWindow(object):
         self.closeAppBtn.setText("")
         self.home.setStyleSheet("")
         self.home_logo.setText("")
-        self.home_logo_line.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>HSAOIS<span style=\" font-size:14pt; vertical-align:sub;\">by Submarine</span></p></body></html>", None))
+        self.home_logo_line.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>HSAOIS<span style=\" font-size:14px; vertical-align:sub;\">by Submarine</span></p></body></html>", None))
         self.home_logo_line2.setText(QCoreApplication.translate("MainWindow", u"Invoke The Next Era In Optical Inspection", None))
-        self.label_13.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt;\">Resources</span></p></body></html>", None))
-        self.label_documentation.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:600;\">Documentation</span></p><p><a href =\"https://www.osl.ink\" style=\" font-size:13pt; text-decoration:none; color: #333\">New to HSAOIS? Check out our documentation.</a></p></body></html>", None))
-        self.label_database.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><a href=\"http://124.223.101.237/\"><span style=\" font-size:13pt; color:#333333; text-decoration: none;\">Access to your online database</span></a></p></body></html>", None))
-        self.label_custom_model.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><a href=\"http://www.osl.ink\"><span style=\" font-size:13pt; color:#333333; text-decoration: none;\">Learn to train a custom model</span></a></p></body></html>", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18px;\">Resources</span></p></body></html>", None))
+        self.label_documentation.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18px; font-weight:600;\">Documentation</span></p><p><a href =\"https://www.osl.ink\" style=\" font-size:13px; text-decoration:none; color: #333\">New to HSAOIS? Check out our documentation.</a></p></body></html>", None))
+        self.label_database.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><a href=\"http://124.223.101.237/\"><span style=\" font-size:13px; color:#333333; text-decoration: none;\">Access to your online database</span></a></p></body></html>", None))
+        self.label_custom_model.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><a href=\"http://www.osl.ink\"><span style=\" font-size:13px; color:#333333; text-decoration: none;\">Learn to train a custom model</span></a></p></body></html>", None))
         self.video_tu.setText(QCoreApplication.translate("MainWindow", u" Video Tutorial", None))
         self.video_viewer.setText("")
         self.btn_start_live.setText(QCoreApplication.translate("MainWindow", u" Start", None))

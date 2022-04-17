@@ -46,7 +46,7 @@ SET APP STYLESHEET - FULL STYLES HERE
 QWidget
 {
 	color: #333;
-	font: 10pt &quot;Arial&quot;;
+	font: 10px &quot;Arial&quot;;
 }
 
 QLabel
@@ -101,9 +101,9 @@ Left Menu */
 	background-repeat: no-repeat;
 }
 
-#titleLeftApp { font: 63 12pt &quot;Arial Semibold&quot;; color: gray; }
+#titleLeftApp { font: 63 12px &quot;Arial Semibold&quot;; color: gray; }
 
-#titleLeftDescription { font: 8pt &quot;Arial&quot;; color: #bd93f9; }
+#titleLeftDescription { font: 8px &quot;Arial&quot;; color: #bd93f9; }
 
 /* MENUS */
 
@@ -765,9 +765,9 @@ QTabWidget::pane
     background-color: rgba(250, 250, 250, 1);
 	top: -26px;
 	padding-top: 0px;
-	padding-left: -8px;
-	padding-right: -8px;
-	padding-bottom: -8px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
 	border-radius: 0px;
 }
 
@@ -845,7 +845,7 @@ Custome */
 #video_tu
 {
 	color: #555;
-	font-size: 12pt;
+	font-size: 12px;
 	border: 1px solid rgb(220, 220, 220);
 	background-color: rgb(248, 248, 255);
 }
@@ -868,7 +868,8 @@ Custome */
 
 #home_res .QLabel:hover
 {
-	border-left: 2px solid rgb(169, 143, 205);
+	border-left: 3px solid rgb(170,55,49);
+	background: #ddd;
 }
 
 #btn_python:hover
@@ -1888,15 +1889,15 @@ border: none;</string>
                    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Arial'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ff79c6;&quot;&gt;PyDracula&lt;/span&gt;&lt;/p&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Arial'; font-size:10px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12px; font-weight:600; color:#ff79c6;&quot;&gt;PyDracula&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;An interface created using Python and PySide (support for PyQt), and with colors based on the Dracula theme created by Zeno Rocha.&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;MIT License&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#bd93f9;&quot;&gt;Created by: Submarine&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ff79c6;&quot;&gt;Convert UI&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt; color:#ffffff;&quot;&gt;pyside6-uic main.ui &amp;gt; ui_main.py&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ff79c6;&quot;&gt;Convert QRC&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt; color:#ffffff;&quot;&gt;pyside6-rcc resources.qrc -o resources_rc.py&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12px; font-weight:600; color:#ff79c6;&quot;&gt;Convert UI&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9px; color:#ffffff;&quot;&gt;pyside6-uic main.ui &amp;gt; ui_main.py&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12px; font-weight:600; color:#ff79c6;&quot;&gt;Convert QRC&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9px; color:#ffffff;&quot;&gt;pyside6-rcc resources.qrc -o resources_rc.py&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                  </widget>
                 </item>
@@ -2463,12 +2464,12 @@ p, li { white-space: pre-wrap; }
                                <item>
                                 <widget class="QLabel" name="home_logo_line">
                                  <property name="styleSheet">
-                                  <string notr="true">font-size: 40pt;
+                                  <string notr="true">font-size: 40px;
 font-weight: 600;
 color: rgb(150, 150, 150);</string>
                                  </property>
                                  <property name="text">
-                                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;HSAOIS&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;by Submarine&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;HSAOIS&lt;span style=&quot; font-size:14px; vertical-align:sub;&quot;&gt;by Submarine&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                  </property>
                                  <property name="scaledContents">
                                   <bool>false</bool>
@@ -2481,7 +2482,7 @@ color: rgb(150, 150, 150);</string>
                                <item>
                                 <widget class="QLabel" name="home_logo_line2">
                                  <property name="styleSheet">
-                                  <string notr="true">font-size: 20pt;
+                                  <string notr="true">font-size: 20px;
 font-weight: 500;
 color: rgb(170,170,170);</string>
                                  </property>
@@ -2550,7 +2551,7 @@ color: rgb(170,170,170);</string>
                                 <string notr="true">color: rgb(100, 100, 100);</string>
                                </property>
                                <property name="text">
-                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Resources&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18px;&quot;&gt;Resources&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                </property>
                               </widget>
                              </item>
@@ -2593,7 +2594,7 @@ color: rgb(170,170,170);</string>
                                    <string notr="true">background-color: rgb(237, 237, 249); </string>
                                   </property>
                                   <property name="text">
-                                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Documentation&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;a href =&quot;https://www.osl.ink&quot; style=&quot; font-size:13pt; text-decoration:none; color: #333&quot;&gt;New to HSAOIS? Check out our documentation.&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18px; font-weight:600;&quot;&gt;Documentation&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;a href =&quot;https://www.osl.ink&quot; style=&quot; font-size:13px; text-decoration:none; color: #333&quot;&gt;New to HSAOIS? Check out our documentation.&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                   </property>
                                  </widget>
                                 </item>
@@ -2609,7 +2610,7 @@ color: rgb(170,170,170);</string>
                                    <string notr="true">background-color: rgb(237, 237, 249);</string>
                                   </property>
                                   <property name="text">
-                                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://124.223.101.237/&quot;&gt;&lt;span style=&quot; font-size:13pt; color:#333333; text-decoration: none;&quot;&gt;Access to your online database&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://124.223.101.237/&quot;&gt;&lt;span style=&quot; font-size:13px; color:#333333; text-decoration: none;&quot;&gt;Access to your online database&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                   </property>
                                  </widget>
                                 </item>
@@ -2625,7 +2626,7 @@ color: rgb(170,170,170);</string>
                                    <string notr="true">background-color: rgb(237, 237, 249);</string>
                                   </property>
                                   <property name="text">
-                                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://www.osl.ink&quot;&gt;&lt;span style=&quot; font-size:13pt; color:#333333; text-decoration: none;&quot;&gt;Learn to train a custom model&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://www.osl.ink&quot;&gt;&lt;span style=&quot; font-size:13px; color:#333333; text-decoration: none;&quot;&gt;Learn to train a custom model&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                   </property>
                                  </widget>
                                 </item>
@@ -2683,7 +2684,7 @@ color: rgb(170,170,170);</string>
                              </property>
                              <property name="styleSheet">
                               <string notr="true">color: #555;
-font-size: 12pt;
+font-size: 12px;
 border: 1px solid rgb(220, 220, 220);
 background-color: rgb(248, 248, 255);</string>
                              </property>
@@ -2778,6 +2779,18 @@ background-color: rgb(248, 248, 255);</string>
                             <string>Live Detect</string>
                            </attribute>
                            <layout class="QHBoxLayout" name="horizontalLayout_7">
+                            <property name="leftMargin">
+                             <number>8</number>
+                            </property>
+                            <property name="topMargin">
+                             <number>8</number>
+                            </property>
+                            <property name="rightMargin">
+                             <number>3</number>
+                            </property>
+                            <property name="bottomMargin">
+                             <number>8</number>
+                            </property>
                             <item>
                              <widget class="QSplitter" name="splitter">
                               <property name="orientation">
@@ -2966,6 +2979,18 @@ border: none;</string>
                             <string>File Detect</string>
                            </attribute>
                            <layout class="QHBoxLayout" name="horizontalLayout_9">
+                            <property name="leftMargin">
+                             <number>8</number>
+                            </property>
+                            <property name="topMargin">
+                             <number>8</number>
+                            </property>
+                            <property name="rightMargin">
+                             <number>3</number>
+                            </property>
+                            <property name="bottomMargin">
+                             <number>8</number>
+                            </property>
                             <item>
                              <widget class="QSplitter" name="splitter_2">
                               <property name="orientation">
@@ -3202,7 +3227,7 @@ border: none;</string>
                              </property>
                              <property name="styleSheet">
                               <string notr="true">background-color: rgb(237, 232, 239);
-font-size: 12pt;
+font-size: 12px;
 font-weight: bold;
 color: rgb(96, 96, 96);
 border-bottom: 5px solid qlineargradient(y0:0, y1:1,stop: 0 rgba(242, 242, 242,1),  stop: 1  #ececef);</string>
@@ -3239,7 +3264,7 @@ border-bottom: 5px solid qlineargradient(y0:0, y1:1,stop: 0 rgba(242, 242, 242,1
                               <string notr="true">background-color: rgb(242, 242, 242);
 border: none;
 border-left: 1px rgb(230, 230, 230);
-font-size: 12pt;</string>
+font-size: 12px;</string>
                              </property>
                              <property name="placeholderText">
                               <string/>
@@ -3323,7 +3348,7 @@ font-size: 12pt;</string>
                                 <string notr="true">background-color: rgb(229, 229, 237);
 border: 1px rgb(179, 181, 183) solid;
 border-radius: 5px;
-font-size: 14pt;
+font-size: 14px;
 font-weight: bold;
 padding: 8px;
 </string>
@@ -3364,7 +3389,7 @@ padding: 8px;
                                      </size>
                                     </property>
                                     <property name="styleSheet">
-                                     <string notr="true">font-size: 12pt;
+                                     <string notr="true">font-size: 12px;
 font-weight: normal;</string>
                                     </property>
                                     <property name="text">
@@ -3381,7 +3406,7 @@ font-weight: normal;</string>
                                      </sizepolicy>
                                     </property>
                                     <property name="styleSheet">
-                                     <string notr="true">font-size: 22pt;</string>
+                                     <string notr="true">font-size: 22px;</string>
                                     </property>
                                     <property name="text">
                                      <string>001</string>
@@ -3421,7 +3446,7 @@ font-weight: normal;</string>
                                 <string notr="true">background-color: rgb(229, 229, 237);
 border: 1px rgb(179, 181, 183) solid;
 border-radius: 5px;
-font-size: 14pt;
+font-size: 14px;
 font-weight: bold;
 padding: 8px;
 </string>
@@ -3462,7 +3487,7 @@ padding: 8px;
                                      </size>
                                     </property>
                                     <property name="styleSheet">
-                                     <string notr="true">font-size: 12pt;
+                                     <string notr="true">font-size: 12px;
 font-weight: normal;</string>
                                     </property>
                                     <property name="text">
@@ -3479,7 +3504,7 @@ font-weight: normal;</string>
                                      </sizepolicy>
                                     </property>
                                     <property name="styleSheet">
-                                     <string notr="true">font-size: 22pt;</string>
+                                     <string notr="true">font-size: 22px;</string>
                                     </property>
                                     <property name="frameShape">
                                      <enum>QFrame::NoFrame</enum>
@@ -3522,7 +3547,7 @@ font-weight: normal;</string>
                                 <string notr="true">background-color: rgb(229, 229, 237);
 border: 1px rgb(179, 181, 183) solid;
 border-radius: 5px;
-font-size: 14pt;
+font-size: 14px;
 font-weight: bold;
 padding: 8px;
 </string>
@@ -3563,7 +3588,7 @@ padding: 8px;
                                      </size>
                                     </property>
                                     <property name="styleSheet">
-                                     <string notr="true">font-size: 12pt;
+                                     <string notr="true">font-size: 12px;
 font-weight: normal;</string>
                                     </property>
                                     <property name="text">
@@ -3580,7 +3605,7 @@ font-weight: normal;</string>
                                      </sizepolicy>
                                     </property>
                                     <property name="styleSheet">
-                                     <string notr="true">font-size: 22pt;</string>
+                                     <string notr="true">font-size: 22px;</string>
                                     </property>
                                     <property name="text">
                                      <string>0.0%</string>
@@ -3620,7 +3645,7 @@ font-weight: normal;</string>
                                 <string notr="true">background-color: rgb(229, 229, 237);
 border: 1px rgb(179, 181, 183) solid;
 border-radius: 5px;
-font-size: 14pt;
+font-size: 14px;
 font-weight: bold;
 padding: 8px;
 </string>
@@ -3661,7 +3686,7 @@ padding: 8px;
                                      </size>
                                     </property>
                                     <property name="styleSheet">
-                                     <string notr="true">font-size: 12pt;
+                                     <string notr="true">font-size: 12px;
 font-weight: normal;</string>
                                     </property>
                                     <property name="text">
@@ -3678,7 +3703,7 @@ font-weight: normal;</string>
                                      </sizepolicy>
                                     </property>
                                     <property name="styleSheet">
-                                     <string notr="true">font-size: 22pt;</string>
+                                     <string notr="true">font-size: 22px;</string>
                                     </property>
                                     <property name="text">
                                      <string>None</string>
@@ -3720,7 +3745,7 @@ font-weight: normal;</string>
                              <string notr="true">background-color: rgb(229, 229, 237);
 border: 1px rgb(179, 181, 183) solid;
 border-radius: 5px;
-font-size: 14pt;
+font-size: 14px;
 font-weight: bold;
 padding: 8px;</string>
                             </property>
@@ -3744,7 +3769,7 @@ padding: 8px;</string>
                              <string notr="true">background-color: rgb(229, 229, 237);
 border: 1px rgb(179, 181, 183) solid;
 border-radius: 5px;
-font-size: 14pt;
+font-size: 14px;
 font-weight: bold;
 padding: 8px;</string>
                             </property>
@@ -3785,6 +3810,9 @@ padding: 8px;</string>
                                      <horstretch>0</horstretch>
                                      <verstretch>0</verstretch>
                                     </sizepolicy>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true"/>
                                    </property>
                                    <property name="text">
                                     <string>Def. Number Count</string>
@@ -4337,7 +4365,7 @@ padding: 8px;</string>
                              </property>
                              <property name="styleSheet">
                               <string notr="true">color: rgb(90,90,90);
-font-size: 12pt;
+font-size: 12px;
 font-style: italic;
 </string>
                              </property>
@@ -4447,7 +4475,7 @@ border-radius: 8px;</string>
                              <property name="styleSheet">
                               <string notr="true">background-color: rgb(136, 112, 173); 
 color: white;
-font-size: 16pt;
+font-size: 16px;
 border-radius: 20px;</string>
                              </property>
                              <property name="text">
@@ -4496,7 +4524,7 @@ padding: 4px;</string>
                               <string notr="true">background-color: rgb(245, 245,248);
 border-bottom-left-radius: 5px;
 border-bottom-right-radius: 5px;
-font-size: 14pt;
+font-size: 14px;
 font-weight: normal;
 padding: 8px;</string>
                              </property>
@@ -4534,7 +4562,7 @@ padding: 4px;
                               <string notr="true">background-color: rgb(245, 245,248);
 border-bottom-left-radius: 5px;
 border-bottom-right-radius: 5px;
-font-size: 14pt;
+font-size: 14px;
 font-weight: normal;
 padding: 8px;</string>
                              </property>
@@ -4575,7 +4603,7 @@ padding: 4px;
                                 <string notr="true">background-color: rgb(245, 245,248);
 border-bottom-left-radius: 5px;
 border-bottom-right-radius: 5px;
-font-size: 14pt;
+font-size: 14px;
 font-weight: normal;
 padding: 4px;</string>
                                </property>
@@ -4806,7 +4834,7 @@ padding: 4px;</string>
                                    </palette>
                                   </property>
                                   <property name="styleSheet">
-                                   <string notr="true">font-size: 10pt;</string>
+                                   <string notr="true">font-size: 10px;</string>
                                   </property>
                                   <property name="frameShape">
                                    <enum>QFrame::NoFrame</enum>
@@ -5019,7 +5047,7 @@ padding: 4px;
                                 <string notr="true">background-color: rgb(245, 245,248);
 border-bottom-left-radius: 5px;
 border-bottom-right-radius: 5px;
-font-size: 14pt;
+font-size: 14px;
 font-weight: normal;
 padding: 8px;</string>
                                </property>
@@ -5058,7 +5086,7 @@ padding: 4px;
                                 <string notr="true">background-color: rgb(245, 245,248);
 border-bottom-left-radius: 5px;
 border-bottom-right-radius: 5px;
-font-size: 14pt;
+font-size: 14px;
 font-weight: normal;
 padding: 8px;</string>
                                </property>

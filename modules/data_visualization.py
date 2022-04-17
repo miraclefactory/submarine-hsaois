@@ -70,7 +70,7 @@ def detect_error(self, list, seq):
                                     Defect detected: {all_class[i]}</span>\n")
     if ret:
         self.es.text_print.emit(f"<span style='color: rgb(170,55,49); \
-                                font-weight: bold;'>• Result: Failed</span><br/>\n")
+                                font-weight: bold;'>• Result: Defected</span><br/>\n")
     else:
         self.es.text_print.emit(f"<span style='color: rgb(68,140,39); \
                                 font-weight: bold;'>• Result: Passed</span><br/>\n")
