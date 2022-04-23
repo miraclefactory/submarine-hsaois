@@ -30,7 +30,7 @@
    <property name="font">
     <font>
      <family>Arial</family>
-     <pointsize>10</pointsize>
+     <pointsize>-1</pointsize>
      <weight>50</weight>
      <italic>false</italic>
      <bold>false</bold>
@@ -990,7 +990,7 @@ Custome */
              <property name="font">
               <font>
                <family>Arial Semibold</family>
-               <pointsize>12</pointsize>
+               <pointsize>-1</pointsize>
                <weight>7</weight>
                <italic>false</italic>
                <bold>false</bold>
@@ -1021,7 +1021,7 @@ Custome */
              <property name="font">
               <font>
                <family>Arial</family>
-               <pointsize>8</pointsize>
+               <pointsize>-1</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
@@ -1058,7 +1058,7 @@ Custome */
              <property name="font">
               <font>
                <family>Arial</family>
-               <pointsize>10</pointsize>
+               <pointsize>-1</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
@@ -1161,7 +1161,7 @@ border: none;</string>
                   <property name="font">
                    <font>
                     <family>Arial</family>
-                    <pointsize>10</pointsize>
+                    <pointsize>-1</pointsize>
                     <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
@@ -1235,7 +1235,7 @@ border: none;</string>
                   <property name="font">
                    <font>
                     <family>Arial</family>
-                    <pointsize>10</pointsize>
+                    <pointsize>-1</pointsize>
                     <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
@@ -1282,7 +1282,7 @@ border: none;</string>
                   <property name="font">
                    <font>
                     <family>Arial</family>
-                    <pointsize>10</pointsize>
+                    <pointsize>-1</pointsize>
                     <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
@@ -1329,7 +1329,7 @@ border: none;</string>
                   <property name="font">
                    <font>
                     <family>Arial</family>
-                    <pointsize>10</pointsize>
+                    <pointsize>-1</pointsize>
                     <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
@@ -1376,7 +1376,7 @@ border: none;</string>
                   <property name="font">
                    <font>
                     <family>Arial</family>
-                    <pointsize>10</pointsize>
+                    <pointsize>-1</pointsize>
                     <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
@@ -1423,7 +1423,7 @@ border: none;</string>
                   <property name="font">
                    <font>
                     <family>Arial</family>
-                    <pointsize>10</pointsize>
+                    <pointsize>-1</pointsize>
                     <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
@@ -1497,7 +1497,7 @@ border: none;</string>
                   <property name="font">
                    <font>
                     <family>Arial</family>
-                    <pointsize>10</pointsize>
+                    <pointsize>-1</pointsize>
                     <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
@@ -1762,7 +1762,7 @@ border: none;</string>
                   <property name="font">
                    <font>
                     <family>Arial</family>
-                    <pointsize>10</pointsize>
+                    <pointsize>-1</pointsize>
                     <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
@@ -1799,7 +1799,7 @@ border: none;</string>
                   <property name="font">
                    <font>
                     <family>Arial</family>
-                    <pointsize>10</pointsize>
+                    <pointsize>-1</pointsize>
                     <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
@@ -1836,7 +1836,7 @@ border: none;</string>
                   <property name="font">
                    <font>
                     <family>Arial</family>
-                    <pointsize>10</pointsize>
+                    <pointsize>-1</pointsize>
                     <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
@@ -1891,9 +1891,9 @@ border: none;</string>
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Arial'; font-size:10px; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12px; font-weight:600; color:#ff79c6;&quot;&gt;PyDracula&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;An interface created using Python and PySide (support for PyQt), and with colors based on the Dracula theme created by Zeno Rocha.&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;MIT License&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#bd93f9;&quot;&gt;Created by: Submarine&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10px; color:#ffffff;&quot;&gt;An interface created using Python and PySide (support for PyQt), and with colors based on the Dracula theme created by Zeno Rocha.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10px; color:#ffffff;&quot;&gt;MIT License&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10px; color:#bd93f9;&quot;&gt;Created by: Submarine&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12px; font-weight:600; color:#ff79c6;&quot;&gt;Convert UI&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9px; color:#ffffff;&quot;&gt;pyside6-uic main.ui &amp;gt; ui_main.py&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12px; font-weight:600; color:#ff79c6;&quot;&gt;Convert QRC&lt;/span&gt;&lt;/p&gt;
@@ -2036,7 +2036,7 @@ p, li { white-space: pre-wrap; }
                   <property name="font">
                    <font>
                     <family>Arial</family>
-                    <pointsize>10</pointsize>
+                    <pointsize>-1</pointsize>
                     <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
@@ -2232,7 +2232,7 @@ p, li { white-space: pre-wrap; }
                   <property name="font">
                    <font>
                     <family>Arial</family>
-                    <pointsize>10</pointsize>
+                    <pointsize>-1</pointsize>
                     <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
@@ -4341,72 +4341,82 @@ padding: 8px;</string>
                       </layout>
                      </widget>
                      <widget class="QWidget" name="report">
-                      <layout class="QHBoxLayout" name="horizontalLayout_20">
+                      <layout class="QHBoxLayout" name="horizontalLayout_23">
                        <item>
                         <layout class="QVBoxLayout" name="verticalLayout_27">
                          <item>
                           <layout class="QHBoxLayout" name="horizontalLayout_22">
-                           <property name="spacing">
-                            <number>25</number>
-                           </property>
                            <item>
-                            <widget class="QLineEdit" name="search_box">
-                             <property name="sizePolicy">
-                              <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
-                               <horstretch>0</horstretch>
-                               <verstretch>0</verstretch>
-                              </sizepolicy>
+                            <layout class="QHBoxLayout" name="horizontalLayout_20">
+                             <property name="spacing">
+                              <number>0</number>
                              </property>
-                             <property name="minimumSize">
-                              <size>
-                               <width>0</width>
-                               <height>40</height>
-                              </size>
-                             </property>
-                             <property name="styleSheet">
-                              <string notr="true">color: rgb(90,90,90);
+                             <item>
+                              <widget class="QLineEdit" name="search_box">
+                               <property name="sizePolicy">
+                                <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                                 <horstretch>0</horstretch>
+                                 <verstretch>0</verstretch>
+                                </sizepolicy>
+                               </property>
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>40</height>
+                                </size>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">color: rgb(90,90,90);
 font-size: 12px;
 font-style: italic;
+border-top-right-radius: 0px;
+border-bottom-right-radius: 0px;
+border-right: none;
 </string>
-                             </property>
-                             <property name="placeholderText">
-                              <string>Search For Batch Reports</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QPushButton" name="btn_search">
-                             <property name="sizePolicy">
-                              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                               <horstretch>2</horstretch>
-                               <verstretch>0</verstretch>
-                              </sizepolicy>
-                             </property>
-                             <property name="minimumSize">
-                              <size>
-                               <width>40</width>
-                               <height>40</height>
-                              </size>
-                             </property>
-                             <property name="cursor">
-                              <cursorShape>PointingHandCursor</cursorShape>
-                             </property>
-                             <property name="styleSheet">
-                              <string notr="true">background-color: rgb(136, 112, 173); 
+                               </property>
+                               <property name="placeholderText">
+                                <string>Search For Batch Reports</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_search">
+                               <property name="sizePolicy">
+                                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                 <horstretch>2</horstretch>
+                                 <verstretch>0</verstretch>
+                                </sizepolicy>
+                               </property>
+                               <property name="minimumSize">
+                                <size>
+                                 <width>40</width>
+                                 <height>40</height>
+                                </size>
+                               </property>
+                               <property name="cursor">
+                                <cursorShape>PointingHandCursor</cursorShape>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">background-color: rgb(136, 112, 173); 
 color: white;
-border-radius: 8px;</string>
-                             </property>
-                             <property name="text">
-                              <string/>
-                             </property>
-                             <property name="icon">
-                              <iconset resource="resources.qrc">
-                               <normaloff>:/icons/images/icons/search_white.svg</normaloff>:/icons/images/icons/search_white.svg</iconset>
-                             </property>
-                             <property name="flat">
-                              <bool>false</bool>
-                             </property>
-                            </widget>
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
+border-top-left-radius: 0px;
+border-bottom-left-radius: 0px;</string>
+                               </property>
+                               <property name="text">
+                                <string/>
+                               </property>
+                               <property name="icon">
+                                <iconset resource="resources.qrc">
+                                 <normaloff>:/icons/images/icons/search_white.svg</normaloff>:/icons/images/icons/search_white.svg</iconset>
+                               </property>
+                               <property name="flat">
+                                <bool>false</bool>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
                            </item>
                            <item>
                             <widget class="QPushButton" name="btn_save">
@@ -4428,7 +4438,7 @@ border-radius: 8px;</string>
                              <property name="styleSheet">
                               <string notr="true">background-color: rgb(136, 112, 173); 
 color: white;
-border-radius: 8px;</string>
+border-radius: 5px;</string>
                              </property>
                              <property name="text">
                               <string> Save</string>
@@ -5222,7 +5232,7 @@ padding: 8px;</string>
                            <property name="font">
                             <font>
                              <family>Arial</family>
-                             <pointsize>10</pointsize>
+                             <pointsize>-1</pointsize>
                              <weight>50</weight>
                              <italic>false</italic>
                              <bold>false</bold>
@@ -5259,7 +5269,7 @@ padding: 8px;</string>
                            <property name="font">
                             <font>
                              <family>Arial</family>
-                             <pointsize>10</pointsize>
+                             <pointsize>-1</pointsize>
                              <weight>50</weight>
                              <italic>false</italic>
                              <bold>false</bold>
@@ -5296,7 +5306,7 @@ padding: 8px;</string>
                            <property name="font">
                             <font>
                              <family>Arial</family>
-                             <pointsize>10</pointsize>
+                             <pointsize>-1</pointsize>
                              <weight>50</weight>
                              <italic>false</italic>
                              <bold>false</bold>

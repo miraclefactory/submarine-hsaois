@@ -40,7 +40,6 @@ class Ui_MainWindow(object):
         self.styleSheet.setObjectName(u"styleSheet")
         font = QFont()
         font.setFamilies([u"Arial"])
-        font.setPointSize(10)
         font.setBold(False)
         font.setItalic(False)
         self.styleSheet.setFont(font)
@@ -937,7 +936,6 @@ class Ui_MainWindow(object):
         self.titleLeftApp.setGeometry(QRect(70, 8, 160, 20))
         font1 = QFont()
         font1.setFamilies([u"Arial Semibold"])
-        font1.setPointSize(12)
         font1.setBold(False)
         font1.setItalic(False)
         self.titleLeftApp.setFont(font1)
@@ -946,12 +944,7 @@ class Ui_MainWindow(object):
         self.titleLeftDescription.setObjectName(u"titleLeftDescription")
         self.titleLeftDescription.setGeometry(QRect(70, 27, 160, 16))
         self.titleLeftDescription.setMaximumSize(QSize(16777215, 16))
-        font2 = QFont()
-        font2.setFamilies([u"Arial"])
-        font2.setPointSize(8)
-        font2.setBold(False)
-        font2.setItalic(False)
-        self.titleLeftDescription.setFont(font2)
+        self.titleLeftDescription.setFont(font)
         self.titleLeftDescription.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.btn_detect_2 = QPushButton(self.topLogoInfo)
         self.btn_detect_2.setObjectName(u"btn_detect_2")
@@ -1401,13 +1394,12 @@ class Ui_MainWindow(object):
         self.maximizeRestoreAppBtn.setObjectName(u"maximizeRestoreAppBtn")
         self.maximizeRestoreAppBtn.setMinimumSize(QSize(28, 28))
         self.maximizeRestoreAppBtn.setMaximumSize(QSize(28, 28))
-        font3 = QFont()
-        font3.setFamilies([u"Arial"])
-        font3.setPointSize(10)
-        font3.setBold(False)
-        font3.setItalic(False)
-        font3.setStyleStrategy(QFont.PreferDefault)
-        self.maximizeRestoreAppBtn.setFont(font3)
+        font2 = QFont()
+        font2.setFamilies([u"Arial"])
+        font2.setBold(False)
+        font2.setItalic(False)
+        font2.setStyleStrategy(QFont.PreferDefault)
+        self.maximizeRestoreAppBtn.setFont(font2)
         self.maximizeRestoreAppBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon13 = QIcon()
         icon13.addFile(u":/icons/images/icons/icon_maximize.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -2253,10 +2245,10 @@ class Ui_MainWindow(object):
         self.tableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         if (self.tableWidget.rowCount() < 20):
             self.tableWidget.setRowCount(20)
-        font4 = QFont()
-        font4.setFamilies([u"Arial"])
+        font3 = QFont()
+        font3.setFamilies([u"Arial"])
         __qtablewidgetitem4 = QTableWidgetItem()
-        __qtablewidgetitem4.setFont(font4);
+        __qtablewidgetitem4.setFont(font3);
         self.tableWidget.setVerticalHeaderItem(0, __qtablewidgetitem4)
         __qtablewidgetitem5 = QTableWidgetItem()
         self.tableWidget.setVerticalHeaderItem(1, __qtablewidgetitem5)
@@ -2371,13 +2363,15 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.new_page)
         self.report = QWidget()
         self.report.setObjectName(u"report")
-        self.horizontalLayout_20 = QHBoxLayout(self.report)
-        self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
+        self.horizontalLayout_23 = QHBoxLayout(self.report)
+        self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
         self.verticalLayout_27 = QVBoxLayout()
         self.verticalLayout_27.setObjectName(u"verticalLayout_27")
         self.horizontalLayout_22 = QHBoxLayout()
-        self.horizontalLayout_22.setSpacing(25)
         self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
+        self.horizontalLayout_20 = QHBoxLayout()
+        self.horizontalLayout_20.setSpacing(0)
+        self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
         self.search_box = QLineEdit(self.report)
         self.search_box.setObjectName(u"search_box")
         sizePolicy17 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Maximum)
@@ -2389,9 +2383,12 @@ class Ui_MainWindow(object):
         self.search_box.setStyleSheet(u"color: rgb(90,90,90);\n"
 "font-size: 12px;\n"
 "font-style: italic;\n"
+"border-top-right-radius: 0px;\n"
+"border-bottom-right-radius: 0px;\n"
+"border-right: none;\n"
 "")
 
-        self.horizontalLayout_22.addWidget(self.search_box)
+        self.horizontalLayout_20.addWidget(self.search_box)
 
         self.btn_search = QPushButton(self.report)
         self.btn_search.setObjectName(u"btn_search")
@@ -2401,13 +2398,19 @@ class Ui_MainWindow(object):
         self.btn_search.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_search.setStyleSheet(u"background-color: rgb(136, 112, 173); \n"
 "color: white;\n"
-"border-radius: 8px;")
+"border-top-right-radius: 5px;\n"
+"border-bottom-right-radius: 5px;\n"
+"border-top-left-radius: 0px;\n"
+"border-bottom-left-radius: 0px;")
         icon20 = QIcon()
         icon20.addFile(u":/icons/images/icons/search_white.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_search.setIcon(icon20)
         self.btn_search.setFlat(False)
 
-        self.horizontalLayout_22.addWidget(self.btn_search)
+        self.horizontalLayout_20.addWidget(self.btn_search)
+
+
+        self.horizontalLayout_22.addLayout(self.horizontalLayout_20)
 
         self.btn_save = QPushButton(self.report)
         self.btn_save.setObjectName(u"btn_save")
@@ -2417,7 +2420,7 @@ class Ui_MainWindow(object):
         self.btn_save.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_save.setStyleSheet(u"background-color: rgb(136, 112, 173); \n"
 "color: white;\n"
-"border-radius: 8px;")
+"border-radius: 5px;")
         icon21 = QIcon()
         icon21.addFile(u":/icons/images/icons/download_white.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_save.setIcon(icon21)
@@ -2552,7 +2555,7 @@ class Ui_MainWindow(object):
         if (self.tableWidget_2.rowCount() < 20):
             self.tableWidget_2.setRowCount(20)
         __qtablewidgetitem27 = QTableWidgetItem()
-        __qtablewidgetitem27.setFont(font4);
+        __qtablewidgetitem27.setFont(font3);
         self.tableWidget_2.setVerticalHeaderItem(0, __qtablewidgetitem27)
         __qtablewidgetitem28 = QTableWidgetItem()
         self.tableWidget_2.setVerticalHeaderItem(1, __qtablewidgetitem28)
@@ -2720,7 +2723,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_27.addLayout(self.horizontalLayout_21)
 
 
-        self.horizontalLayout_20.addLayout(self.verticalLayout_27)
+        self.horizontalLayout_23.addLayout(self.verticalLayout_27)
 
         self.stackedWidget.addWidget(self.report)
 
@@ -2862,11 +2865,7 @@ class Ui_MainWindow(object):
         self.creditsLabel.setObjectName(u"creditsLabel")
         self.creditsLabel.setMinimumSize(QSize(0, 16))
         self.creditsLabel.setMaximumSize(QSize(16777215, 16))
-        font5 = QFont()
-        font5.setFamilies([u"Arial"])
-        font5.setBold(False)
-        font5.setItalic(False)
-        self.creditsLabel.setFont(font5)
+        self.creditsLabel.setFont(font)
         self.creditsLabel.setStyleSheet(u"padding-left: 2px;")
         self.creditsLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
@@ -2941,15 +2940,15 @@ class Ui_MainWindow(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Arial'; font-size:10px; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12px; font-weight:600; color:#ff79c6;\">PyDracula</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffffff;\">An interface created using Python and PySide (support for PyQt), and with colors based on the Dracula theme created by Zeno Rocha.</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><spa"
-                        "n style=\" color:#ffffff;\">MIT License</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#bd93f9;\">Created by: Submarine</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10px; color:#ffffff;\">An interface created using Python and PySide (support for PyQt), and with colors based on the Dracula theme created by Zeno Rocha.</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-in"
+                        "dent:0px;\"><span style=\" font-size:10px; color:#ffffff;\">MIT License</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10px; color:#bd93f9;\">Created by: Submarine</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12px; font-weight:600; color:#ff79c6;\">Convert UI</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9px; color:#ffffff;\">pyside6-uic main.ui &gt; ui_main.py</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12px; font-weight:600; color:#ff79c6;\">Convert QRC</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:"
-                        "12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9px; color:#ffffff;\">pyside6-rcc resources.qrc -o resources_rc.py</span></p></body></html>", None))
+"<p align=\"c"
+                        "enter\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9px; color:#ffffff;\">pyside6-rcc resources.qrc -o resources_rc.py</span></p></body></html>", None))
         self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"Submarine - Hyper Speed Automatic Optical Inspection System", None))
         self.status_label.setText(QCoreApplication.translate("MainWindow", u"Ready", None))
         self.top_start_live.setText("")
