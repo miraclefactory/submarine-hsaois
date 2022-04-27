@@ -16,6 +16,7 @@
     <file>images/images/gray.png</file>
     <file>images/images/5.png</file>
     <file>images/images/6.png</file>
+    <file>images/images/start.png</file>
   </qresource>
   <qresource prefix="icons">
     <file>images/icons/cil-3d.png</file>

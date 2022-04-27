@@ -22,7 +22,7 @@ import random
 import numpy as np
 import pyqtgraph as pg
 from PySide6.QtCore import Signal
-from PySide6.QtGui import QDropEvent
+from PySide6.QtWidgets import QSplashScreen
 from threading import Thread, Lock
 from cv2 import getTickCount, getTickFrequency
 from concurrent.futures import ThreadPoolExecutor
@@ -46,7 +46,7 @@ from utils.general import (check_img_size, non_max_suppression, scale_coords, pl
 
 # SET DPI AND SCALING
 # ///////////////////////////////////////////////////////////////
-# os.environ["QT_FONT_DPI"] = "70"    # FIX Problem for High DPI and Scale above 100%
+os.environ["QT_FONT_DPI"] = "70"    # FIX Problem for High DPI and Scale above 100%
 # os.environ["QT_SCALE_FACTOR"] = "2"
 QT_AUTO_SCREEN_SCALE_FACTOR=2
 
@@ -954,5 +954,9 @@ class EmitSignal(QObject):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("logo.png"))
+    splash = QSplashScreen(QPixmap(":/images/images/images/start.png").\
+        scaledToWidth(600, Qt.SmoothTransformation))
+    splash.show()
     window = MainWindow()
+    splash.finish(splash) 
     sys.exit(app.exec())
