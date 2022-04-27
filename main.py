@@ -46,7 +46,7 @@ from utils.general import (check_img_size, non_max_suppression, scale_coords, pl
 
 # SET DPI AND SCALING
 # ///////////////////////////////////////////////////////////////
-os.environ["QT_FONT_DPI"] = "70"    # FIX Problem for High DPI and Scale above 100%
+# os.environ["QT_FONT_DPI"] = "70"    # FIX Problem for High DPI and Scale above 100%
 # os.environ["QT_SCALE_FACTOR"] = "2"
 QT_AUTO_SCREEN_SCALE_FACTOR=2
 
