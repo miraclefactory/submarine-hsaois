@@ -16,6 +16,7 @@
 
 import os
 import sys
+import time
 import scipy
 import shutil
 import random
@@ -26,7 +27,8 @@ from PySide6.QtWidgets import QSplashScreen
 from threading import Thread, Lock
 from cv2 import getTickCount, getTickFrequency
 from concurrent.futures import ThreadPoolExecutor
-# IMPORT GUI AND MODULES AND WIDGETS
+from modules import splash_screen
+# IMPORT MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
 from widgets import *
 from modules import *
@@ -953,10 +955,10 @@ class EmitSignal(QObject):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+    splash = splash_screen.SplashScreen()
     app.setWindowIcon(QIcon("logo.png"))
-    splash = QSplashScreen(QPixmap(":/images/images/images/start.png").\
-        scaledToWidth(600, Qt.SmoothTransformation))
-    splash.show()
+    app.processEvents()
     window = MainWindow()
-    splash.finish(splash) 
+    time.sleep(3)
+    splash.close()
     sys.exit(app.exec())
