@@ -23,11 +23,9 @@ import random
 import numpy as np
 import pyqtgraph as pg
 from PySide6.QtCore import Signal
-from PySide6.QtWidgets import QSplashScreen
 from threading import Thread, Lock
 from cv2 import getTickCount, getTickFrequency
 from concurrent.futures import ThreadPoolExecutor
-from modules import splash_screen
 # IMPORT MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
 from widgets import *
@@ -42,6 +40,7 @@ from modules.shit_algorithm import *
 from modules.data_visualization import *
 from utils.torch_utils import select_device
 from models.experimental import attempt_load
+from modules.splash_screen import SplashScreen
 from modules.image_broswer import Window_img_broswer, get_pure_list
 from widgets.custom_grips.custom_grips import Widgets
 from utils.general import (check_img_size, non_max_suppression, scale_coords, plot_one_box)
@@ -955,7 +954,7 @@ class EmitSignal(QObject):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    splash = splash_screen.SplashScreen()
+    splash = SplashScreen()
     app.setWindowIcon(QIcon("logo.png"))
     app.processEvents()
     window = MainWindow()
