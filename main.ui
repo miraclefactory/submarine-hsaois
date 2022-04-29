@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1280</width>
-    <height>721</height>
+    <width>1336</width>
+    <height>790</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -2591,7 +2591,14 @@ color: rgb(170,170,170);</string>
                                    </sizepolicy>
                                   </property>
                                   <property name="styleSheet">
-                                   <string notr="true">background-color: rgb(237, 237, 249); </string>
+                                   <string notr="true">QLabel {
+	background-color: rgb(237, 237, 249); 
+}
+
+QLabel:hover {
+	background-color: rgb(220,220,220);
+}
+</string>
                                   </property>
                                   <property name="text">
                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18px; font-weight:600;&quot;&gt;Documentation&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;a href =&quot;https://www.osl.ink&quot; style=&quot; font-size:13px; text-decoration:none; color: #333&quot;&gt;New to HSAOIS? Check out our documentation.&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -2607,7 +2614,14 @@ color: rgb(170,170,170);</string>
                                    </sizepolicy>
                                   </property>
                                   <property name="styleSheet">
-                                   <string notr="true">background-color: rgb(237, 237, 249);</string>
+                                   <string notr="true">QLabel {
+	background-color: rgb(237, 237, 249); 
+}
+
+QLabel:hover {
+	background-color: rgb(220,220,220);
+}
+</string>
                                   </property>
                                   <property name="text">
                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://124.223.101.237/&quot;&gt;&lt;span style=&quot; font-size:13px; color:#333333; text-decoration: none;&quot;&gt;Access to your online database&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -2623,7 +2637,14 @@ color: rgb(170,170,170);</string>
                                    </sizepolicy>
                                   </property>
                                   <property name="styleSheet">
-                                   <string notr="true">background-color: rgb(237, 237, 249);</string>
+                                   <string notr="true">QLabel {
+	background-color: rgb(237, 237, 249); 
+}
+
+QLabel:hover {
+	background-color: rgb(220,220,220);
+}
+</string>
                                   </property>
                                   <property name="text">
                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://www.osl.ink&quot;&gt;&lt;span style=&quot; font-size:13px; color:#333333; text-decoration: none;&quot;&gt;Learn to train a custom model&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -5366,7 +5387,7 @@ padding: 8px;</string>
                </property>
                <layout class="QHBoxLayout" name="horizontalLayout_5">
                 <property name="spacing">
-                 <number>0</number>
+                 <number>3</number>
                 </property>
                 <property name="leftMargin">
                  <number>0</number>
@@ -5404,8 +5425,18 @@ padding: 8px;</string>
                    <cursorShape>PointingHandCursor</cursorShape>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color:  rgb(78, 60, 105);
-border: none;</string>
+                   <string notr="true">QPushButton {
+	background-color:  rgb(78, 60, 105);
+	border: none;
+}
+
+QPushButton:hover {
+	background-color:  rgb(101, 84, 123);
+	border: none;
+}
+
+
+</string>
                   </property>
                   <property name="text">
                    <string/>
@@ -5443,8 +5474,16 @@ border: none;</string>
                    <cursorShape>PointingHandCursor</cursorShape>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color:  rgb(112, 85, 151);
-border: none;</string>
+                   <string notr="true">QPushButton {
+	background-color:  rgb(112, 85, 151);
+	border: none;
+}
+
+QPushButton:hover {
+	background-color:  rgb(129, 107, 164);
+	border: none;	
+}
+</string>
                   </property>
                   <property name="text">
                    <string/>

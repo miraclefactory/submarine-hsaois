@@ -125,6 +125,7 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         global widgets
         widgets = self.ui
+        self.centerWindow()
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -169,6 +170,10 @@ class MainWindow(QMainWindow):
         def openCloseRightBox():
             UIFunctions.toggleRightBox(self, True)
         widgets.settingsTopBtn.clicked.connect(openCloseRightBox)
+
+        # BOTTOM BOX
+        # ///////////////////////////////////////////////////////////////
+        widgets.btn_python.clicked.connect(self.pythonInfo)
 
         # HOME PAGE
         # ///////////////////////////////////////////////////////////////
@@ -217,6 +222,7 @@ class MainWindow(QMainWindow):
         # REPORT PAGE
         # ///////////////////////////////////////////////////////////////
         widgets.btn_search.clicked.connect(self.search_for_batch_results)
+        widgets.search_box.returnPressed.connect(self.search_for_batch_results)
 
         # PYQTGRAPH
         # ///////////////////////////////////////////////////////////////
@@ -321,6 +327,13 @@ class MainWindow(QMainWindow):
         # Update Size Grips
         UIFunctions.resize_grips(self)
 
+    # REPOSITION EVENTS
+    def centerWindow(self):
+        center = QScreen.availableGeometry(QApplication.primaryScreen()).center()
+        geo = self.frameGeometry()
+        geo.moveCenter(center)
+        self.move(geo.topLeft())
+
     # MOUSE CLICK EVENTS
     # ///////////////////////////////////////////////////////////////
     def mousePressEvent(self, event):
@@ -381,6 +394,12 @@ class MainWindow(QMainWindow):
 
     # BUTTON FUNCTIONS
     # ///////////////////////////////////////////////////////////////
+    def pythonInfo(self):
+        py_info = QMessageBox()
+        py_info.setText("Python version: \n\n" + sys.version)
+        py_info.setIconPixmap(QPixmap("images/icons/python.svg"))
+        py_info.exec_()
+
     def selectFiles(self):
         # OPEN FILES
         widgets.textBrowser.append("Working Directory: " + os.getcwd())
@@ -868,8 +887,6 @@ limited overall deviation but can still be improved;  \n\
     # DATABASE OPERATIONS
     # ///////////////////////////////////////////////////////////////
     def updateDataGraph(self):
-        # UPDATE
-        # self.y_axis_2[batch_num]= widgets.frac_defective.text()
         frac_d_n = self.handle_per(widgets.frac_defective.text())
         update_general_table(batch_num, frac_d_n)
         self.x_axis_batch = fetch_batch_num()
@@ -879,7 +896,6 @@ limited overall deviation but can still be improved;  \n\
         x, y = self.cal_slope_intercept(self.y_axis_batch)
         self.prac_res_frac(x, y, self.y_axis_batch)
         self.update_report_frac(self.x_axis_batch, self.y_axis_batch)
-        # self.update_table_widget2(batch_num,fetch_general_class())
         self.update_table_report(fetch_general_class())
         delete_class_table()
 
@@ -958,6 +974,6 @@ if __name__ == "__main__":
     app.setWindowIcon(QIcon("logo.png"))
     app.processEvents()
     window = MainWindow()
-    time.sleep(3)
+    time.sleep(1)
     splash.close()
     sys.exit(app.exec())

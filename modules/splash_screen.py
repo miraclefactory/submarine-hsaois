@@ -9,7 +9,7 @@ class SplashScreen(QWidget):
         super().__init__()
         self.resize(600, 400)
         self.setWindowOpacity(1.000000000000000)
-        self.setWindowFlags(Qt.FramelessWindowHint)
+        self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
         self.horizontalLayout = QHBoxLayout(self)
         self.horizontalLayout.setSpacing(0)

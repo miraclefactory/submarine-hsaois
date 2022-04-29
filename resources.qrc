@@ -305,5 +305,13 @@
     <file>images/icons/v.png</file>
     <file>images/icons/upload.svg</file>
     <file>images/icons/cloud.svg</file>
+    <file>images/icons/arrow-left-circle.svg</file>
+    <file>images/icons/arrow-right-circle.svg</file>
+    <file>images/icons/arrow-left.svg</file>
+    <file>images/icons/arrow-right.svg</file>
+    <file>images/icons/chevron-left.svg</file>
+    <file>images/icons/chevron-right.svg</file>
+    <file>images/icons/chevron-left-light.svg</file>
+    <file>images/icons/chevron-right-light.svg</file>
   </qresource>
 </RCC>

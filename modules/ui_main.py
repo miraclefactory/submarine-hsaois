@@ -29,7 +29,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1280, 721)
+        MainWindow.resize(1336, 790)
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Ignored)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(1)
@@ -1549,7 +1549,14 @@ class Ui_MainWindow(object):
         self.label_documentation.setObjectName(u"label_documentation")
         sizePolicy5.setHeightForWidth(self.label_documentation.sizePolicy().hasHeightForWidth())
         self.label_documentation.setSizePolicy(sizePolicy5)
-        self.label_documentation.setStyleSheet(u"background-color: rgb(237, 237, 249); ")
+        self.label_documentation.setStyleSheet(u"QLabel {\n"
+"	background-color: rgb(237, 237, 249); \n"
+"}\n"
+"\n"
+"QLabel:hover {\n"
+"	background-color: rgb(220,220,220);\n"
+"}\n"
+"")
 
         self.verticalLayout_30.addWidget(self.label_documentation)
 
@@ -1557,7 +1564,14 @@ class Ui_MainWindow(object):
         self.label_database.setObjectName(u"label_database")
         sizePolicy5.setHeightForWidth(self.label_database.sizePolicy().hasHeightForWidth())
         self.label_database.setSizePolicy(sizePolicy5)
-        self.label_database.setStyleSheet(u"background-color: rgb(237, 237, 249);")
+        self.label_database.setStyleSheet(u"QLabel {\n"
+"	background-color: rgb(237, 237, 249); \n"
+"}\n"
+"\n"
+"QLabel:hover {\n"
+"	background-color: rgb(220,220,220);\n"
+"}\n"
+"")
 
         self.verticalLayout_30.addWidget(self.label_database)
 
@@ -1565,7 +1579,14 @@ class Ui_MainWindow(object):
         self.label_custom_model.setObjectName(u"label_custom_model")
         sizePolicy5.setHeightForWidth(self.label_custom_model.sizePolicy().hasHeightForWidth())
         self.label_custom_model.setSizePolicy(sizePolicy5)
-        self.label_custom_model.setStyleSheet(u"background-color: rgb(237, 237, 249);")
+        self.label_custom_model.setStyleSheet(u"QLabel {\n"
+"	background-color: rgb(237, 237, 249); \n"
+"}\n"
+"\n"
+"QLabel:hover {\n"
+"	background-color: rgb(220,220,220);\n"
+"}\n"
+"")
 
         self.verticalLayout_30.addWidget(self.label_custom_model)
 
@@ -2823,7 +2844,7 @@ class Ui_MainWindow(object):
         self.bottomBar.setFrameShape(QFrame.NoFrame)
         self.bottomBar.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_5 = QHBoxLayout(self.bottomBar)
-        self.horizontalLayout_5.setSpacing(0)
+        self.horizontalLayout_5.setSpacing(3)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
         self.btn_python = QPushButton(self.bottomBar)
@@ -2836,8 +2857,18 @@ class Ui_MainWindow(object):
         self.btn_python.setMinimumSize(QSize(33, 22))
         self.btn_python.setMaximumSize(QSize(16777196, 16777215))
         self.btn_python.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_python.setStyleSheet(u"background-color:  rgb(78, 60, 105);\n"
-"border: none;")
+        self.btn_python.setStyleSheet(u"QPushButton {\n"
+"	background-color:  rgb(78, 60, 105);\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	background-color:  rgb(101, 84, 123);\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"\n"
+"")
         icon22 = QIcon()
         icon22.addFile(u":/icons/images/icons/python.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_python.setIcon(icon22)
@@ -2852,8 +2883,16 @@ class Ui_MainWindow(object):
         self.btn_data_upload.setMinimumSize(QSize(33, 22))
         self.btn_data_upload.setMaximumSize(QSize(16777196, 16777215))
         self.btn_data_upload.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_data_upload.setStyleSheet(u"background-color:  rgb(112, 85, 151);\n"
-"border: none;")
+        self.btn_data_upload.setStyleSheet(u"QPushButton {\n"
+"	background-color:  rgb(112, 85, 151);\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	background-color:  rgb(129, 107, 164);\n"
+"	border: none;	\n"
+"}\n"
+"")
         icon23 = QIcon()
         icon23.addFile(u":/icons/images/icons/cloud.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_data_upload.setIcon(icon23)

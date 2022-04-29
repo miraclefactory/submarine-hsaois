@@ -37,7 +37,7 @@ def data_vis(self,
                             is_defetced = True
                             for i in input_list[len(input_list)-1]:
                                 if i in [0,1,5,6,7]:
-                                    cv2.imwrite(f"../defected/defected{seq}.jpg", cvimg)
+                                    cv2.imwrite(f"../defected/{seq}.jpg", cvimg)
                     hashpool = hashpool[i+1:]
                     break
                 if hmd >= 5:
