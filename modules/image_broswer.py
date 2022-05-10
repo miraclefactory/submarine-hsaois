@@ -30,7 +30,6 @@ class Window_img_broswer:
             current_img = self.scale_img(794/663,current_img.width()/current_img.height(),current_img)
             self.ui.label_img.setPixmap(current_img)
             # self.ui.tb_img.setAlignment(Qt.AlignCenter)
-            # self.ui.tb_img.clear()
             # self.ui.tb_img.setText("Current/All:\n"+f"{self.num_img+1}/{len(self.img_to_handle)}")
         except IndexError:
             QMessageBox.warning(self.ui, "Warning", "No image to be shown")
@@ -44,7 +43,6 @@ class Window_img_broswer:
             img = QPixmap(os.getcwd()+"/file_result/"+img_to_handle[self.num_img])
             img = self.scale_img(794/663,img.width()/img.height(),img)
             self.ui.label_img.setPixmap(img)
-        # self.ui.tb_img.clear()
         # self.ui.tb_img.setText("Current/All:\n"+f"{self.num_img+1}/{len(self.img_to_handle)}")
 
     def scroll_down(self):
@@ -56,7 +54,6 @@ class Window_img_broswer:
             self.ui.label_img.setPixmap(img)
         if self.num_img >= len(img_to_handle):
             self.num_img = len(img_to_handle)-1
-        # self.ui.tb_img.clear()
         # self.ui.tb_img.setText("Current/All:\n"+f"{self.num_img+1}/{len(self.img_to_handle)}")
 
     def generate_vis(self):
