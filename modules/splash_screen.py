@@ -1,7 +1,4 @@
-from PySide6.QtCore import *
-from PySide6.QtGui import *
-from PySide6.QtWidgets import *
-
+from modules import *
 from . resources_rc import *
 
 class SplashScreen(QWidget):
