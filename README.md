@@ -1,5 +1,5 @@
 # Submarine Hyper Speed Automatic Optical Inspection System(HSAOIS)
-## Incubated by MiracleFactory, an AI development and research community
+#### Incubated by MiracleFactory, an AI development and research community
 
 > Built on top of the remarkable work of [Wanderson's PyDracula](https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6), themed after *Quite Light* of VSCode
 
