@@ -2,6 +2,8 @@ __pycache__/
 .git/
 .pyc
 .vscode/
+.idea
+.qt_for_python
 /file_result
 /img_buffer
 modules/runs
@@ -10,3 +12,10 @@ images/.DS_Store
 .DS_Store
 fileResult.jpg
 hsaois.db
+test2.mp4
+test3.mp4
+test4.mp4
+test5.mp4
+test6.mp4
+test7.mp4
+/weights/yolov5s.pt

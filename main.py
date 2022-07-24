@@ -563,18 +563,19 @@ class MainWindow(QMainWindow):
                 for i in range(len(hashpool)-1):
                     hmd = caculateHammingDistance(hashpool[i], hashpool[i+1])
                     if is_live_mode is False:
-                        hmd = 5
+                        hmd = 4
                     if hmd == 0:
                         cnt += 1
                         if len(class_list) > 1:
                             input_list.append(class_list)
                         if cnt > 10 and is_new_img:
+                            # self.es.text_print.emit("new scene")
                             is_new_img = False
                             if is_defetced == False and len(input_list) > 1:
                                 is_defetced = True
                         hashpool = hashpool[i+1:]
                         break
-                    if hmd >= 5:
+                    if hmd >= 4:
                         if len(input_list) > 0:
                             a = feature_max_pooling([length_weighted_average_pooling(i)
                                                 for i in segementation(input_list, 4)])
@@ -585,7 +586,7 @@ class MainWindow(QMainWindow):
                                                           str(a), "none"], defected_total)
                                 for i in a:
                                    if i in [0, 1, 3, 5, 6, 7, 8, 9]:
-                                        update_error_pic(cvimg)
+                                        update_error_pic(cvimg, seq)
                                         break
                                 update_error_details(Vector_output=a, \
                                                      serial_number="BN-"+str(bn)+"-SN-"+str(seq))
@@ -643,7 +644,7 @@ class MainWindow(QMainWindow):
                                                                   str(a), "none"], defected_total)
                                         for i in a:
                                             if i in [0, 1, 3, 5, 6, 7, 8, 9]:
-                                                update_error_pic(cvimg)
+                                                update_error_pic(cvimg, seq)
                                                 break
                                         update_error_details(Vector_output=a, \
                                             serial_number="BN-"+str(bn)+"-SN-"+str(seq))                          

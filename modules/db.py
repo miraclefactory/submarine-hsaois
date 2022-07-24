@@ -176,9 +176,9 @@ def fetch_last_batch_num() -> int:
     return data[0][0]
 
 
-def update_error_pic(img):
-    cv2.imwrite('img_buffer/error_pic.jpg', img)
-    with open('img_buffer/error_pic.jpg', 'rb') as file:
+def update_error_pic(img, seq):
+    cv2.imwrite(f'img_buffer/error_pic_{seq}.jpg', img)
+    with open(f'img_buffer/error_pic_{seq}.jpg', 'rb') as file:
         blobData = file.read()
     # img_blob = sqlite3.Binary(img)
     conn = sqlite3.connect('hsaois.db')
