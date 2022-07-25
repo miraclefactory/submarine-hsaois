@@ -1,6 +1,6 @@
 # ///////////////////////////////////////////////////////////////
 #
-# BY: Submarine
+# BY: Miracle Factory
 # PROJECT MADE WITH: Qt Designer and PySide6
 # V: 1.0.0
 #
