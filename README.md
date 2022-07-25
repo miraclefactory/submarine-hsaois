@@ -11,7 +11,8 @@
 #### How to run
 
 > 1. Make sure you have installed all the required packages, if not, you can run `pip install -r requirements.txt`.   
-> 2. Run `Python main.py` in your terminal or shell to start the program.
+> 2. You will need two more directories to run the program, run `mkdir file_result img_buffer`. 
+> 3. Run `Python main.py` in your terminal or shell to start the program.
 
 #### What it looks like (Styled after vscode)
 
