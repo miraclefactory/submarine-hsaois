@@ -5,7 +5,11 @@
 
 # ///////////////////////////////////////////////////////////////
 
-from main import *
+from main import widgets, selectedFile, window, detect, lock
+from cv2 import getTickCount, getTickFrequency
+from threading import Thread
+from PySide6.QtWidgets import QMessageBox
+import sys
 
 
 class SingleCore():
@@ -22,20 +26,20 @@ class SingleCore():
             for i,j in enumerate(selectedFile):
                 idx  = i % 10
                 mission[idx].append(j)
-            e1 = cv2.getTickCount()  # START TIME
+            e1 = getTickCount()  # START TIME
             for i in range(10):
                 thread = Thread(target=self.singleCoreDetectThread,args=(mission[i],))
                 thread.start()
-            e2 = cv2.getTickCount()  # END TIME
-            time = (e2 - e1) / cv2.getTickFrequency()
+            e2 = getTickCount()  # END TIME
+            time = (e2 - e1) / getTickFrequency()
             widgets.textBrowser.append("Detect Mode: " + 
                 "Process Finished in " + str(round(time, 3)) + 
                 "s, " + "results saved to 'modules/runs/detect'.")
             if status_code == 0:
-                MainWindow.es.message_box.emit("Success", 
+                window.es.message_box.emit("Success", 
                                     "Success:\n\nProcess Finished in " + str(round(time, 3)) + "s.")
             else:
-                MainWindow.es.message_box.emit("Warning", 
+                window.es.message_box.emit("Warning", 
                                         "Warning:\n\nAn Error Occurred During Process.\nProcess Finished in "
                                         + str(round(time, 3)) + "s.")
         widgets.btn_start_file.setEnabled(True)
@@ -46,14 +50,14 @@ class SingleCore():
             try:
                 sys.argv[1:3] = ["--source", i, "--save-txt"]   # SET ARGUMENTS
                 input_class = detect()  # RECEIVE Class
-                MainWindow.es.message_box.emit("Detect Class Result: " + str(input_class))
+                window.es.message_box.emit("Detect Class Result: " + str(input_class))
             except FileNotFoundError:
-                MainWindow.es.message_box.emit("Detect Mode Error: " + "File Not Found")
+                window.es.message_box.emit("Detect Mode Error: " + "File Not Found")
                 status_code = 1
             except InterruptedError:
-                MainWindow.es.message_box.emit("Detect Mode Warning: " + "Session Terminated")
+                window.es.message_box.emit("Detect Mode Warning: " + "Session Terminated")
                 status_code = 99
             except:
-                MainWindow.es.message_box.emit("Detect Mode Error: " + "Unknown Error")
+                window.es.message_box.emit("Detect Mode Error: " + "Unknown Error")
                 status_code = 2
         lock.release()
