@@ -41,8 +41,8 @@ from modules.data_visualization import *
 from utils.torch_utils import select_device
 from models.experimental import attempt_load
 from modules.splash_screen import SplashScreen
-from modules.image_broswer import Window_img_broswer, get_pure_list
 from widgets.custom_grips.custom_grips import Widgets
+from modules.image_broswer import Window_img_broswer, get_pure_list
 from utils.general import (check_img_size, non_max_suppression, scale_coords, plot_one_box)
 
 # SET DPI AND SCALING
